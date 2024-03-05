@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('data_name');
-            $table->string('picture');
-            $table->string('data_type');
+            $table->string('logo');
+            $table->string('data_name')->unique();
+            $table->string('nav_items')->nullable();
+            $table->string('slider')->nullable();
+
+            $table->string('picture')->nullable();
+            $table->string('data_type')->nullable();
             $table->string('');
             $table->timestamps();
         });

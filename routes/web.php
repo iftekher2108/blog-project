@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SettingsController;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +23,24 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('profile',[HomeController::class,'profileSetting']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function(){
+
+Route::controller(HomeController::class)->group(function(){
+    Route::get('profile','profileSetting');
+    Route::get('home','index')->name('home');
+});
+
+
+Route::controller(SettingsController::class)->group(function(){
+
+});
+
+Route::controller(NewsController::class)->group(function(){
+
+});
+
+
+});
+
+
