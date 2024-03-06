@@ -1,0 +1,8 @@
+.panel-menu {
+    min-height: 100vh;
+}
+
+.panel-menu ul li {
+    list-style: none;
+}
+
