@@ -66,21 +66,21 @@
                             <div class="mb-3">
                                 <button class="btn btn-primary d-grid w-100" type="submit">{{ __('Login') }}</button>
                             </div>
-
+{{-- 
                             @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
-                            @endif
+                            @endif --}}
 
                         </form>
 
-                        <p class="text-center">
+                        {{-- <p class="text-center">
                             <span>New on our platform?</span>
                             <a href="auth-register-basic.html">
                                 <span>Create an account</span>
                             </a>
-                        </p>
+                        </p> --}}
                     </div>
                 </div>
 

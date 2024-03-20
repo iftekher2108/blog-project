@@ -36,6 +36,8 @@ Route::controller(SettingsController::class)->group(function(){
 
 });
 
+
+
 Route::controller(NewsController::class)->group(function(){
 
 });

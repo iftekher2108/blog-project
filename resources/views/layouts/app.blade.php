@@ -21,8 +21,8 @@
      'resources/js/app.js',
      'public/assets/src/theme/vendor/css/core.css',
      'public/assets/src/theme/vendor/css/theme-default.css',
-     'public/assets/src/theme/vendor/libs/perfect-scrollbar/perfect-scrollbar.css',
-     'public/assets/src/theme/vendor/css/pages/page-auth.css',
+     'public/assets/src/js/main.js',
+
      ])
 
 </head>
@@ -84,8 +84,36 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+
+
+            <div class="container-fluid">
+                <div class="row w-100">
+                    <div class="col-lg-3 col-md-4 col-sm-12 h-100">
+                        <x-admin_panel/>
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-sm-12">
+                        <div class="card">
+                            <div class="card-header">{{ __('Dashboard') }}</div>
+                            <div class="card-body">
+                                @if (Session::get('status'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ Session::get('status') }}
+                                    </div>
+                                @endif
+
+                                @yield('content')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
+
+
+    {{-- js liberies --}}
+
+    @yield('script')
+
 </body>
 </html>
