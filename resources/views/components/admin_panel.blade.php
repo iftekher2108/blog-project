@@ -21,12 +21,12 @@
             </a>
           </li>
 
-        
+
 
           <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Pages</span>
-          </li> 
-          
+          </li>
+
           <!-- Layouts -->
           <li class="menu-item {{ Request::is(['home','slider'])? 'active': '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -36,7 +36,7 @@
 
             <ul class="menu-sub rounded-2">
               <li class="menu-item {{ Request::is('menu')? 'active': '' }}">
-                <a href="" class="menu-link">
+                <a href="{{ route('menu.index') }}" class="menu-link">
                   <div>Menu</div>
                 </a>
               </li>

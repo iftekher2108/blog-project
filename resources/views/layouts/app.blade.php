@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,21 +12,22 @@
 
     {{-- google font --}}
     <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet" />
     {{-- google font --}}
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss',
-     'resources/js/app.js',
-     'public/assets/src/theme/vendor/css/core.css',
-     'public/assets/src/theme/vendor/css/theme-default.css',
-     'public/assets/src/js/main.js',
-
-     ])
+    @vite([
+        // 'resources/sass/custom-boot.min.css',
+     'resources/sass/app.min.css',
+      'resources/js/app.js',
+       'public/assets/src/theme/vendor/css/core.css',
+       'public/assets/src/theme/vendor/css/theme-default.css',
+       'public/assets/src/js/main.js',
+       ])
 
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-sm">
@@ -33,7 +35,9 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -60,14 +64,15 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a href="{{ url('profile') }}" class="dropdown-item">Profile Settings</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
@@ -89,7 +94,7 @@
             <div class="container-fluid">
                 <div class="row w-100">
                     <div class="col-lg-3 col-md-4 col-sm-12 h-100">
-                        <x-admin_panel/>
+                        <x-admin_panel />
                     </div>
                     <div class="col-lg-9 col-md-8 col-sm-12">
                         <div class="card">
@@ -116,4 +121,5 @@
     @yield('script')
 
 </body>
+
 </html>

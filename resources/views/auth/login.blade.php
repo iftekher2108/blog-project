@@ -1,9 +1,39 @@
-@extends('layouts.app')
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('content')
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    {{-- google font --}}
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    {{-- google font --}}
+
+    <!-- Scripts -->
+    @vite(['resources/sass/app.scss',
+
+     'resources/js/app.js',
+     'public/assets/src/theme/vendor/css/core.css',
+     'public/assets/src/theme/vendor/css/theme-default.css',
+     'public/assets/src/js/main.js',
+
+     ])
+
+</head>
+<body>
+    <div id="app">
+
+
     <div class="container">
-        <div class="row justify-content-center h-100 justify-content-center">
-            <div class="col-md-6">
+        <div class="row justify-content-center justify-content-center p-5">
+            <div class="col-lg-8 ">
                 <div class="card">
                     <div class="card-header">
                         <!-- Logo -->
@@ -63,10 +93,10 @@
                                     <label class="form-check-label" for="remember">{{ __('Remember Me') }} </label>
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <button class="btn btn-primary d-grid w-100" type="submit">{{ __('Login') }}</button>
+                            <div class="d-flex justify-content-center mb-3">
+                                <button class="btn btn-primary m-auto w-75" type="submit">{{ __('Login') }}</button>
                             </div>
-{{-- 
+{{--
                             @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
@@ -89,4 +119,16 @@
             </div>
         </div>
     </div>
-@endsection
+
+
+</div>
+
+
+{{-- js liberies --}}
+
+@yield('script')
+
+</body>
+</html>
+
+

@@ -33,10 +33,8 @@ Route::controller(HomeController::class)->group(function(){
 
 
 Route::controller(SettingsController::class)->group(function(){
-
+    Route::get('menu','index')->name('menu.index');
 });
-
-
 
 Route::controller(NewsController::class)->group(function(){
 

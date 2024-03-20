@@ -13,16 +13,17 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('logo');
             $table->string('data_name')->unique();
             $table->string('nav_items')->nullable();
             $table->string('slider')->nullable();
-
+            $table->string('title')->nullable();
+            $table->longText('content')->nullable();
             $table->string('picture')->nullable();
             $table->string('data_type')->nullable();
-            $table->string('');
+            $table->string('status');
             $table->timestamps();
         });
+
     }
 
     /**
