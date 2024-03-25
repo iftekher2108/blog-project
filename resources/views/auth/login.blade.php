@@ -9,31 +9,21 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    {{-- google font --}}
-    <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
-    {{-- google font --}}
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss',
-
-     'resources/js/app.js',
+    @vite([
      'public/assets/src/theme/vendor/css/core.css',
      'public/assets/src/theme/vendor/css/theme-default.css',
      'public/assets/src/js/main.js',
-
      ])
 
 </head>
 <body>
     <div id="app">
 
-
     <div class="container">
         <div class="row justify-content-center justify-content-center p-5">
-            <div class="col-lg-8 ">
+            <div class="col-lg-6  col-md-8 col-sm-10">
                 <div class="card">
                     <div class="card-header">
                         <!-- Logo -->

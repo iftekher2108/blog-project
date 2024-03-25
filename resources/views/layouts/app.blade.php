@@ -10,21 +10,18 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    {{-- google font --}}
-    <link
-        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-        rel="stylesheet" />
-    {{-- google font --}}
 
-    <!-- Scripts -->
+    {{-- css file bundle --}}
     @vite([
-        // 'resources/sass/custom-boot.min.css',
-     'resources/sass/app.min.css',
-      'resources/js/app.js',
-       'public/assets/src/theme/vendor/css/core.css',
-       'public/assets/src/theme/vendor/css/theme-default.css',
-       'public/assets/src/js/main.js',
+        'public/assets/src/scss/custom-boot.min.css',
+        'public/assets/src/theme/vendor/css/core.css',
+        'public/assets/src/theme/vendor/css/theme-default.css',
+        'public/assets/src/plugins/datatable/datatables.min.css',
+        'public/assets/src/scss/main.min.css',
+
        ])
+    {{-- <link rel="stylesheet" href="{{ asset() }}"> --}}
+
 
 </head>
 
@@ -98,7 +95,6 @@
                     </div>
                     <div class="col-lg-9 col-md-8 col-sm-12">
                         <div class="card">
-                            <div class="card-header">{{ __('Dashboard') }}</div>
                             <div class="card-body">
                                 @if (Session::get('status'))
                                     <div class="alert alert-success" role="alert">
@@ -107,6 +103,7 @@
                                 @endif
 
                                 @yield('content')
+
                             </div>
                         </div>
                     </div>
@@ -115,8 +112,10 @@
         </main>
     </div>
 
-
     {{-- js liberies --}}
+    <script src="{{ asset('assets/src/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/src/plugins/datatable/datatables.min.js') }}"></script>
+    <script src="{{ asset('assets/src/js/main.js') }}"></script>
 
     @yield('script')
 

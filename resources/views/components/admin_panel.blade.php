@@ -41,7 +41,7 @@
                 </a>
               </li>
               <li class="menu-item {{ Request::is('slider')? 'active': '' }}">
-                <a href="" class="menu-link">
+                <a href="{{ route('slider.index') }}" class="menu-link">
                   <div>Sliders</div>
                 </a>
               </li>

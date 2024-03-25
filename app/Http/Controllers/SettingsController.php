@@ -10,9 +10,9 @@ class SettingsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        return view('back-end.menu.index');
+
+    public function slider() {
+        return view('back-end.slider.index');
     }
 
     /**

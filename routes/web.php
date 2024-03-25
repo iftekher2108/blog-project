@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Auth;
@@ -31,9 +32,15 @@ Route::controller(HomeController::class)->group(function(){
     Route::get('home','index')->name('home');
 });
 
-
 Route::controller(SettingsController::class)->group(function(){
-    Route::get('menu','index')->name('menu.index');
+
+    Route::get('slider','slider')->name('slider.index');
+});
+
+Route::controller(MenuController::class)->group(function(){
+    Route::get('menu','menu')->name('menu.index');
+    Route::get('menu/create','menuCreate')->name('menu.create');
+    Route::post('menu/store','menuStore')->name('menu.store');
 });
 
 Route::controller(NewsController::class)->group(function(){
