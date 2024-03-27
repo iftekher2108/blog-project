@@ -41,6 +41,12 @@ Route::controller(MenuController::class)->group(function(){
     Route::get('menu','menu')->name('menu.index');
     Route::get('menu/create','menuCreate')->name('menu.create');
     Route::post('menu/store','menuStore')->name('menu.store');
+
+    Route::get('menu/delete/{id}','menuDelete')->name('menu.delete');
+
+    // sub menu
+    Route::get('sub_menu/create','subMenuCreate')->name('sub_menu.create');
+    Route::post('sub_menu/store','subMenuStore')->name('sub_menu.store');
 });
 
 Route::controller(NewsController::class)->group(function(){

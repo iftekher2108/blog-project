@@ -45,7 +45,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto text-white">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -113,6 +113,7 @@
     </div>
 
     {{-- js liberies --}}
+    <script src="{{ asset('assets/src/plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/src/plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/src/plugins/datatable/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/src/js/main.js') }}"></script>

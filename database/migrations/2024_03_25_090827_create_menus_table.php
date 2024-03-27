@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('feature')->nullable();
             $table->string('content')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }
