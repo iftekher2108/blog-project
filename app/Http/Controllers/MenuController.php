@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\menu;
 use App\Models\subMenu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MenuController extends Controller
 {
@@ -12,7 +13,7 @@ class MenuController extends Controller
     public function menu()
     {
         $menus = menu::all();
-        $sub_menus = subMenu::;
+        $sub_menus = DB::table('sub_menus')->join( 'sub_menus.parent_id','menus.id')->get();
         return view('back-end.menu.index', compact('menus','sub_menus'));
     }
 
