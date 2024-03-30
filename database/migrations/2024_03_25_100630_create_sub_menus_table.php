@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('sub_menus', function (Blueprint $table) {
             $table->id();
-            $table->string('parent_id');
-            $table->string('order_id')->nullable();
-            $table->string('sub_title');
+            $table->integer('parent_id');
+            $table->integer('order_id')->nullable();
+            $table->string('sub_title')->unique();
             $table->string('sub_slug')->unique();
             $table->string('feature')->nullable();
             $table->string('content')->nullable();

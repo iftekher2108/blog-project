@@ -90,7 +90,7 @@
                             </td>
                             <td>{{ $sub_menu->id }}</td>
                             <td>
-                                {{  }}
+                                {{ $sub_menu->parent_title }}
                             </td>
                             <td>{{ $sub_menu->sub_title }}</td>
                             <td>{{ $sub_menu->sub_slug }}</td>

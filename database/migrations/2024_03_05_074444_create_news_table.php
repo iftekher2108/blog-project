@@ -21,9 +21,8 @@ return new class extends Migration
             $table->string('main_content');
             $table->string('category')->nullable();
             $table->string('sub_category')->nullable();
-            $table->string('comment')->nullable();
-            $table->string('like')->nullable();
-            $table->string('dislikes')->nullable();
+            $table->integer('comment_id')->nullable();
+            $table->integer('react_id')->nullable();
             $table->timestamps();
         });
     }

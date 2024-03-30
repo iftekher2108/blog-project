@@ -13,8 +13,12 @@ class MenuController extends Controller
     public function menu()
     {
         $menus = menu::all();
-        $sub_menus = DB::table('sub_menus')->join( 'sub_menus.parent_id','menus.id')->get();
-        return view('back-end.menu.index', compact('menus','sub_menus'));
+        $sub_menus = DB::table('sub_menus')
+            ->join('menus', 'sub_menus.parent_id', '=', 'menus.id')
+            ->select('menus.title as parent_title', 'sub_menus.*')
+            ->get();
+        // dd($sub_menus);
+        return view('back-end.menu.index', compact('menus', 'sub_menus'));
     }
 
     public function menuCreate()
@@ -50,21 +54,23 @@ class MenuController extends Controller
         return view('back-end.sub_menu.create', compact('menus'));
     }
 
-    public function subMenuStore(Request $request){
+    public function subMenuStore(Request $request)
+    {
 
         $data = $request->validate([
-            'parent_id' =>"required",
+            'parent_id' => "required|integer",
             'title' => 'required|string',
             'slug' => 'required|unique:menus,slug|string',
             'status' => 'required|string',
         ]);
 
-        subMenu::create([
-            'parent_id' => 'parent_id',
-            'sub_title' => $data['title'],
-            'sub_slug' => $data['slug'],
-            'status' => $data['status'],
-        ]);
+       $sub_menu = new subMenu;
+            $sub_menu->parent_id = $request->parent_id;
+            $sub_menu->sub_title = $request->title;
+            $sub_menu->sub_slug = $request->slug;
+            $sub_menu->status = $request->status;
+            $sub_menu->save();
+
         return redirect()->route('menu.index')->with('success', 'Menu Item Created Successfully');
     }
 }
