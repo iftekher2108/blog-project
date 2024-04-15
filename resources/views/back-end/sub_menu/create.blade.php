@@ -12,21 +12,27 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="mb-3">
                         <label for="parent_id" class="form-label">Menu</label>
-                        <select class="form-select" id="parent_id" name="parent_id">
-                            <option value="" selected>Choose One</option>
+                        <select class="form-control nice-select wide @error('parent_id') is-invalid  @enderror" id="parent_id" name="parent_id">
                            @foreach ( $menus as $menu )
                                 <option value="{{ $menu->id }}">{{ $menu->title }}</option>
                            @endforeach
 
 
                         </select>
+                        @error('parent_id')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+
                     </div>
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="mb-3">
                         <label for="title" class="form-label">Menu Title</label>
-                        <input class="form-control" id="title" name="title" placeholder="title">
+                        <input class="form-control @error('title') is-invalid  @enderror" id="title" name="title" placeholder="title">
+                        @error('title')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
 
@@ -40,17 +46,16 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="mb-3">
                         <label for="status" class="form-label">Status</label>
-                        <select class="form-select" id="status" name="status">
+                        <select class="form-control nice-select wide" id="status" name="status">
                             <option value="publish">Publish</option>
                             <option value="unpublish">Unpublish</option>
-
                         </select>
                     </div>
                 </div>
 
             </div>
 
-            <input type="submit" class="btn btn-primary" value="Create">
+            <input type="submit" class="btn btn-primary mt-3" value="Create">
 
         </form>
 

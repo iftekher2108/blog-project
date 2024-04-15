@@ -1,13 +1,29 @@
 
 
-
-$primary: #696cff;
-$success: #08e008;
-$danger: #ff3e1d;
+$primary: #5f61e6;
+$success: #11d811;
+$danger: #d83518;
 $dark: #233446;
 $gray: rgba(67, 89, 113, .1);
 
 
 
+
 @import '../../../../public/assets/src/plugins/bootstrap/scss/bootstrap.scss';
 
+
+.btn {
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+    -moz-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    -o-transform: translateY(-1px);
+}

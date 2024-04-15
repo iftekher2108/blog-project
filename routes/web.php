@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SettingsController;
@@ -18,9 +19,13 @@ use App\Http\Controllers\NewsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(MainController::class)->group(function(){
+
+    Route::get('/','index');
+    Route::get('/{id}/{slug}','generatePage');
+
 });
+
 
 Auth::routes();
 

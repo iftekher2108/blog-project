@@ -12,7 +12,10 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="mb-3">
                         <label for="title" class="form-label">Menu Title</label>
-                        <input class="form-control" id="title" name="title" placeholder="title">
+                        <input class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="title">
+                        @error('title')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
 
@@ -26,7 +29,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="mb-3">
                         <label for="status" class="form-label">Status</label>
-                        <select class="form-select" id="status" name="status">
+                        <select class="form-control nice-select wide" id="status" name="status">
                             <option value="publish">Publish</option>
                             <option value="unpublish">Unpublish</option>
 
@@ -36,7 +39,7 @@
 
             </div>
 
-            <input type="submit" class="btn btn-primary" value="Create">
+            <input type="submit" class="btn btn-primary mt-3" value="Create">
 
         </form>
 

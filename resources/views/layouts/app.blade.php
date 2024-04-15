@@ -10,14 +10,14 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     {{-- css file bundle --}}
     @vite([
         'public/assets/src/scss/custom-boot.min.css',
-        'public/assets/src/theme/vendor/css/core.css',
-        'public/assets/src/theme/vendor/css/theme-default.css',
         'public/assets/src/plugins/datatable/datatables.min.css',
         'public/assets/src/scss/main.min.css',
+        'public/assets/src/plugins/nice-select/nice-select.css',
 
        ])
     {{-- <link rel="stylesheet" href="{{ asset() }}"> --}}
@@ -115,6 +115,7 @@
     {{-- js liberies --}}
     <script src="{{ asset('assets/src/plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/src/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/src/plugins/nice-select/nice-select.min.js') }}"></script>
     <script src="{{ asset('assets/src/plugins/datatable/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/src/js/main.js') }}"></script>
 

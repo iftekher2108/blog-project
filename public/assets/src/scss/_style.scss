@@ -1,16 +1,23 @@
+ * {
+    margin: 0;
+    padding: 0;
+ }
 
-
-#layout-menu {
-    min-height: 100vh;
+.hide {
+    display:none;
 }
 
-.panel-menu {
-    min-height: 100vh;
+ .rotate {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
 }
 
-.panel-menu ul li {
-    list-style: none;
-    a {
-        text-decoration: none;
-    }
-}
+
