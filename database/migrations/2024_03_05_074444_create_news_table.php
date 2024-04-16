@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('slug');
             $table->string('short_content');
             $table->string('main_content');
-            $table->string('category')->nullable();
-            $table->string('sub_category')->nullable();
+            $table->foreignId('category');
+            $table->foreignId('sub_category');
             $table->integer('comment_id')->nullable();
             $table->integer('react_id')->nullable();
             $table->timestamps();
