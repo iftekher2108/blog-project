@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     {{-- css file bundle --}}
-    @vite([
-        'public/assets/src/scss/custom-boot.min.css',
-        'public/assets/src/plugins/datatable/datatables.min.css',
-        'public/assets/src/scss/main.min.css',
-        'public/assets/src/plugins/nice-select/nice-select.css',
 
-       ])
-    {{-- <link rel="stylesheet" href="{{ asset() }}"> --}}
+    {{-- stylesheet --}}
+    <link rel="stylesheet" href="{{ asset('back_assets/css/custom-boot.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('back_assets/css/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('back_assets/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('back_assets/css/main.min.css') }}">
+
+
 
 
 </head>
@@ -113,11 +113,11 @@
     </div>
 
     {{-- js liberies --}}
-    <script src="{{ asset('assets/src/plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/src/plugins/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/src/plugins/nice-select/nice-select.min.js') }}"></script>
-    <script src="{{ asset('assets/src/plugins/datatable/datatables.min.js') }}"></script>
-    <script src="{{ asset('assets/src/js/main.js') }}"></script>
+    <script src="{{ asset('back_assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('back_assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('back_assets/js/datatables.min.js') }}"></script>
+    <script src="{{ asset('back_assets/js/nice-select.min.js') }}"></script>
+    <script src="{{ asset('back_assets/js/main.js') }}"></script>
 
     @yield('script')
 

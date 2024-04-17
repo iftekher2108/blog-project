@@ -22,11 +22,11 @@ class MainController extends Controller
      * Show the form for creating a new resource.
      */
 
-     public function generatePage($id) {
-        $menus = menu::where('status','publish')->find($id);
-        // dd($menus);
-         return view('front-end.generatePage',compact('menus'));
-     }
+    //  public function generatePage($id) {
+    //     $menus = menu::where('status','publish')->find($id);
+    //     // dd($menus);
+    //      return view('front-end.generatePage',compact('menus'));
+    //  }
 
 
 

@@ -12,13 +12,22 @@
 
 
     <!-- Scripts -->
-    @vite([
-    'public/assets/src/scss/custom-boot.min.css',
-    'public/assets/src/theme/vendor/css/core.css',
-     'public/assets/src/theme/vendor/css/theme-default.css',
-     'public/assets/src/plugins/bootstrap/dist/js/bootstrap.bundle.min.js',
-     'public/assets/src/js/main.js',
-     ]);
+    {{-- @vite([
+                'resources/css/custom-boot.min.css',
+                'resources/css/main.min.css',
+                'resources/css/nice-select.css',
+                'resources/js/app.js',
+                'resources/js/jquery.min.js',
+                'resources/js/nice-select.min.js',
+                'resources/js/main.js',
+     ]); --}}
+
+    <link rel="stylesheet" href="{{ asset('build/assets/custom-boot-BGXPILPk.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/nice-select-NRK_d88N.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/main-DGfVLqsP.css') }}">
+
+
+
 
 </head>
 
@@ -115,6 +124,9 @@
 
 
     {{-- js liberies --}}
+    <script src="{{ asset('back_assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('back_assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('back_assets/js/main.js') }}"></script>
 
     @yield('script')
 

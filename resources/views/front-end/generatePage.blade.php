@@ -1,6 +1,6 @@
 
 <h1>
-    iftekher mahmud pervez
+    iftekher
 </h1>
 
 @if ( $menus != null )
@@ -10,7 +10,7 @@
 <li>{{ $menus->title }}</li>
 <li>{{ $menus->feature }}</li>
 <li>{{ $menus->content }}  </li>
-  
+
 {{-- @endforeach --}}
 
 @endif
