@@ -45,6 +45,10 @@
                     color: white;
                     background: var(--bs-primary);
                 }
+                &:focus {
+                    color: white;
+                    background: var(--bs-primary);
+                }
             }
         }
 
