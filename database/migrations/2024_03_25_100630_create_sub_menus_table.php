@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('sub_menus', function (Blueprint $table) {
             $table->id();
-            $table->integer('parent_id');
-            $table->integer('order_id')->nullable();
+            $table->unsignedBigInteger('men_id');
+            // $table->foreign('men_id')->constrained('menus')->onDelete('cascade');
+            $table->integer('order_id')->default(0);
             $table->string('sub_title')->unique();
             $table->string('sub_slug')->unique();
-            $table->string('feature')->nullable();
-            $table->string('content')->nullable();
-            $table->string('status');
+            $table->string('sub_picture')->nullable();
+            $table->string('sub_content')->nullable();
+            $table->enum('status',['publish','unpublish']);
             $table->timestamps();
         });
     }
@@ -29,6 +30,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        // Schema::table('sub_menus', function (Blueprint $table) {
+        //     $table->dropForeign('men_id');
+        // });
         Schema::dropIfExists('sub_menus');
     }
 };

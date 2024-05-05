@@ -11,15 +11,15 @@
 
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="mb-3">
-                        <label for="parent_id" class="form-label">Menu</label>
-                        <select class="form-control nice-select wide @error('parent_id') is-invalid  @enderror" id="parent_id" name="parent_id">
+                        <label for="men_id" class="form-label">Menu</label>
+                        <select class="form-control nice-select wide @error('men_id') is-invalid  @enderror" id="men_id" name="men_id">
                            @foreach ( $menus as $menu )
                                 <option value="{{ $menu->id }}">{{ $menu->title }}</option>
                            @endforeach
 
 
                         </select>
-                        @error('parent_id')
+                        @error('men_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
 

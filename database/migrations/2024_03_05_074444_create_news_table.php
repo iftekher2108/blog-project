@@ -13,14 +13,18 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string('author');
-            $table->string('feature_img')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('order_id')->default(0);
+            // $table->foreign('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('picture')->nullable();
             $table->string('title');
             $table->string('slug');
             $table->string('short_content');
             $table->string('main_content');
-            $table->foreignId('category');
-            $table->foreignId('sub_category');
+            $table->unsignedBigInteger('cat_id');
+            // $table->foreign('cat_id')->constrained('categories')->onDelete('cascade');
+            $table->unsignedBigInteger('sub_cat_id');
+            // $table->foreign('sub_cat_id')->constrained('sub_categories')->onDelete('cascade');
             $table->integer('comment_id')->nullable();
             $table->integer('react_id')->nullable();
             $table->timestamps();
@@ -32,6 +36,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+        // Schema::table('news', function (Blueprint $table) {
+        //     $table->dropForeign('user_id');
+        //     $table->dropForeign('cat_id');
+        //     $table->dropForeign('sub_cat_id');
+        // });
         Schema::dropIfExists('news');
     }
 };

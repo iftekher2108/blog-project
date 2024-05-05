@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('order_id')->default(0);
             $table->string('title')->unique();
             $table->string('slug')->unique();
             $table->string('feature')->nullable();
             $table->string('content')->nullable();
-            $table->string('status');
+            $table->enum('status',['publish','unpublish']);
             $table->timestamps();
         });
     }

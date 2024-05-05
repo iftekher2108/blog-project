@@ -4,16 +4,16 @@
     <div>
 
         @if ($mas = Session::get('success'))
-            <div class="alert alert-success alert-dismissible" role="alert">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ $mas }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <button type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
 
         @if ($mas = Session::get('error'))
             <div class="alert alert-danger alert-dismissible" role="alert">
                 {{ $mas }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <button type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
 
@@ -90,7 +90,11 @@
                             </td>
                             <td>{{ $sub_menu->id }}</td>
                             <td>
-                                {{ $sub_menu->parent_title }}
+                               @if ($sub_menu->men_title == null)
+                                Null
+                                @else
+                                    {{ $sub_menu->men_title }}
+                               @endif 
                             </td>
                             <td>{{ $sub_menu->sub_title }}</td>
                             <td>{{ $sub_menu->sub_slug }}</td>
@@ -100,7 +104,7 @@
                             <td>
                                 <div class="d-flex justify-content-around">
                                     <a href="" class="btn btn-primary">Edit</a>
-                                    <a href="" class="btn btn-danger">Delete</a>
+                                    <a href="{{ route('sub_menu.delete',$sub_menu->id) }}" class="btn btn-danger">Delete</a>
                                 </div>
                             </td>
                         </tr>

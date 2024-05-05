@@ -30,7 +30,7 @@ Route::controller(MainController::class)->group(function(){
 Auth::routes();
 
 
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth','admin','main_admin'])->group(function(){
 
 Route::controller(HomeController::class)->group(function(){
     Route::get('profile','profileSetting');
@@ -47,11 +47,12 @@ Route::controller(MenuController::class)->group(function(){
     Route::get('menu/create','menuCreate')->name('menu.create');
     Route::post('menu/store','menuStore')->name('menu.store');
 
-    Route::get('menu/delete/{id}','menuDelete')->name('menu.delete');
+    Route::get('menu/{id}/delete','menuDelete')->name('menu.delete');
 
     // sub menu
     Route::get('sub_menu/create','subMenuCreate')->name('sub_menu.create');
     Route::post('sub_menu/store','subMenuStore')->name('sub_menu.store');
+    Route::get('sub_menu/{id}/delete','subMenuDelete')->name('sub_menu.delete');
 });
 
 Route::controller(NewsController::class)->group(function(){

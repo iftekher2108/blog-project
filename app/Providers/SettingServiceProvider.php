@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Models\Settings;
+use Illuminate\Support\Facades\View;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\ServiceProvider;
 
 class SettingServiceProvider extends ServiceProvider
 {
@@ -20,6 +22,16 @@ class SettingServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        view()->share('app_data',Settings::all());
+        // view()->share('app_data',::all());
+
+        try {
+            $data = Settings::all();
+            View::share('store',$data);
+            }
+             catch (QueryException $e) {
+                $data = [];
+                View::share('store', $data);
+            }
+
     }
 }

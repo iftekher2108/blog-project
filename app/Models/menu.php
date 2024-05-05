@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\subMenu;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class menu extends Model
 {
@@ -21,6 +22,13 @@ class menu extends Model
     ];
 
 
+    // public function sub_menus() {
+    //     return $this->hasMany(subMenu::class);
+    // }
+
+    // public function sub_menu() {
+    //     return $this->hasMany(subMenu::class);
+    // }
 
 
 }

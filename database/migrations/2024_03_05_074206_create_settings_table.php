@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->string('data_name')->unique();
+            $table->unsignedBigInteger("order_id")->default(0);
             $table->string('nav_items')->nullable();
             $table->string('slider')->nullable();
             $table->string('title')->nullable();
             $table->longText('content')->nullable();
             $table->string('picture')->nullable();
             $table->string('data_type')->nullable();
-            $table->string('status');
+            $table->enum('status',['publish','unpublish']);
             $table->timestamps();
         });
 

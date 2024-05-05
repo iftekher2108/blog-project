@@ -11,22 +11,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
 
-    <!-- Scripts -->
-    {{-- @vite([
-                'resources/css/custom-boot.min.css',
-                'resources/css/main.min.css',
-                'resources/css/nice-select.css',
-                'resources/js/app.js',
-                'resources/js/jquery.min.js',
-                'resources/js/nice-select.min.js',
-                'resources/js/main.js',
-     ]); --}}
-
-    <link rel="stylesheet" href="{{ asset('build/assets/custom-boot-BGXPILPk.css') }}">
-    <link rel="stylesheet" href="{{ asset('build/assets/nice-select-NRK_d88N.css') }}">
-    <link rel="stylesheet" href="{{ asset('build/assets/main-DGfVLqsP.css') }}">
-
-
+    {{-- stylesheet --}}
+    <link rel="stylesheet" href="{{ asset('back_assets/css/custom-boot.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('back_assets/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('back_assets/css/main.min.css') }}">
 
 
 </head>
@@ -37,11 +25,11 @@
         <div class="container">
             <div class="row justify-content-center p-5">
                 <div class="col-lg-6 col-md-8 col-sm-10">
-                    <div class="card">
-                        <div class="card-header">
+                    <div class="card border-primary">
+                        <div class="card-header bg-primary">
                             <!-- Logo -->
-                            <div class="app-brand justify-content-center">
-                                <a href="" class="app-brand-link flex-column p-1 gap-2">
+                            <div class="app-brand d-flex justify-content-center">
+                                <a href="" class="nav-link d-flex align-items-center flex-column p-1 gap-2">
                                     <span class="app-brand-logo demo">
                                         logo here
                                     </span>
