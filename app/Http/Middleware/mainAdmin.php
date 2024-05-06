@@ -16,10 +16,14 @@ class mainAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // main admin
         if(Auth::user()->role == 1) {
-            return $next($request);  
+            return  $next($request);
           }
-  
-          return redirect()->back()->with('error','You have no permissions');
+          else {
+           return redirect()->back();
+          }
+
+
     }
 }

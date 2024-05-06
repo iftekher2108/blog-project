@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('data_name')->unique();
             $table->unsignedBigInteger("order_id")->default(0);
-            $table->string('nav_items')->nullable();
-            $table->string('slider')->nullable();
+            $table->unsignedBigInteger('menu_id')->nullable();
             $table->string('title')->nullable();
+            $table->string('sub_title')->nullable();
             $table->longText('content')->nullable();
             $table->string('picture')->nullable();
             $table->string('data_type')->nullable();

@@ -26,6 +26,12 @@ class MenuController extends Controller
     }
 
 
+    public function menu_order(Request $request) {
+        $menu = menu::find($request->id);
+        $menu->order_id = $request->input_id;
+        $menu->save();
+        return response()->json(['success' => 'Menu order changed successfully']);
+    }
 
     public function menuStore(Request $request)
     {

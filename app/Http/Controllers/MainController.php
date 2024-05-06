@@ -15,9 +15,10 @@ class MainController extends Controller
     public function index()
     {
 
-        $menus = menu::all();
-        // $sub_menus = subMenu::all();
-        return view('front-end.index',compact('menus'));
+        $menus = menu::where('status','publish')->get();
+        // $menus = DB::table('menus')->get();
+        $sub_menus = subMenu::where('status','publish')->get();
+        return view('front-end.index',compact('menus','sub_menus'));
     }
 
     /**

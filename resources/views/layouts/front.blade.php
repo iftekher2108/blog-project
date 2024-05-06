@@ -53,7 +53,8 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">BizLand<span>.</span></a></h1>
+      <h1 class="logo"><a href="index.html"> <img src="{{ asset($store->where('data_name','logo')->value('picture')) }}" class="img-fluid" height="50" width="70" alt="" >
+        <br> <span>{{ $store->where('data_name','logo')->value('title') }}</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
 
@@ -68,21 +69,21 @@
             @endphp
 
                <li class="{{ (count($sub_menu)) ? 'dropdown' : '' }}  }}" ><a class="nav-link scrollto"><span>{{ $menu->title }}</span> {!! count($sub_menu) ? '<i class="bi bi-chevron-down"></i>' : '' !!}</a>
-            
+
                 <ul>
 
                 @foreach ( $sub_menu as $sub_menus )
 
                     <li><a href="#">{{ $sub_menus->sub_title }}</a></li>
 
-                @endforeach 
+                @endforeach
 
                 </ul>
-            
-            </li> 
+
+            </li>
 
             @endforeach
-            
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -105,7 +106,7 @@
   <main id="main">
 
         @yield('front-content')
-     
+
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->

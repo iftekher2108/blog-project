@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <div>
 
         @if ($mas = Session::get('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -19,7 +18,7 @@
 
 
         <div class="my-2">
-            <h1></h1>
+            <h4>Menu information</h4>
             <div class="d-flex justify-content-between mb-2">
                 <a href="" class="btn btn-danger">Delete All</a>
                 <a href="{{ route('menu.create') }}" class="btn btn-primary">Create</a>
@@ -29,6 +28,7 @@
                     <tr class="bg-primary text-white">
                         <th><input type="checkbox" class="select-all form-check-input border-1 border-white "></th>
                         <th>Id</th>
+                        <th>Order Id</th>
                         <th>Name</th>
                         <th>Slug</th>
                         <th>Status</th>
@@ -40,9 +40,10 @@
 
                     @foreach ($menus as $menu)
                         <tr>
-                            <td><input type="checkbox" class="select-item form-check-input" value='{{ $menu->id }}'>
+                            <td><input type="checkbox" class="select-item form-check-input" id="{{ $menu->id }}" value='{{ $menu->id }}'>
                             </td>
                             <td>{{ $menu->id }}</td>
+                            <td><input type="number" title="" value="{{ $menu->order_id }}" class="form-control order_id shadow-none bg-transparent" readonly ></td>
                             <td>{{ $menu->title }}</td>
                             <td>{{ $menu->slug }}</td>
                             <td>
@@ -64,7 +65,7 @@
 
 
         <div class="my-2">
-            <h1></h1>
+            <h4>Sub-Menu Information</h4>
             <div class="d-flex justify-content-between mb-2">
                 <a href="" class="btn btn-danger">Delete All</a>
                 <a href="{{ route('sub_menu.create') }}" class="btn btn-primary">Create</a>
@@ -94,7 +95,7 @@
                                 Null
                                 @else
                                     {{ $sub_menu->men_title }}
-                               @endif 
+                               @endif
                             </td>
                             <td>{{ $sub_menu->sub_title }}</td>
                             <td>{{ $sub_menu->sub_slug }}</td>
@@ -114,5 +115,13 @@
             </table>
         </div>
 
-    </div>
+@endsection
+
+@section('script')
+<script>
+
+order_id('.order_id',`{{ route('menu.order.change') }}`);
+
+
+</script>
 @endsection

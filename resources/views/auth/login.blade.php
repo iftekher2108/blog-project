@@ -31,9 +31,9 @@
                             <div class="app-brand d-flex justify-content-center">
                                 <a href="" class="nav-link d-flex align-items-center flex-column p-1 gap-2">
                                     <span class="app-brand-logo demo">
-                                        logo here
+                                        <img src="{{ asset( $store->where('data_name','logo')->value('picture') ) }}" class="img-fluid" height="50" width="120" alt="">
                                     </span>
-                                    <span class="app-brand-text demo text-body fw-bolder">Company Name</span>
+                                    <span class="app-brand-text demo text-body fw-bolder">{{ $store->where('data_name','logo')->value('title') }}</span>
                                 </a>
                             </div>
                             <!-- /Logo -->

@@ -30,7 +30,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="{{ $store->where('data_name','logo')->value('picture') }}" class="img-fluid" height="60" width="60" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -102,7 +102,9 @@
                                     </div>
                                 @endif
 
-                                @yield('content')
+                                <div class="content-body">
+                                    @yield('content')
+                                </div>
 
                             </div>
                         </div>

@@ -66,9 +66,9 @@
 
                             <div class="col-md-6">
                                 <select name="role" class="form-control nice-select wide" id="">
-                                    <option value="1">super admin</option>
-                                    <option value="2">admin</option>
-                                    <option value="3">editor</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="editor">Editor</option>
+                                    <option value="user">User</option>
                                 </select>
                             </div>
                         </div>

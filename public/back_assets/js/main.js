@@ -1,6 +1,13 @@
 
 $(document).ready(function(){
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+
     // menu bar toggler
 $('.menu-toggle').click(function(){
     $(this).siblings('.menu-sub').slideToggle(300)
@@ -30,4 +37,38 @@ $('.nice-select').niceSelect();
 
 
 
+
 })
+
+
+
+function order_id(order_id, route) {
+
+    $(order_id).dblclick(function() {
+        $(this).removeAttr('readonly');
+    })
+
+    $(order_id).blur(function() {
+        var id = $(this).parents('tr').find('input[type=checkbox]').attr('id');
+        console.log(id);
+        var input_id = $(this).val();
+        $.ajax({
+            type: "post",
+            url: route,
+            data: {
+                id:id,
+                input_id:input_id,
+            }
+
+            ,
+            dataType: "json",
+            success: function (res) {
+                console.log(res.success);
+
+                    window.location.reload();
+            }
+        });
+
+    })
+
+}

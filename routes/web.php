@@ -30,7 +30,7 @@ Route::controller(MainController::class)->group(function(){
 Auth::routes();
 
 
-Route::middleware(['auth','admin','main_admin'])->group(function(){
+Route::middleware(['auth','admin'])->group(function(){
 
 Route::controller(HomeController::class)->group(function(){
     Route::get('profile','profileSetting');
@@ -44,6 +44,7 @@ Route::controller(SettingsController::class)->group(function(){
 
 Route::controller(MenuController::class)->group(function(){
     Route::get('menu','menu')->name('menu.index');
+    Route::post('menu/order/change','menu_order')->name('menu.order.change');
     Route::get('menu/create','menuCreate')->name('menu.create');
     Route::post('menu/store','menuStore')->name('menu.store');
 

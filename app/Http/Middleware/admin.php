@@ -16,11 +16,18 @@ class admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->role == 2) {
-          return $next($request);  
+        // admin
+        if(Auth::user()->role == 'admin') {
+           return $next($request);
+        }
+        else if(Auth::user()->role == 'editor'){
+            return $next($request);
+
+        } else if(Auth::user()->role == 'user') {
+            return $next($request);
+        } else {
+          return redirect()->back();
         }
 
-        return redirect()->back()->with('error','You have no permissions');
-        
     }
 }
