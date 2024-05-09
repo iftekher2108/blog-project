@@ -12,10 +12,10 @@ class MenuController extends Controller
 
     public function menu()
     {
-        $menus = menu::all();
+        $menus = menu::orderBy('order_id','asc')->get();
         $sub_menus = DB::table('sub_menus')
             ->leftJoin('menus', 'sub_menus.men_id', '=', 'menus.id')
-            ->select('menus.title as men_title', 'sub_menus.*')->get();
+            ->select('menus.title as men_title', 'sub_menus.*')->orderBy('order_id','asc')->get();
         // dd($sub_menus);
         return view('back-end.menu.index', compact('menus', 'sub_menus'));
     }

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\menu;
-use App\Models\subMenu;
+// use App\Models\menu;
+// use App\Models\subMenu;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
@@ -14,11 +13,7 @@ class MainController extends Controller
      */
     public function index()
     {
-
-        $menus = menu::where('status','publish')->get();
-        // $menus = DB::table('menus')->get();
-        $sub_menus = subMenu::where('status','publish')->get();
-        return view('front-end.index',compact('menus','sub_menus'));
+        return view('front-end.index');
     }
 
     /**
