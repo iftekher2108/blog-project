@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('sub_menus', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('men_id');
-            // $table->foreign('men_id')->constrained('menus')->onDelete('cascade');
-            $table->integer('order_id')->default(0);
+            $table->foreignId('men_id')->constrained('menus')->onDelete('set null')->onUpdate('set null');
+            $table->integer('order_id')->nullable();
             $table->string('sub_title')->unique();
             $table->string('sub_slug')->unique();
             $table->string('sub_picture')->nullable();

@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('sub_categories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('order_id')->default(0);
+            $table->unsignedBigInteger('order_id')->nullable();
             $table->string('sub_title')->unique();
             $table->string('sub_slug')->unique();
-            $table->unsignedBigInteger('cat_id');
-            // $table->foreignId('cat_id')->constrained('catagories.id')->onDelete('cascade');
+            $table->foreignId('cat_id')->constrained('catagories')->onDelete('set null')->onUpdate('set null');
             $table->string('sub_picture');
             $table->string('sub_content');
             $table->enum('status',['publish','unpublish']);

@@ -21,7 +21,7 @@ use App\Http\Controllers\NewsController;
 
 Route::controller(MainController::class)->group(function(){
 
-    Route::get('/','index');
+    Route::get('/','index')->name('home.index');
     // Route::get('/{id}/{slug}','generatePage');
 
 });

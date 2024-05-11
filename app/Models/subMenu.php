@@ -11,7 +11,7 @@ class subMenu extends Model
     use HasFactory;
 
     protected $fillable =[
-        'parent_id',
+        'men_id',
         'order_id',
         'sub_title',
         'sub_slug',

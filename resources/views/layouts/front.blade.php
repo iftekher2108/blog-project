@@ -7,8 +7,8 @@
 
   <title> </title>
 
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta  name="description" content="@yield('description')">
+  <meta  name="keywords" content="@yield('keywords')">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -23,8 +23,8 @@
   <link href="{{ asset('front_assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('front_assets/plugins/bootstrap-icons/bootstrap-icons.min.css') }}" rel="stylesheet">
   <link href="{{ asset('front_assets/plugins/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('front_assets/plugins/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('front_assets/plugins/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('front_assets/plugins/slick/slick.css') }}">
+  <link rel="stylesheet" href="{{ asset('front_assets/plugins/slick/slick-theme.css') }}">
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('front_assets/scss/theme.css') }}" rel="stylesheet">
@@ -50,11 +50,10 @@
   </section>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center">
+  <header id="header" class="d-flex sticky-top align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html"> <img src="{{ asset($store->where('data_name','logo')->value('picture')) }}" class="img-fluid" height="50" width="70" alt="" >
-        <br> <span>{{ $store->where('data_name','logo')->value('title') }}</span></a></h1>
+    <a class="logo" href="{{ route('home.index') }}"> <img src="{{ asset($store->where('data_name','logo')->value('picture')) }}" class="img-fluid" height="50" width="70" alt=""></a>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
 
@@ -91,17 +90,6 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-    <div class="container" data-aos="zoom-out" data-aos-delay="100">
-      <h1>Welcome to <span>BizLand</span></h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
-      <div class="d-flex">
-        <a href="#about" class="btn-get-started scrollto">Get Started</a>
-        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-      </div>
-    </div>
-  </section><!-- End Hero -->
 
   <main id="main">
 
@@ -110,10 +98,10 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <footer id="footer" class="bg-dark">
 
     <div class="footer-newsletter">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row justify-content-center">
           <div class="col-lg-6">
             <h4>Join Our Newsletter</h4>
@@ -144,22 +132,19 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            @foreach ( $menus as $menu )
+                <li><i class="bx bx-chevron-right"></i> <a href="#">{{ $menu->title }}</a></li>
+            @endforeach
+
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">News</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">FAQ's</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Private Policy</a></li>
             </ul>
           </div>
 
@@ -197,13 +182,10 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="{{ asset('front_assets/plugins/purecounter/purecounter_vanilla.js') }}"></script>
+  <script src="{{ asset('front_assets/plugins/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('front_assets/plugins/aos/aos.js') }}"></script>
   <script src="{{ asset('front_assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('front_assets/plugins/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ asset('front_assets/plugins/isotope-layout/isotope.pkgd.min.js') }}"></script>
-  <script src="{{ asset('front_assets/plugins/swiper/swiper-bundle.min.js') }}"></script>
-  <script src="{{ asset('front_assets/plugins/waypoints/noframework.waypoints.js') }}"></script>
+  <script src="{{ asset('front_assets/plugins/slick/slick.js') }}"></script>
   {{-- <script src="assets/vendor/php-email-form/validate.js"></script> --}}
 
   <!-- Template Main JS File -->

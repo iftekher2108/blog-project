@@ -11,20 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('pages', function (Blueprint $table) {
             $table->id();
-            $table->string('data_name');
-            $table->unsignedBigInteger("order_id")->nullable();
-            $table->unsignedBigInteger('data_id')->nullable();
-            $table->string('title')->nullable();
-            $table->string('sub_title')->nullable();
+            $table->string('page_title')->unique();
+            $table->string('page_slug')->unique();
             $table->longText('content')->nullable();
-            $table->string('picture')->nullable();
-            $table->string('data_type')->nullable();
+            $table->string('keywords')->nullable();
             $table->enum('status',['publish','unpublish']);
             $table->timestamps();
         });
-
     }
 
     /**
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('pages');
     }
 };

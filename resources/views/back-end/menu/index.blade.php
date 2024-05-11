@@ -17,7 +17,7 @@
         @endif
 
 
-        <div class="my-2">
+        <div class="menu-table my-2">
             <h4>Menu information</h4>
             <div class="d-flex justify-content-between mb-2">
                 <a href="" class="btn btn-danger">Delete All</a>
@@ -26,6 +26,7 @@
             <table class="table datatable table-striped w-100  table-hover">
                 <thead>
                     <tr class="bg-primary text-white">
+                        <th>#</th>
                         <th><input type="checkbox" class="select-all form-check-input border-1 border-white "></th>
                         <th>Id</th>
                         <th>Order Id</th>
@@ -39,7 +40,8 @@
                 <tbody>
 
                     @foreach ($menus as $menu)
-                        <tr>
+                        <tr draggable="true">
+                            <td><i class="fa-solid fa-sort"></i></td>
                             <td><input type="checkbox" class="select-item form-check-input" id="{{ $menu->id }}" value='{{ $menu->id }}'>
                             </td>
                             <td>{{ $menu->id }}</td>
@@ -63,6 +65,7 @@
             </table>
         </div>
 
+        <hr>
 
         <div class="my-2">
             <h4>Sub-Menu Information</h4>
@@ -120,7 +123,7 @@
 @section('script')
 <script>
 
-order_id('.order_id',`{{ route('menu.order.change') }}`);
+order_id('.order_id','.menu-table',`{{ route('menu.order.change') }}`);
 
 
 </script>

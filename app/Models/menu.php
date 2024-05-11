@@ -14,11 +14,13 @@ class menu extends Model
 
 
     protected $fillable = [
+        'order_id',
         'title',
         'slug',
         'status',
         'feature',
         'content',
+        'status'
     ];
 
 

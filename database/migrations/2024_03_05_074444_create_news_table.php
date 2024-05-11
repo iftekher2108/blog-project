@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('order_id')->default(0);
+            $table->unsignedBigInteger('order_id')->nullable();
             // $table->foreign('user_id')->constrained('users')->onDelete('cascade');
             $table->string('picture')->nullable();
             $table->string('title');
@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('short_content');
             $table->string('main_content');
             $table->unsignedBigInteger('cat_id');
-            // $table->foreign('cat_id')->constrained('categories')->onDelete('cascade');
+            $table->foreign('cat_id')->constrained('categories')->onDelete('set null')->onUpdate('set null');
             $table->unsignedBigInteger('sub_cat_id');
-            // $table->foreign('sub_cat_id')->constrained('sub_categories')->onDelete('cascade');
+            $table->foreign('sub_cat_id')->constrained('sub_categories')->onDelete('set null')->onUpdate('set null');
             $table->integer('comment_id')->nullable();
             $table->integer('react_id')->nullable();
             $table->timestamps();

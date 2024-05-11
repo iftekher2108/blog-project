@@ -2,9 +2,8 @@
     <div id="layout-menu" class="layout-menu rounded p-2 w-100 bg-dark">
 
         <div class="app-brand p-3">
-            <a href="{{ url('/') }}" class="app-brand-link m-auto">
-                <img src="" class="img-fluid" height="50" alt="">
-                <span class="text-center nav-link">logo name</span>
+            <a href="{{ url('/') }}" class="d-flex justify-content-center">
+                <img src="{{ asset($store->where('data_name','logo')->value('picture')) }}" class="img-fluid m-auto rounded" width="120" alt="">
             </a>
         </div>
 
