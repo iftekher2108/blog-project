@@ -16,6 +16,22 @@ class MainController extends Controller
         return view('front-end.index');
     }
 
+    public function gallery() {
+        return view('front-end.gallery');
+    }
+
+    public function about() {
+        return view('front-end.about');
+    }
+
+    public function news() {
+        return view('front-end.news.news');
+    }
+
+    public function contact() {
+        return view('front-end.contact');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

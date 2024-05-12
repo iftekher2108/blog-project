@@ -60,16 +60,18 @@
       <nav id="navbar" class="navbar">
         <ul>
             @php
-                $menus = DB::table('menus')->where('menus.status','publish')->orderBy('order_id','asc')->get();
+                $menus = DB::table('menus')->where('menus.status','publish')->orderBy('order_id','asc')->limit(10)->get();
             @endphp
             @foreach ( $menus as $menu )
-            @php
+
+            {{-- @php
                 $sub_menu = DB::table('sub_menus')->where('sub_menus.status','publish')->where('sub_menus.men_id',$menu->id)->orderBy('order_id','asc')->get();
-            @endphp
+            @endphp --}}
 
-               <li class="{{ (count($sub_menu)) ? 'dropdown' : '' }}  }}" ><a class="nav-link scrollto"><span>{{ $menu->title }}</span> {!! count($sub_menu) ? '<i class="bi bi-chevron-down"></i>' : '' !!}</a>
-
-                <ul>
+               <li  ><a class="nav-link scrollto" href="{{ route($menu->slug) }}" ><span>{{ $menu->title }}</span> </a>
+{{-- class="{{ (count($sub_menu)) ? 'dropdown' : '' }}  }}" --}}
+{{-- {!! count($sub_menu) ? '<i class="bi bi-chevron-down"></i>' : '' !!} --}}
+                {{-- <ul>
 
                 @foreach ( $sub_menu as $sub_menus )
 
@@ -77,7 +79,7 @@
 
                 @endforeach
 
-                </ul>
+                </ul> --}}
 
             </li>
 

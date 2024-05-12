@@ -65,58 +65,7 @@
             </table>
         </div>
 
-        <hr>
-
-        <div class="my-2">
-            <h4>Sub-Menu Information</h4>
-            <div class="d-flex justify-content-between mb-2">
-                <a href="" class="btn btn-danger">Delete All</a>
-                <a href="{{ route('sub_menu.create') }}" class="btn btn-primary">Create</a>
-            </div>
-            <table class="table datatable table-striped w-100 table-hover">
-                <thead>
-                    <tr class="bg-primary text-white">
-                        <th><input type="checkbox" class="select-all form-check-input border-1 border-white "></th>
-                        <th>Id</th>
-                        <th>menu</th>
-                        <th>Sub Menu</th>
-                        <th>Slug</th>
-                        <th>Status</th>
-                        <th>Action</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-
-                    @foreach ($sub_menus as $sub_menu)
-                        <tr>
-                            <td><input type="checkbox" class="select-item form-check-input" value='{{ $sub_menu->id }}'>
-                            </td>
-                            <td>{{ $sub_menu->id }}</td>
-                            <td>
-                               @if ($sub_menu->men_title == null)
-                                Null
-                                @else
-                                    {{ $sub_menu->men_title }}
-                               @endif
-                            </td>
-                            <td>{{ $sub_menu->sub_title }}</td>
-                            <td>{{ $sub_menu->sub_slug }}</td>
-                            <td>
-                                <div class="badge {{ ($sub_menu->status == 'publish')? 'bg-success':'bg-danger'}} ">publish</div>
-                            </td>
-                            <td>
-                                <div class="d-flex justify-content-around">
-                                    <a href="" class="btn btn-primary">Edit</a>
-                                    <a href="{{ route('sub_menu.delete',$sub_menu->id) }}" class="btn btn-danger">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                    @endforeach
-
-                </tbody>
-            </table>
-        </div>
+       
 
 @endsection
 

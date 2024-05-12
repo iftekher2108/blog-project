@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\menu;
-use App\Models\subMenu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -53,35 +52,5 @@ class MenuController extends Controller
     }
 
 
-    public function subMenuCreate()
-    {
-        $menus = menu::where('status', 'publish')->get();
-        return view('back-end.sub_menu.create', compact('menus'));
-    }
 
-    public function subMenuStore(Request $request)
-    {
-
-        $data = $request->validate([
-            'men_id' => "required|integer",
-            'title' => 'required|string',
-            'slug' => 'required|unique:menus,slug|string',
-            'status' => 'required|string',
-        ]);
-
-       $sub_menu = new subMenu;
-            $sub_menu->men_id = $request->men_id;
-            $sub_menu->sub_title = $request->title;
-            $sub_menu->sub_slug = $request->slug;
-            $sub_menu->status = $request->status;
-            $sub_menu->save();
-
-        return redirect()->route('menu.index')->with('success', 'Menu Item Created Successfully');
-    }
-
-    public function subMenuDelete($id) {
-        $subMenu = subMenu::FindOrFail($id);
-        $subMenu->delete();
-        return redirect()->route('menu.index')->with('error','Sub-menu delete successfully');
-    }
 }

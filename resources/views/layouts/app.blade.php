@@ -81,10 +81,12 @@
 
             <div class="container-fluid">
                 <div class="row w-100">
+                @auth
                     <div class="col-lg-3 col-md-4 col-sm-12 h-100">
                         <x-admin_panel />
                     </div>
-                    <div class="col-lg-9 col-md-8 col-sm-12">
+                @endauth
+                    <div class="col-lg-9 col-md-8 mx-auto col-sm-12">
                         <div class="card">
                             <div class="card-body">
                                 @if (Session::get('status'))

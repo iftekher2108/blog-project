@@ -16,11 +16,14 @@ return new class extends Migration
             $table->unsignedBigInteger('order_id')->nullable();
             $table->string('sub_title')->unique();
             $table->string('sub_slug')->unique();
-            $table->foreignId('cat_id')->constrained('catagories')->onDelete('set null')->onUpdate('set null');
+            $table->unsignedBigInteger('cat_id');
             $table->string('sub_picture');
             $table->string('sub_content');
             $table->enum('status',['publish','unpublish']);
             $table->timestamps();
+
+            // $table->foreign('sub_cat_id')->references('id')->on('categories')->OnDelete('cascade');
+
         });
     }
 

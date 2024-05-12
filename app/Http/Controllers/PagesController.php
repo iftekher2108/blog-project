@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\pages;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PagesController extends Controller
 {
@@ -12,7 +13,7 @@ class PagesController extends Controller
      */
     public function index()
     {
-        //
+        return view('back-end.page.index');
     }
 
     /**

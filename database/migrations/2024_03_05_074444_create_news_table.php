@@ -13,21 +13,30 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('order_id')->nullable();
-            // $table->foreign('user_id')->constrained('users')->onDelete('cascade');
+
+            $table->unsignedBigInteger('user_id');
+
             $table->string('picture')->nullable();
             $table->string('title');
             $table->string('slug');
             $table->string('short_content');
             $table->string('main_content');
+
             $table->unsignedBigInteger('cat_id');
-            $table->foreign('cat_id')->constrained('categories')->onDelete('set null')->onUpdate('set null');
             $table->unsignedBigInteger('sub_cat_id');
-            $table->foreign('sub_cat_id')->constrained('sub_categories')->onDelete('set null')->onUpdate('set null');
+
             $table->integer('comment_id')->nullable();
             $table->integer('react_id')->nullable();
+
             $table->timestamps();
+
+            // $table->foreign('user_id')->references('id')->on('users')->OnDelete('cascade');
+            // $table->foreign('category_id')->references('id')->on('categories')->OnDelete('cascade');
+            // $table->foreign('sub_category_id')->references('id')->on('sub_categories')->OnDelete('cascade');
+
+
+
         });
     }
 

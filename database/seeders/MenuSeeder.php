@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\menu;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class MenuSeeder extends Seeder
@@ -24,13 +23,13 @@ class MenuSeeder extends Seeder
         menu::create([
             'order_id' => 2,
             'title' => 'About Us',
-            'slug' => 'about-us',
+            'slug' => 'about.index',
             'status' => 'publish'
         ]);
         menu::create([
             'order_id' => 3,
             'title' => 'Gellery',
-            'slug' => 'gellery',
+            'slug' => 'gallery.index',
             'status' => 'publish'
         ]);
         menu::create([
@@ -46,6 +45,6 @@ class MenuSeeder extends Seeder
             'status' => 'publish',
         ]);
 
-        
+
     }
 }

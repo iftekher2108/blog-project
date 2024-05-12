@@ -14,8 +14,9 @@
           <tr class="bg-primary text-white">
             <th><input type="checkbox" class="select-all form-check-input border-1 border-white "></th>
             <th>Id</th>
-            <th>Name</th>
-            <th>Slug</th>
+            <th>Title</th>
+            <th>Sub-title</th>
+            <th>Picture</th>
             <th>Status</th>
             <th >Action</th>
 

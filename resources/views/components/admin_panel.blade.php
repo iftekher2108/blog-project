@@ -45,7 +45,7 @@
                     </li>
                     <li class="menu-item {{ Request::is('slider') ? 'active' : '' }}">
                         <a href="{{ route('slider.index') }}" class="nav-link">
-                            <i class="fa-solid me-2 fa-images"></i> Sliders
+                            <i class="fa-solid me-2 fa-images"></i>Home Sliders
                         </a>
                     </li>
 
