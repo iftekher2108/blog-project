@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->string('data_name');
-            $table->unsignedBigInteger("order_id")->nullable();
+            $table->unsignedBigInteger("order_id")->default(0); 
             $table->unsignedBigInteger('data_id')->nullable();
             $table->string('title')->nullable();
             $table->string('sub_title')->nullable();
+            $table->string('link')->nullable();
             $table->longText('content')->nullable();
             $table->string('picture')->nullable();
             $table->string('data_type')->nullable();

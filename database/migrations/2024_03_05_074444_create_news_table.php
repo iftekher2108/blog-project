@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('order_id')->nullable();
+            $table->unsignedBigInteger('order_id')->default(0);
 
             $table->unsignedBigInteger('user_id');
 

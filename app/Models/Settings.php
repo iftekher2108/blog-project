@@ -16,6 +16,7 @@ class Settings extends Model
         'menu_id',
         'title',
         'sub_title',
+        'link',
         'content',
         'picture',
         'data_type',

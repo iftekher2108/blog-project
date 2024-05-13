@@ -67,8 +67,7 @@
             {{-- @php
                 $sub_menu = DB::table('sub_menus')->where('sub_menus.status','publish')->where('sub_menus.men_id',$menu->id)->orderBy('order_id','asc')->get();
             @endphp --}}
-
-               <li  ><a class="nav-link scrollto" href="{{ route($menu->slug) }}" ><span>{{ $menu->title }}</span> </a>
+               <li ><a class="nav-link {{ URL::current() == route($menu->slug) ? 'active' : '' }} scrollto" href="{{ route($menu->slug) }}" ><span>{{ $menu->title }}</span> </a>
 {{-- class="{{ (count($sub_menu)) ? 'dropdown' : '' }}  }}" --}}
 {{-- {!! count($sub_menu) ? '<i class="bi bi-chevron-down"></i>' : '' !!} --}}
                 {{-- <ul>
@@ -171,11 +170,7 @@
         &copy; Copyright <strong><span>BizLand</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bizland-bootstrap-business-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://iftekher2108.github.io/iftekher-portfolio">Iftekher Mahmud</a>
       </div>
     </div>
   </footer><!-- End Footer -->

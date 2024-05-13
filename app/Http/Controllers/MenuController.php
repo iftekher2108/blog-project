@@ -19,20 +19,30 @@ class MenuController extends Controller
         return view('back-end.menu.index', compact('menus', 'sub_menus'));
     }
 
-    public function menuCreate()
+    public function menu_create()
     {
         return view('back-end.menu.create');
     }
 
 
     public function menu_order(Request $request) {
-        $menu = menu::find($request->id);
-        $menu->order_id = $request->input_id;
-        $menu->save();
+
+        $menus = menu::all();
+
+        foreach ($menus as $menu) {
+            foreach ($request->orders as $order) {
+                if($order['id'] == $menu->id) {
+                    $menu->order_id = $order['position'];
+                    $menu->save();
+                }
+            }
+        }
+
         return response()->json(['success' => 'Menu order changed successfully']);
+
     }
 
-    public function menuStore(Request $request)
+    public function menu_store(Request $request)
     {
 
         $data = $request->validate([
@@ -45,7 +55,7 @@ class MenuController extends Controller
         return redirect()->route('menu.index')->with('success', 'Menu Item Created Successfully');
     }
 
-    public function menuDelete($id)
+    public function menu_delete($id)
     {
         menu::find($id)->delete();
         return redirect()->route('menu.index')->with('error', 'Menu Item Deleted Successfully');

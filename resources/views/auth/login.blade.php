@@ -13,6 +13,7 @@
 
     {{-- stylesheet --}}
     <link rel="stylesheet" href="{{ asset('back_assets/css/custom-boot.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('back_assets/css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('back_assets/css/main.min.css') }}">
 
@@ -31,7 +32,7 @@
                             <div class="app-brand d-flex justify-content-center">
                                 <a href="" class="nav-link d-flex align-items-center flex-column p-1 gap-2">
                                     <span class="app-brand-logo demo">
-                                        <img src="{{ asset( $store->where('data_name','logo')->value('picture') ) }}" class="img-fluid" height="50" width="120" alt="">
+                                        <img src="{{ asset( $store->where('data_name','logo')->value('picture') ) }}" class="img-fluid" width="100" alt="">
                                     </span>
                                     <span class="app-brand-text demo text-body fw-bolder">{{ $store->where('data_name','logo')->value('title') }}</span>
                                 </a>
@@ -69,8 +70,9 @@
                                                 name="password"
                                                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                                 required />
-                                            <span class="input-group-text cursor-pointer"><i
-                                                    class="bx bx-hide"></i></span>
+                                            <span class="input-group-text toggle-eye cursor-pointer">
+                                                <i class="fa-solid fa-eye-slash"></i>
+                                            </span>
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -116,7 +118,16 @@
     <script src="{{ asset('back_assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('back_assets/js/main.js') }}"></script>
 
-    @yield('script')
+    <script>
+
+        $('.toggle-eye').click(function() {
+            $(this).children().toggleClass('fa-eye-slash')
+            $(this).children().toggleClass( 'fa-eye');
+
+           $(this).siblings('input#password').attr('type',$(this).siblings('input#password').attr('type') == 'password' ? 'text' : 'password')
+        })
+
+    </script>
 
 </body>
 

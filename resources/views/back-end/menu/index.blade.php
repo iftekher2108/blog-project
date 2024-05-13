@@ -31,21 +31,21 @@
                         <th>Id</th>
                         <th>Order Id</th>
                         <th>Name</th>
-                        <th>Slug</th>
+                        <th>routes</th>
                         <th>Status</th>
                         <th>Action</th>
 
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="sortable">
 
                     @foreach ($menus as $menu)
-                        <tr draggable="true">
+                        <tr data-id="{{ $menu->id }}">
                             <td><i class="fa-solid fa-sort"></i></td>
                             <td><input type="checkbox" class="select-item form-check-input" id="{{ $menu->id }}" value='{{ $menu->id }}'>
                             </td>
                             <td>{{ $menu->id }}</td>
-                            <td><input type="number" title="" value="{{ $menu->order_id }}" class="form-control order_id shadow-none bg-transparent" readonly ></td>
+                            <td>{{ $menu->order_id }}</td>
                             <td>{{ $menu->title }}</td>
                             <td>{{ $menu->slug }}</td>
                             <td>
@@ -65,14 +65,58 @@
             </table>
         </div>
 
-       
+
 
 @endsection
 
 @section('script')
 <script>
 
-order_id('.order_id','.menu-table',`{{ route('menu.order.change') }}`);
+// order_id('.order_id','.menu-table',`{{ route('menu.order.change') }}`);
+
+
+$('.sortable').sortable({
+    delay:150,
+    items:'tr',
+    cursor:'move',
+    opacity:0.6,
+    update:function() {
+        orderUpdate()
+    },
+});
+
+function orderUpdate() {
+    var order = [];
+    $('.sortable tr').each(function(index, element) {
+        order.push({
+            id: $(this).attr('data-id'),
+            position: index+1,
+        })
+    })
+    console.log(order.id)
+
+    $.ajax({
+        type: "post",
+        url: `{{ route('menu.order.change') }}`,
+        data: {
+          orders:order
+        },
+        dataType: "json",
+        success: function (res) {
+
+            $('.menu-table').prepend(
+                    `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        ${res.success}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>`,
+                )
+            setTimeout(function(){
+                window.location.reload();
+            }, 1500);
+
+        }
+    });
+}
 
 
 </script>

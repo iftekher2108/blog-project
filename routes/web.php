@@ -36,15 +36,19 @@ Route::controller(HomeController::class)->group(function(){
 Route::controller(SettingsController::class)->group(function(){
 
     Route::get('slider','slider')->name('slider.index');
+    Route::post('slider/order/change','slider_order')->name('slider.order.change');
+    Route::get('slider/create','slider_create')->name('slider.create');
+    Route::post('slider/store','slider_store')->name('slider.store');
+
 
 });
 
 Route::controller(MenuController::class)->group(function(){
     Route::get('menu','menu')->name('menu.index');
     Route::post('menu/order/change','menu_order')->name('menu.order.change');
-    Route::get('menu/create','menuCreate')->name('menu.create');
-    Route::post('menu/store','menuStore')->name('menu.store');
-    Route::get('menu/{id}/delete','menuDelete')->name('menu.delete');
+    Route::get('menu/create','menu_create')->name('menu.create');
+    Route::post('menu/store','menu_store')->name('menu.store');
+    Route::get('menu/{id}/delete','menu_delete')->name('menu.delete');
 
 });
 

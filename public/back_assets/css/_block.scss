@@ -71,6 +71,7 @@
                 -moz-transform: translateX(20%);
                 -ms-transform: translateX(20%);
                 -o-transform: translateX(20%);
+                opacity: 0.3;
             }
 
             &::after {
@@ -86,6 +87,7 @@
                 -moz-transform: translateX(-20%);
                 -ms-transform: translateX(-20%);
                 -o-transform: translateX(-20%);
+                opacity: 0.3;
             }
         }
 

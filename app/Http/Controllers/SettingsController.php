@@ -4,16 +4,45 @@ namespace App\Http\Controllers;
 
 use App\Models\Settings;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class SettingsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
 
+    // slider section
     public function slider() {
-        return view('back-end.slider.index');
+        $sliders = Settings::where('data_name','slider')->get();
+        return view('back-end.slider.index',compact('sliders'));
     }
+
+    public function slider_order(Request $request) {
+
+    }
+
+    public function slider_create() {
+        return view('back-end.slider.create');
+    }
+
+    public function slider_store(Request $request) {
+
+        $slider = new Settings;
+
+        $request->validate([
+            'data_name' => 'required|string',
+            'title' => 'nullable|string',
+            'sub_title' => 'nullable|string',
+
+        ]);
+
+        if(isset($request->picture)) {
+            $driver = new ImageManager(new Driver());
+
+        }
+
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
