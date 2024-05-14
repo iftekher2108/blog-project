@@ -4,19 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Models\Settings;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
 class SettingsController extends Controller
 {
 
-    // slider section
     public function slider() {
-        $sliders = Settings::where('data_name','slider')->get();
+        $sliders = Settings::where('data_name','home_slider')->get();
         return view('back-end.slider.index',compact('sliders'));
     }
 
     public function slider_order(Request $request) {
+        $sliders = Settings::where('data_name','home_slider')->get();
+
+        foreach ($sliders as $slider) {
+            foreach ($request->orders as $order) {
+                if($order['id'] == $slider->id) {
+                    $slider->order_id = $order['position'];
+                    $slider->save();
+                }
+            }
+        }
+
+        return response()->json(['success' => 'Slider order changed successfully']);
 
     }
 
@@ -26,23 +38,56 @@ class SettingsController extends Controller
 
     public function slider_store(Request $request) {
 
-        $slider = new Settings;
 
-        $request->validate([
+
+        Validator::make($request->all(),[
             'data_name' => 'required|string',
             'title' => 'nullable|string',
             'sub_title' => 'nullable|string',
+            'link' => 'nullable|string',
+            'picture' => 'max:10000|mimes:png,jpg,jpeg|dimensions:min_width=1920,min_height=1080',
+            'status' => 'required'
 
         ]);
 
+        $slider = new Settings;
+        $driver = new ImageManager(new Driver());
+        $slider->data_name = 'home_slider';
+
         if(isset($request->picture)) {
-            $driver = new ImageManager(new Driver());
+
+            $dir_path = 'slider/';
+            $file_name = 'slider'.time().'.'.$request->picture->extension();
+
+           $store = $request->picture->storeAs($dir_path , $file_name , 'public');
+
+           if($store) {
+            $image = $driver->read('storage/slider/'. $file_name);
+            $image->resize(1920,1080);
+            $image->save('storage/'.$dir_path.$file_name);
+           }
+
+
+            $slider->picture = $file_name;
 
         }
 
+        $slider->title = $request->title;
+        $slider->sub_title = $request->sub_title;
+        $slider->link = $request->link;
+        $slider->status = $request->status;
+        $slider->save();
+
+        return redirect()->route('slider.index')->with('success','Slider created successfully');
+
     }
+// ---------------- slider end section ----------------------------
 
 
+public function service() {
+    $services = Settings::where('data_name','service')->get();
+    return view('back-end.service.index',compact('services'));
+}
 
     /**
      * Show the form for creating a new resource.

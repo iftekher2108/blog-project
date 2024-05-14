@@ -31,7 +31,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ $store->where('data_name','logo')->value('picture') }}" class="img-fluid" height="60" width="60" alt="">
+                    <img src="{{ $store->where('data_name','logo')->value('picture') }}" class="img-fluid" width="80" alt="">
                 </a>
 
                 <div>
@@ -53,9 +53,9 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                <a id="navbarDropdown" class="nav-link text-white dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                   <img src="" class="img-fluid" height="50" width="50" alt=""> {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

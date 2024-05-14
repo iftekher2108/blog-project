@@ -550,7 +550,7 @@ h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
+  padding: 50px 0;
   overflow: hidden;
 }
 
@@ -656,14 +656,18 @@ section {
 # Featured Services
 --------------------------------------------------------------*/
 .featured-services .icon-box {
-  padding: 30px;
+  padding: 20px;
   position: relative;
   overflow: hidden;
   background: #fff;
   box-shadow: 0 0 29px 0 rgba(68, 88, 144, 0.12);
   transition: all 0.3s ease-in-out;
-  border-radius: 8px;
+  border-radius:0px 0px 8px 8px;
   z-index: 1;
+  -webkit-border-radius:0px 0px 8px 8px;
+  -moz-border-radius:0px 0px 8px 8px;
+  -ms-border-radius:0px 0px 8px 8px;
+  -o-border-radius:0px 0px 8px 8px;
 }
 
 .featured-services .icon-box::before {

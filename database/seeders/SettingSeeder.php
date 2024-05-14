@@ -12,20 +12,14 @@ class SettingSeeder extends Seeder
      */
     public function run(): void
     {
+        
         Settings::create([
-            'data_name' => 'logo',
-            'title' => 'company name',
+            'data_name' => 'info',
+            'title' => 'logo',
             'picture' => 'https://st2.depositphotos.com/4035913/6124/i/450/depositphotos_61243733-stock-illustration-business-company-logo.jpg',
             'status' => 'publish'
         ]);
 
-        Settings::create([
-            'data_name' => 'home-slide',
-            'title' => 'Wellcome to website.',
-            'sub_title' => 'lorem ispam hello to your name what is it.',
-            'link' => 'http://iftekher2108.github.io/iftekher-portfolio'
 
-
-        ]);
     }
 }

@@ -49,6 +49,12 @@
                         </a>
                     </li>
 
+                    <li class="menu-item {{ Request::is('service') ? 'active' : '' }}">
+                        <a href="{{ route('service.index') }}" class="nav-link">
+                            <i class="fa-solid me-2 fa-images"></i> Service
+                        </a>
+                    </li>
+
                     {{-- <li class="menu-item {{ Request::is('home')? 'active': '' }}">
                 <a href="layouts-container.html" class="nav-link">
                   account

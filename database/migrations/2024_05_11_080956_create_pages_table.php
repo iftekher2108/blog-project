@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('page_title')->unique();
             $table->string('page_slug')->unique();
+            $table->string('picture')->nullable();
             $table->longText('content')->nullable();
             $table->string('keywords')->nullable();
             $table->enum('status',['publish','unpublish']);

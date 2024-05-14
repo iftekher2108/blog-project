@@ -35,10 +35,14 @@ Route::controller(HomeController::class)->group(function(){
 
 Route::controller(SettingsController::class)->group(function(){
 
+    // home slider section
     Route::get('slider','slider')->name('slider.index');
     Route::post('slider/order/change','slider_order')->name('slider.order.change');
     Route::get('slider/create','slider_create')->name('slider.create');
     Route::post('slider/store','slider_store')->name('slider.store');
+
+    // service section
+    Route::get('service','service')->name('service.index');
 
 
 });

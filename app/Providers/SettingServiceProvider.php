@@ -27,7 +27,7 @@ class SettingServiceProvider extends ServiceProvider
         // view()->share('app_data',::all());
 
         try {
-            $data = Settings::all();
+            $data = Settings::where('data_name','info')->get();
             View::share('store',$data);
 
             }

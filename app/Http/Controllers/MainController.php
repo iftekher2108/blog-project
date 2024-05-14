@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 // use App\Models\menu;
 // use App\Models\subMenu;
+
+use App\Models\Settings;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -13,7 +15,8 @@ class MainController extends Controller
      */
     public function index()
     {
-        return view('front-end.index');
+        $sliders = Settings::where('data_name','home_slider')->orderBy('order_id','asc')->get();
+        return view('front-end.index',compact('sliders'));
     }
 
     public function gallery() {

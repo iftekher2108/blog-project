@@ -53,7 +53,7 @@
   <header id="header" class="d-flex sticky-top align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-    <a class="logo" href="{{ route('home.index') }}"> <img src="{{ asset($store->where('data_name','logo')->value('picture')) }}" class="img-fluid" height="50" width="70" alt=""></a>
+    <a class="logo" href="{{ route('home.index') }}"> <img src="{{ asset($store->where('title','logo')->value('picture')) }}" class="img-fluid" height="50" width="70" alt=""></a>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
 

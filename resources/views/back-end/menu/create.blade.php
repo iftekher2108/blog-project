@@ -3,7 +3,7 @@
 @section('content')
     <div>
 
-        <h1 class="text-center text-primary fw-bold">Create New Menu</h1>
+        <h1 class="text-center text-primary fw-bold">Menu information</h1>
 
         <form action="{{ route('menu.store') }}" method="POST" enctype="multipart/form-data">
             @csrf

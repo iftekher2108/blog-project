@@ -3,7 +3,7 @@
 @section('content')
     <div>
 
-        <h1 class="text-center text-primary fw-bold">Slide information</h1>
+        <h1 class="text-center text-primary fw-bold">Service information</h1>
 
         <form action="{{ route('slider.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
