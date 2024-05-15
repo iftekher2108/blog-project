@@ -93,6 +93,13 @@
                                     <button class="btn btn-primary m-auto w-75"
                                         type="submit">{{ __('Login') }}</button>
                                 </div>
+
+                                <div class="d-flex mb-3">
+                                    <a href="{{ route('auth.google') }}" class="btn btn-danger fw-bold m-auto w-100"
+                                        type="submit">google Logins</a>
+                                </div>
+
+
                                 {{--
                             @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">

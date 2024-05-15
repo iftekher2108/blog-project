@@ -1,13 +1,14 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\MenuController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SettingsController;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,4 +76,10 @@ Route::controller(MainController::class)->group(function(){
     Route::get('news','news')->name('news.index');
     Route::get('contact-us','contact')->name('contact.index');
 
+});
+
+
+Route::controller(GoogleController::class)->group(function(){
+    Route::get('auth/google', 'redirectToGoogle')->name('auth.google');
+    Route::get('auth/google/callback', 'handleGoogleCallback');
 });
