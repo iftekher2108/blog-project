@@ -60,7 +60,7 @@
       <nav id="navbar" class="navbar">
         <ul>
             @php
-                $menus = DB::table('menus')->where('menus.status','publish')->orderBy('order_id','asc')->limit(10)->get();
+                $menus = DB::table('settings')->where('settings.data_name','menu')->where('status','publish')->orderBy('order_id','asc')->limit(10)->get();
             @endphp
             @foreach ( $menus as $menu )
 

@@ -17,13 +17,10 @@ return new class extends Migration
             $table->string('sub_title')->unique();
             $table->string('sub_slug')->unique();
             $table->unsignedBigInteger('cat_id');
-            $table->string('sub_picture');
-            $table->string('sub_content');
+            $table->string('sub_picture')->nullable();
+            $table->longText('sub_content')->nullable();
             $table->enum('status',['publish','unpublish']);
             $table->timestamps();
-
-            // $table->foreign('sub_cat_id')->references('id')->on('categories')->OnDelete('cascade');
-
         });
     }
 

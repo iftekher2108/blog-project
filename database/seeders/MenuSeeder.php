@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\menu;
+use App\Models\Settings;
 use Illuminate\Database\Seeder;
 
 class MenuSeeder extends Seeder
@@ -12,7 +12,8 @@ class MenuSeeder extends Seeder
      */
     public function run(): void
     {
-        menu::create([
+        Settings::create([
+            'data_name' => 'menu',
             'order_id' => 1,
             'title' => 'Home',
             'slug' => 'home.index',
@@ -20,25 +21,29 @@ class MenuSeeder extends Seeder
 
         ]);
 
-        menu::create([
+        Settings::create([
+            'data_name' => 'menu',
             'order_id' => 2,
             'title' => 'About Us',
             'slug' => 'about.index',
             'status' => 'publish'
         ]);
-        menu::create([
+        Settings::create([
+            'data_name' => 'menu',
             'order_id' => 3,
             'title' => 'Gellery',
             'slug' => 'gallery.index',
             'status' => 'publish'
         ]);
-        menu::create([
+        Settings::create([
+            'data_name' => 'menu',
             'order_id' => 3,
             'title' => 'news',
             'slug' => 'news.index',
             'status' => 'publish',
         ]);
-        menu::create([
+        Settings::create([
+            'data_name' => 'menu',
             'order_id' => 3,
             'title' => 'Contact Us',
             'slug' => 'contact.index',

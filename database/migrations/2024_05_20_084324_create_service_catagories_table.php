@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('service_catagories', function (Blueprint $table) {
             $table->id();
-            $table->integer('order_id')->default(0);
-            $table->string('title')->unique();
-            $table->string('slug')->unique();
+            $table->unsignedBigInteger('order_id')->default(0);
+            $table->string('title');
             $table->string('picture')->nullable();
-            $table->string('description')->nullable();
             $table->longText('content')->nullable();
-            $table->string('keywords')->nullable();
-            $table->integer('views')->default(0);
             $table->enum('status',['publish','unpublish']);
             $table->timestamps();
         });
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('service_catagories');
     }
 };

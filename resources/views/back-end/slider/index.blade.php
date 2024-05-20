@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    <div class="mt-2">
+    <div class="menu-table mt-2">
         <h4 class="text-center">Slider information</h4>
         <div class="d-flex justify-content-between my-2">
             <a href="" class="btn btn-danger">Delete All</a> <a href="{{ route('slider.create') }}"
@@ -82,7 +82,7 @@
                     position: index + 1,
                 })
             })
-            console.log(order.id)
+            // console.log(order.id)
 
             $.ajax({
                 type: "post",
@@ -97,9 +97,11 @@
                         `<div class="alert alert-success alert-dismissible fade show" role="alert">
                         ${res.success}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>`,
-                    )
-                    setTimeout(function() {
+              </div>`)
+
+                // console.log(res)
+
+                    setTimeout(function(){
                         window.location.reload();
                     }, 1500);
 

@@ -8,7 +8,10 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\ServiceCatagoryController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingsController;
+use App\Models\service;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,9 +46,18 @@ Route::controller(SettingsController::class)->group(function(){
     Route::post('slider/store','slider_store')->name('slider.store');
 
     // service section
+
+
+
+});
+
+Route::controller(ServiceController::class)->group(function(){
     Route::get('service','service')->name('service.index');
+});
 
-
+Route::controller(ServiceCatagoryController::class)->group(function(){
+    Route::get('service/category/create','CreateCatagory')->name('service.category.create');
+    Route::post('service/category/store','StoreCatagory')->name('service.category.store');
 });
 
 Route::controller(MenuController::class)->group(function(){

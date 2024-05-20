@@ -1,28 +1,20 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\service;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Settings extends Model
+class ServiceCatagory extends Model
 {
     use HasFactory;
 
 
     protected $fillable = [
-        'data_name',
         'order_id',
-        'data_id',
-        'slug',
         'title',
-        'sub_title',
-        'link',
-        'content',
-        'content_2',
         'picture',
-        // 'dir_path',
-        'data_type',
+        'content',
         'status',
     ];
 

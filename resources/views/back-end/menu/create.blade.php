@@ -5,11 +5,11 @@
 
         <h1 class="text-center text-primary fw-bold">Menu information</h1>
 
-        <form action="{{ route('menu.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('menu.store') }}" class="col-lg-6 col-md-6 col-sm-12" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row g-2 ">
 
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-md-12">
                     <div class="mb-3">
                         <label for="title" class="form-label">Menu Title</label>
                         <input class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="title">
@@ -19,14 +19,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="mb-3">
-                        <label for="slug" class="form-label">Slug</label>
-                        <input class="form-control" id="slug" readonly name="slug" placeholder="title">
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-md-12">
                     <div class="mb-3">
                         <label for="status" class="form-label">Status</label>
                         <select class="form-control nice-select wide" id="status" name="status">
@@ -46,10 +39,3 @@
     </div>
 @endsection
 
-@section('script')
-    <script>
-        $("input[name=title]").on('input', function() {
-            $('input[name=slug]').val($(this).val().toLowerCase().replace(/[^\w ]+/g, "").replace(/ +/g, "-"));
-        })
-    </script>
-@endsection

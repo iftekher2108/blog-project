@@ -84,10 +84,6 @@ class SettingsController extends Controller
 // ---------------- slider end section ----------------------------
 
 
-public function service() {
-    $services = Settings::where('data_name','service')->get();
-    return view('back-end.service.index',compact('services'));
-}
 
     /**
      * Show the form for creating a new resource.

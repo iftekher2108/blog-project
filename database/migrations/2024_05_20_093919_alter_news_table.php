@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function ($table) {
-            $table->string('google_id')->nullable();
+        Schema::table('news', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->OnDelete('cascade');
+            $table->foreign('cat_id')->references('id')->on('categories')->OnDelete('cascade');
         });
     }
 
@@ -21,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('news');
     }
 };

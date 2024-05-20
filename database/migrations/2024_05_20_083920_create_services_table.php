@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('order_id')->default(0);
-            $table->string('title')->unique();
-            $table->string('slug')->unique();
-            $table->string('feature')->nullable();
-            $table->string('content')->nullable();
+            $table->string('title');
+            $table->unsignedBigInteger('service_cat_id');
+            $table->string('picture')->nullable();
+            $table->string('short_description');
+            $table->longText('content')->nullable();
             $table->enum('status',['publish','unpublish']);
             $table->timestamps();
         });
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('services');
     }
 };

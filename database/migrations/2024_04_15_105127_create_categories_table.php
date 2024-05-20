@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('cat_title')->unique();
             $table->string('cat_slug')->unique();
             $table->string('cat_picture')->nullable();
-            $table->string('cat_content')->nullable();
+            $table->longText('cat_content')->nullable();
             $table->enum('status',['publish','unpublish']);
             $table->timestamps();
         });

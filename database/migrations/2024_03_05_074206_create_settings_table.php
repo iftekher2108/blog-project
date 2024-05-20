@@ -16,13 +16,14 @@ return new class extends Migration
             $table->string('data_name');
             $table->unsignedBigInteger("order_id")->default(0);
             $table->unsignedBigInteger('data_id')->nullable();
-            $table->string('name')->nullable();
+            $table->string('slug')->nullable();
             $table->string('title')->nullable();
             $table->string('sub_title')->nullable();
             $table->string('link')->nullable();
             $table->longText('content')->nullable();
             $table->longText('content_2')->nullable();
             $table->string('picture')->nullable();
+            // $table->text('dir_path')->nullable();
             $table->string('data_type')->nullable();
             $table->enum('status',['publish','unpublish']);
             $table->timestamps();

@@ -29,7 +29,7 @@
                         <th>Sort-Id</th>
                         <th><input type="checkbox" class="select-all form-check-input border-1 border-white "></th>
                         <th>Id</th>
-                        <th></th>
+                        {{-- <th></th> --}}
                         <th>Name</th>
                         <th>routes</th>
                         <th>Status</th>
@@ -93,7 +93,7 @@ function orderUpdate() {
             position: index+1,
         })
     })
-    console.log(order.id)
+    // console.log(order.id)
 
     $.ajax({
         type: "post",
@@ -108,8 +108,9 @@ function orderUpdate() {
                     `<div class="alert alert-success alert-dismissible fade show" role="alert">
                         ${res.success}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>`,
+              </div>`
                 )
+                // console.log(res)
             setTimeout(function(){
                 window.location.reload();
             }, 1500);
