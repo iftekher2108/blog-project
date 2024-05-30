@@ -45,7 +45,7 @@ class SettingsController extends Controller
             'title' => 'nullable|string',
             'sub_title' => 'nullable|string',
             'link' => 'nullable|string',
-            'picture' => 'max:10000|mimes:png,jpg,jpeg|dimensions:min_width=1920,min_height=1080',
+            'picture' => 'max:10000|mimes:png,jpg,jpeg',
             'status' => 'required'
 
         ]);

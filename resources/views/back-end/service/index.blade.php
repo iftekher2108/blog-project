@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    
+
  <div class="mt-2">
         <h4 class="text-center">Service Catagory information</h4>
         <div class="d-flex justify-content-between my-2">
@@ -26,7 +26,6 @@
         <table class="table datatable table-striped w-100  table-hover">
             <thead>
                 <tr class="bg-primary text-white">
-                    <th>Sort-Id</th>
                     <th><input type="checkbox" class="select-all form-check-input border-1 border-white "></th>
                     <th>Id</th>
                     <th>Picture</th>
@@ -38,12 +37,11 @@
             </thead>
             <tbody>
 
-                @foreach ($services as $key => $service)
-                    <tr data-id={{ $service->id }}>
-                        <td> <i class="fa-solid mx-2 fa-sort"></i>{{ $service->order_id }}</td>
+                @foreach ($services_catagories as $key => $service)
+                    <tr>
                         <td><input type="checkbox" class="select-item form-check-input"></td>
                         <td>{{ $service->id }}</td>
-                        <td><img src="{{ asset('storage/slider/'.$service->picture) }}" class="img-thumbnail" width="50" alt=""></td>
+                        <td><img src="{{ asset('storage/service/catagory/'.$service->picture) }}" class="img-thumbnail" width="50" alt=""></td>
                         <td>{{ $service->title }}</td>
                         <td>
                             <div class="badge {{ $service->status == 'publish' ? 'bg-success' : 'bg-danger' }}">publish</div>
@@ -65,7 +63,7 @@
     <div class="menu-table mt-2">
         <h4 class="text-center">Service information</h4>
         <div class="d-flex justify-content-between my-2">
-            <a href="" class="btn btn-danger">Delete All</a> <a href="{{ route('slider.create') }}"
+            <a href="" class="btn btn-danger">Delete All</a> <a href="{{ route('service.create') }}"
                 class="btn btn-primary">Create</a>
         </div>
 
@@ -90,7 +88,7 @@
                         <td> <i class="fa-solid mx-2 fa-sort"></i>{{ $service->order_id }}</td>
                         <td><input type="checkbox" class="select-item form-check-input"></td>
                         <td>{{ $service->id }}</td>
-                        <td><img src="{{ asset('storage/slider/'.$service->picture) }}" class="img-thumbnail" width="50" alt=""></td>
+                        <td><img src="{{ asset('storage/service/'.$service->picture) }}" class="img-thumbnail" width="50" alt=""></td>
                         <td>{{ $service->service_catagory->title }}</td>
                         <td>{{ $service->title }}</td>
                         <td>
@@ -99,7 +97,7 @@
                         <td>
                             <div class="d-flex justify-content-around">
                                 <a href="" class="btn btn-primary">Edit</a>
-                                <a href="" class="btn btn-danger">Delete</a>
+                                <a href="{{ route('service.delete',$service->id) }}" class="btn btn-danger">Delete</a>
                             </div>
                         </td>
                     </tr>

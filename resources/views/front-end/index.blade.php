@@ -40,19 +40,29 @@
 
         <!-- ======= Featured Services Section ======= -->
         <section id="featured-services" class="featured-services">
+
+
+            <h1 class="text-center fw-bold text-uppercase text-primary mb-4">Our Service</h1>
+
             <div class="container" data-aos="fade-up">
 
                 <div class="row">
-                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                        <div class="rounded" data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://i.pinimg.com/originals/d0/40/f2/d040f27957bdc48e459977819564fc4b.jpg" class="img-fluid rounded-top" >
-                            <div class="icon-box">
-                            <h3 class="title my-1"><a href="">Lorem Ipsum</a></h3>
-                            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
-                                excepturi</p>
+
+                    @foreach ($services as $service)
+                        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                            <div class="rounded" data-aos="fade-up" data-aos-delay="100">
+                                <img src="{{ asset('storage/service/'.$service->picture) }}" class="img-fluid rounded-top">
+                                <div class="icon-box">
+                                    <h3 class="title my-1"><a href="">{{ $service->title }}</a></h3>
+                                    <p class="description line-clamp-5">
+                                        {{ $service->short_description }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
+
+
 
 
                 </div>
@@ -332,7 +342,7 @@
             </div>
         </section><!-- End Services Section -->
 
-        
+
         <!-- ======= Team Section ======= -->
         <section id="team" class="team section-bg">
             <div class="container" data-aos="fade-up">

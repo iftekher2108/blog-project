@@ -28,6 +28,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('front_assets/scss/theme.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('front_assets/scss/main.min.css') }}">
 
 </head>
 

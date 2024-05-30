@@ -87,7 +87,7 @@
                 </a>
 
                 <ul class="menu-sub hide">
-                    <li class="menu-item {{ Request::is('home') ? 'active' : '' }}">
+                    <li class="menu-item {{ Request::is('#') ? 'active' : '' }}">
                         <a href="" class="nav-link">
                             <i class="fa-solid me-2 fa-user-shield"></i>  Users
                         </a>
@@ -153,12 +153,12 @@
 
                 </a>
                 <ul class="menu-sub hide">
-                    <li class="menu-item {{ Request::is('home') ? 'active' : '' }}">
+                    <li class="menu-item {{ Request::is('#') ? 'active' : '' }}">
                         <a href="" class="nav-link">
                             <i class="fa-solid me-2 fa-wrench"></i> theme settings
                         </a>
                     </li>
-                    <li class="menu-item {{ Request::is('home') ? 'active' : '' }}">
+                    <li class="menu-item {{ Request::is('#') ? 'active' : '' }}">
                         <a href="" class="nav-link">
                             <i class="fa-solid me-2 fa-screwdriver-wrench"></i> Under Maintenance
                         </a>

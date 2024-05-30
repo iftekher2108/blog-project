@@ -5,23 +5,21 @@
 
         <h1 class="text-center text-primary fw-bold">Service information</h1>
 
-        <form action="{{ route('slider.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('service.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row g-2 ">
 
                 <div class="col-lg-6 col-md-6 col-sm-12">
-                    <span class="my-1">Slide Image Preview</span>
                     <div class="preview-img border rounded border-1">
                         <img src="" class="img-fluid rounded">
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="mb-3">
-                        <label for="input-img" class="form-label">Slide Picture</label>
+                        <label for="input-img" class="form-label">Picture</label>
                         <input type="file" class="form-control @error('picture') is-invalid @enderror" id="input-img" name="picture"
                             accept="image/png, image/gif, image/jpeg">
-                        <label>max size: 3mb | Dimention Ratio:1280x720 or Higher </label>
                         @error('picture')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -33,7 +31,7 @@
 
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="mb-3">
-                        <label for="title" class="form-label">Slide Title</label>
+                        <label for="title" class="form-label">Title</label>
                         <input class="form-control @error('title') is-invalid @enderror" id="title" name="title"
                             placeholder="Title">
                         @error('title')
@@ -41,26 +39,33 @@
                         @enderror
                     </div>
                 </div>
-
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="mb-3">
-                        <label for="sub-title" class="form-label">Slide Sub-title</label>
-                        <input class="form-control @error('sub_title') is-invalid @enderror" id="sub-title" name="sub_title" placeholder="Sub-title">
-                        @error('sub_title')
+                        <label for="video-link" class="form-label">service Catagory</label>
+
+                        <select name="service_cat_id" id="" class="form-control wide nice-select @error('service_cat_id') is-invalid @enderror">
+                           @foreach ( $services_catagories as $catagory )
+                                <option value="{{ $catagory->id }}">{{ $catagory->title }}</option>
+                           @endforeach
+
+                        </select>
+                        @error('service_cat_id')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="mb-3">
-                        <label for="video-link" class="form-label">video link</label>
-                        <input class="form-control @error('link') is-invalid @enderror" id="video-link" name="link" placeholder="title">
-                        @error('link')
+                        <label for="sub-title" class="form-label">Description</label>
+                        <textarea class="form-control @error('short_description') is-invalid @enderror" id="sub-title" name="short_description" placeholder="Description"></textarea>
+                        @error('short_description')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
+
+
 
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="mb-3">
