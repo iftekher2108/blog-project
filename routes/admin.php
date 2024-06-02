@@ -26,7 +26,6 @@ use App\Http\Controllers\ServiceCatagoryController;
 Auth::routes();
 // ================================= Auth Routes ================================================
 
-
 // =================================== Auth Admin Middleware start ==================================================
 
 Route::middleware(['auth','admin'])->group(function(){
@@ -47,6 +46,9 @@ Route::controller(SettingsController::class)->group(function(){
     Route::post('slider/order/change','slider_order')->name('slider.order.change');
     Route::get('slider/create','slider_create')->name('slider.create');
     Route::post('slider/store','slider_store')->name('slider.store');
+    Route::get('slider/{id}/edit','slider_edit')->name('slider.edit');
+    Route::post('slider/{id}/update','slider_update')->name('slider.update');
+    Route::get('slider/{id}/delete','slider_delete')->name('slider.delete');
 
 });
 // ============================ utilities setting section end ============================
@@ -55,14 +57,20 @@ Route::controller(SettingsController::class)->group(function(){
 // =================================== service section start =================================
 Route::controller(ServiceController::class)->group(function(){
     Route::get('service','service')->name('service.index');
+    Route::post('service/order/change','service_order')->name('service.order.change');
     Route::get('service/create','serviceCreate')->name('service.create');
     Route::post('service/store','serviceStore')->name('service.store');
+    Route::get('service/{id}/edit','serviceEdit')->name('service.edit');
+    Route::post('service/{id}/update','serviceUpdate')->name('service.update');
     Route::get('service/{id}/delete','ServiceDelete')->name('service.delete');
 });
 
 Route::controller(ServiceCatagoryController::class)->group(function(){
-    Route::get('service/category/create','CreateCatagory')->name('service.category.create');
-    Route::post('service/category/store','StoreCatagory')->name('service.category.store');
+    Route::get('service/category/create','CreateCategory')->name('service.category.create');
+    Route::post('service/category/store','StoreCategory')->name('service.category.store');
+    Route::get('service/category/{id}/edit','serviceCategoryEdit')->name('service.category.edit');
+    Route::post('service/category/{id}/update','serviceCategoryUpdate')->name('service.category.update');
+    Route::get('service/category/{id}/delete','serviceCategoryDelete')->name('service.category.delete');
 
 });
 
@@ -104,8 +112,8 @@ Route::controller(PagesController::class)->group(function(){
 
 // ===================================== Auth admin middleware end =========================================
 
-
 Route::controller(GoogleController::class)->group(function(){
     Route::get('auth/google', 'redirectToGoogle')->name('auth.google');
     Route::get('auth/google/callback', 'handleGoogleCallback');
 });
+

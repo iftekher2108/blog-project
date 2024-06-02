@@ -6,31 +6,26 @@ use App\Models\Settings;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
 use App\Models\service\ServiceCatagory;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Drivers\Gd\Driver;
 
 class ServiceCatagoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function CreateCatagory()
+    //    =========================================== service category create start ===================================
+
+    public function CreateCategory()
     {
         return view('back-end.service.createCategory');
     }
+//    =========================================== service category create end ===================================
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function StoreCatagory(Request $request)
+
+//    =========================================== service category store start ===================================
+
+    public function StoreCategory(Request $request)
     {
         Validator::make($request->all(),[
             'title' => 'nullable|string',
@@ -39,63 +34,107 @@ class ServiceCatagoryController extends Controller
 
         ]);
 
-        $slider = new ServiceCatagory;
+        $service_category = new ServiceCatagory;
         $driver = new ImageManager(new Driver());
 
         if(isset($request->picture)) {
 
-            $dir_path = 'service/catagory/';
-            $file_name = 'serviceCatagory'.time().'.'.$request->picture->extension();
+            $dir_path = 'service/category/';
+            $file_name = 'serviceCategory'.time().'.'.$request->picture->extension();
 
            $store = $request->picture->storeAs($dir_path , $file_name , 'public');
 
            if($store) {
-            $image = $driver->read('storage/service/catagory/'. $file_name);
+            $image = $driver->read('storage/service/category/'. $file_name);
             $image->resize(400,300);
             $image->save('storage/'.$dir_path.$file_name);
            }
 
-            $slider->picture = $file_name;
+            $service_category->picture = $file_name;
 
         }
 
-        $slider->title = $request->title;
-        $slider->status = $request->status;
-        $slider->save();
-        return redirect()->route('service.index')->with('success','Service Catagory created successfully');
-
+        $service_category->title = $request->title;
+        $service_category->status = $request->status;
+        $service_category->save();
+        return redirect()->route('service.index')->with('success','Service Category created successfully');
 
     }
+//    =========================================== service category store end ===================================
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(ServiceCatagory $serviceCatagory)
+
+
+//    =========================================== service category edit start ===================================
+
+    public function serviceCategoryEdit($id)
     {
-        //
+        $service_category = ServiceCatagory::find($id);
+        return view('back-end.service.editCategory',compact('service_category'));
     }
+//    =========================================== service category edit end ===================================
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(ServiceCatagory $serviceCatagory)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, ServiceCatagory $serviceCatagory)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(ServiceCatagory $serviceCatagory)
+//    =========================================== service category update start ===================================
+
+    public function serviceCategoryUpdate(Request $request,$id)
     {
-        //
+        $service_category = ServiceCatagory::find($id);
+        if(Storage::exists('public/service/category'.$service_category->picture)) {
+            Storage::delete('public/service/category'.$service_category->picture);
+        }
+
+        Validator::make($request->all(),[
+            'title' => 'required|string',
+            'picture' => 'max:10000|mimes:png,jpg,jpeg|nullable',
+            'status' => 'required'
+
+        ]);
+
+        $driver = new ImageManager(new Driver());
+
+        if(isset($request->picture)) {
+
+            $dir_path = 'service/category/';
+            $file_name = 'serviceCategory'.time().'.'.$request->picture->extension();
+
+           $store = $request->picture->storeAs($dir_path , $file_name , 'public');
+
+           if($store) {
+            $image = $driver->read('storage/service/category/'. $file_name);
+            $image->resize(400,300);
+            $image->save('storage/'.$dir_path.$file_name);
+           }
+
+            $service_category->picture = $file_name;
+
+        }
+
+        $service_category->title = $request->title;
+        $service_category->status = $request->status;
+        $service_category->save();
+        return redirect()->route('service.index')->with('success','Service Category Updated successfully');
+
+
+
     }
+//    =========================================== service category update end ===================================
+
+
+//    =========================================== service category delete start ===================================
+    public function serviceCategoryDelete($id)
+    {
+        $service_category = ServiceCatagory::find($id);
+
+        if(Storage::exists('public/service/category/' . $service_category->picture))
+        {
+            Storage::delete('public/service/category/' . $service_category->picture);
+        }
+        $service_category->delete();
+
+        return redirect()->route('service.index')->with('error','Service Category Deleted successfully');
+    }
+//    =========================================== service category delete start ===================================
+
+
 }

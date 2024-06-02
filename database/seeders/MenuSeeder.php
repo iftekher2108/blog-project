@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Settings;
+use App\Models\pages;
 use Illuminate\Database\Seeder;
 
 class MenuSeeder extends Seeder
@@ -12,41 +12,46 @@ class MenuSeeder extends Seeder
      */
     public function run(): void
     {
-        Settings::create([
-            'data_name' => 'menu',
+        pages::create([
             'order_id' => 1,
             'title' => 'Home',
-            'slug' => 'home.index',
+            'slug' => '/',
             'status' => 'publish'
 
         ]);
 
-        Settings::create([
-            'data_name' => 'menu',
+        pages::create([
             'order_id' => 2,
             'title' => 'About Us',
-            'slug' => 'about.index',
+            'slug' => 'about-us',
             'status' => 'publish'
         ]);
-        Settings::create([
-            'data_name' => 'menu',
+
+        pages::create([
             'order_id' => 3,
-            'title' => 'Gellery',
-            'slug' => 'gallery.index',
+            'title' => 'Service',
+            'slug' => 'service',
             'status' => 'publish'
         ]);
-        Settings::create([
-            'data_name' => 'menu',
-            'order_id' => 3,
+
+        pages::create([
+            'order_id' => 4,
+            'title' => 'Gallery',
+            'slug' => 'gallery',
+            'status' => 'publish'
+        ]);
+
+        pages::create([
+            'order_id' => 5,
             'title' => 'news',
-            'slug' => 'news.index',
+            'slug' => 'news',
             'status' => 'publish',
         ]);
-        Settings::create([
-            'data_name' => 'menu',
-            'order_id' => 3,
+
+        pages::create([
+            'order_id' => 6,
             'title' => 'Contact Us',
-            'slug' => 'contact.index',
+            'slug' => 'contact-us',
             'status' => 'publish',
         ]);
 

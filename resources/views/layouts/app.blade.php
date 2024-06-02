@@ -27,6 +27,9 @@
 </head>
 
 <body>
+
+    <div id="preloader"></div>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-sm">
             <div class="container-fluid">

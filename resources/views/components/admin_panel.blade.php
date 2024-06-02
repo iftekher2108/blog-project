@@ -32,7 +32,7 @@
                 <a href="javascript:void(0);" class="nav-link menu-toggle">
                     <div class="d-flex align-items-center gap-3">
                         <i class="fa-solid fa-layer-group"></i>
-                        Layouts
+                       Home Layouts
                     </div>
                     <i class="fa-solid arrow fa-caret-right"></i>
                 </a>
@@ -46,6 +46,12 @@
                     <li class="menu-item {{ Request::is('slider') ? 'active' : '' }}">
                         <a href="{{ route('slider.index') }}" class="nav-link">
                             <i class="fa-solid me-2 fa-images"></i>Home Sliders
+                        </a>
+                    </li>
+
+                    <li class="menu-item {{ Request::is('pages') ? 'active' : '' }}">
+                        <a href="{{ route('page.index') }}" class="nav-link">
+                            <i class="fa-solid me-2 fa-images"></i> Pages
                         </a>
                     </li>
 

@@ -41,15 +41,15 @@
                     <tr>
                         <td><input type="checkbox" class="select-item form-check-input"></td>
                         <td>{{ $service->id }}</td>
-                        <td><img src="{{ asset('storage/service/catagory/'.$service->picture) }}" class="img-thumbnail" width="50" alt=""></td>
+                        <td><img src="{{ asset('storage/service/category/'.$service->picture) }}" class="img-thumbnail" width="50" alt=""></td>
                         <td>{{ $service->title }}</td>
                         <td>
-                            <div class="badge {{ $service->status == 'publish' ? 'bg-success' : 'bg-danger' }}">publish</div>
+                            <div class="badge {{ $service->status == 'publish' ? 'bg-success' : 'bg-danger' }}">{{ $service->status }}</div>
                         </td>
                         <td>
                             <div class="d-flex justify-content-around">
-                                <a href="" class="btn btn-primary">Edit</a>
-                                <a href="" class="btn btn-danger">Delete</a>
+                                <a href="{{ route('service.category.edit',$service->id) }}" class="btn btn-primary">Edit</a>
+                                <a href="{{ route('service.category.delete',$service->id) }}" class="btn btn-danger">Delete</a>
                             </div>
                         </td>
                     </tr>
@@ -92,11 +92,11 @@
                         <td>{{ $service->service_catagory->title }}</td>
                         <td>{{ $service->title }}</td>
                         <td>
-                            <div class="badge {{ $service->status == 'publish' ? 'bg-success' : 'bg-danger' }}">publish</div>
+                            <div class="badge {{ $service->status == 'publish' ? 'bg-success' : 'bg-danger' }}">{{ $service->status }}</div>
                         </td>
                         <td>
                             <div class="d-flex justify-content-around">
-                                <a href="" class="btn btn-primary">Edit</a>
+                                <a href="{{ route('service.edit',$service->id) }}" class="btn btn-primary">Edit</a>
                                 <a href="{{ route('service.delete',$service->id) }}" class="btn btn-danger">Delete</a>
                             </div>
                         </td>
@@ -137,7 +137,7 @@
 
             $.ajax({
                 type: "post",
-                url: `{{ route('slider.order.change') }}`,
+                url: `{{ route('service.order.change') }}`,
                 data: {
                     orders: order
                 },

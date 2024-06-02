@@ -21,9 +21,8 @@ return new class extends Migration
             $table->string('sub_title')->nullable();
             $table->string('link')->nullable();
             $table->longText('content')->nullable();
-            $table->longText('content_2')->nullable();
             $table->string('picture')->nullable();
-            // $table->text('dir_path')->nullable();
+
             $table->string('data_type')->nullable();
             $table->enum('status',['publish','unpublish']);
             $table->timestamps();

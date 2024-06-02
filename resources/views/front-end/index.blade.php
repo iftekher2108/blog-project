@@ -25,8 +25,9 @@
                             <h5 class="text-white">We are team of talented designers making websites with Bootstrap</h5>
                             <div class="d-flex">
                                 <a href="#about" class="btn-get-started scrollto">Get Started</a>
-                                <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="btn-watch-video"><i
-                                        class="bi bi-play-circle"></i><span class="text-white-50">Watch Video</span></a>
+                                <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" target="_blank"
+                                    class="btn-watch-video"><i class="bi bi-play-circle"></i><span
+                                        class="text-white-50">Watch Video</span></a>
                             </div>
                         </div>
 
@@ -37,48 +38,56 @@
         </div>
 
 
+        @if ($services->isNotEmpty())
+            <!-- ======= Featured Services Section ======= -->
+            <section id="featured-services" class="featured-services">
 
-        <!-- ======= Featured Services Section ======= -->
-        <section id="featured-services" class="featured-services">
 
+                <h1 class="text-center fw-bold text-uppercase text-primary mb-4">Our Service</h1>
 
-            <h1 class="text-center fw-bold text-uppercase text-primary mb-4">Our Service</h1>
+                <div class="container" data-aos="fade-up">
 
-            <div class="container" data-aos="fade-up">
+                    <div class="row">
 
-                <div class="row">
-
-                    @foreach ($services as $service)
-                        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                            <div class="rounded" data-aos="fade-up" data-aos-delay="100">
-                                <img src="{{ asset('storage/service/'.$service->picture) }}" class="img-fluid rounded-top">
-                                <div class="icon-box">
-                                    <h3 class="title my-1"><a href="">{{ $service->title }}</a></h3>
-                                    <p class="description line-clamp-5">
-                                        {{ $service->short_description }}
-                                    </p>
+                        @foreach ($services as $service)
+                            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                                <div class="rounded" data-aos="fade-up" data-aos-delay="100">
+                                    <img src="{{ asset('storage/service/' . $service->picture) }}"
+                                        class="img-fluid rounded-top">
+                                    <div class="icon-box">
+                                        <h3 class="title my-1"><a href="">{{ $service->title }}</a></h3>
+                                        <p class="description line-clamp-5">
+                                            {{ $service->short_description }}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
 
 
 
+
+                    </div>
 
                 </div>
+            </section><!-- End Featured Services Section -->
+        @endif
 
-            </div>
-        </section><!-- End Featured Services Section -->
+
+
+{{-- 
+        @if ()
+
+        @endif --}}
 
         <!-- ======= About Section ======= -->
         <section id="about" class="about section-bg">
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>About</h2>
-                    <h3>Find Out More <span>About Us</span></h3>
-                    <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque
-                        vitae autem.</p>
+                    <h2>About Us</h2>
+                    <h3><span>About</span></h3>
+                    {{-- <p></p> --}}
                 </div>
 
                 <div class="row">
@@ -93,30 +102,7 @@
                             labore et dolore
                             magna aliqua.
                         </p>
-                        <ul>
-                            <li>
-                                <i class="bx bx-store-alt"></i>
-                                <div>
-                                    <h5>Ullamco laboris nisi ut aliquip consequat</h5>
-                                    <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="bx bx-images"></i>
-                                <div>
-                                    <h5>Magnam soluta odio exercitationem reprehenderi</h5>
-                                    <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata
-                                        redi</p>
-                                </div>
-                            </li>
-                        </ul>
-                        <p>
-                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                            in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in
-                            culpa qui officia deserunt mollit anim id est laborum
-                        </p>
+
                     </div>
                 </div>
 

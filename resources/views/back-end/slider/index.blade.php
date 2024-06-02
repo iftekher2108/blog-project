@@ -49,8 +49,8 @@
                         </td>
                         <td>
                             <div class="d-flex justify-content-around">
-                                <a href="" class="btn btn-primary">Edit</a>
-                                <a href="" class="btn btn-danger">Delete</a>
+                                <a href="{{ route('slider.edit',$slider->id) }}" class="btn btn-primary">Edit</a>
+                                <a href="{{ route('slider.delete',$slider->id) }}" class="btn btn-danger">Delete</a>
                             </div>
                         </td>
                     </tr>

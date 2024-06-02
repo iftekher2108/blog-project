@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 // use App\Models\menu;
 // use App\Models\subMenu;
 
+use App\Models\pages;
 use App\Models\service;
 use App\Models\Settings;
 use Illuminate\Http\Request;
@@ -16,13 +17,17 @@ class MainController extends Controller
      */
     public function index()
     {
-        $sliders = Settings::where('data_name','home_slider')->orderBy('order_id','asc')->get();
-        $services = service::where('status','publish')->take(4)->get();
+        $sliders = Settings::where('data_name','home_slider')->where('status','publish')->orderBy('order_id','asc')->get();
+        $services = service::where('status','publish')->orderBy('order_id','asc')->take(4)->get();
         return view('front-end.index',compact('sliders','services'));
     }
 
     public function gallery() {
         return view('front-end.gallery');
+    }
+
+    public function services() {
+        return view('front-end.service');
     }
 
     public function about() {
@@ -37,60 +42,11 @@ class MainController extends Controller
         return view('front-end.contact');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
 
-    //  public function generatePage($id) {
-    //     $menus = menu::where('status','publish')->find($id);
-    //     // dd($menus);
-    //      return view('front-end.generatePage',compact('menus'));
-    //  }
-
-
-
-    public function create()
-    {
-        //
+    public function pages($slug) {
+        $page = pages::where('slug','=',$slug)->first();
+        return view('front-end.pages',compact('page'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

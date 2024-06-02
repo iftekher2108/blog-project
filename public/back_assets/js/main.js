@@ -5,12 +5,11 @@
         }
     });
 
+    $(window).on('load', function(){
+            $('#preloader').fadeOut(400)
+    })
 
     $(document).ready(function () {
-
-        setTimeout(function () {
-            $('.alert').slideUp(500);
-        }, 2500);
 
         // menu bar toggler
         $('.menu-toggle').click(function () {
@@ -23,9 +22,10 @@
             "responsive": true,
             "autoWidth": false,
             lengthMenu: [
-                [5, 10, 15, 25, 50, 100, 150, 200, -1],
-                [5, 10, 15, 25, 50, 100, 150, 200, 'All']
+                [10, 15, 25, 50, 100, 150, 200, -1],
+                [10, 15, 25, 50, 100, 150, 200, 'All']
             ],
+            "pageLength":10,
             stateSave: true,
             // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         });

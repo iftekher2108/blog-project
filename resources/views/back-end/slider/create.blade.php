@@ -17,10 +17,9 @@
 
                 <div class="col-md-12">
                     <div class="mb-3">
-                        <label for="input-img" class="form-label">Slide Picture</label>
+                        <label for="input-img" class="form-label">Picture</label>
                         <input type="file" class="form-control @error('picture') is-invalid @enderror" id="input-img" name="picture"
                             accept="image/png, image/gif, image/jpeg">
-                        <label>max size: 3mb | Dimention Ratio:1280x720 or Higher </label>
                         @error('picture')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -28,11 +27,9 @@
 
                 </div>
 
-
-
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="mb-3">
-                        <label for="title" class="form-label">Slide Title</label>
+                        <label for="title" class="form-label">Title</label>
                         <input class="form-control @error('title') is-invalid @enderror" id="title" name="title"
                             placeholder="Title">
                         @error('title')
@@ -43,7 +40,7 @@
 
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="mb-3">
-                        <label for="sub-title" class="form-label">Slide Sub-title</label>
+                        <label for="sub-title" class="form-label">Sub-title</label>
                         <input class="form-control @error('sub_title') is-invalid @enderror" id="sub-title" name="sub_title" placeholder="Sub-title">
                         @error('sub_title')
                         <span class="text-danger">{{ $message }}</span>
@@ -53,7 +50,7 @@
 
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="mb-3">
-                        <label for="video-link" class="form-label">video link</label>
+                        <label for="video-link" class="form-label">link</label>
                         <input class="form-control @error('link') is-invalid @enderror" id="video-link" name="link" placeholder="title">
                         @error('link')
                         <span class="text-danger">{{ $message }}</span>
