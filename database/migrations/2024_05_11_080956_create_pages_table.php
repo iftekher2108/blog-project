@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('order_id')->default(0);
             $table->string('title')->unique();
             $table->string('slug')->unique();
+            $table->string('route');
             $table->string('sub_title')->nullable();
             $table->string('picture')->nullable();
             $table->string('description')->nullable();

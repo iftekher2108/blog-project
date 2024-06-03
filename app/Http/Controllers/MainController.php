@@ -44,9 +44,10 @@ class MainController extends Controller
 
 
     public function pages($slug) {
-        $page = pages::where('slug','=',$slug)->first();
+        $page = pages::where('slug',$slug)->get();
         return view('front-end.pages',compact('page'));
     }
 
+    
 
 }

@@ -115,6 +115,7 @@
     <script src="{{ asset('back_assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('back_assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('back_assets/js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('back_assets/plugins/tinymce/tinymce.min.js') }}"></script>
     <script src="{{ asset('back_assets/js/datatables.min.js') }}"></script>
     <script src="{{ asset('back_assets/js/nice-select.min.js') }}"></script>
     <script src="{{ asset('back_assets/js/main.js') }}"></script>

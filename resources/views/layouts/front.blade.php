@@ -68,7 +68,7 @@
             {{-- @php
                 $sub_menu = DB::table('sub_menus')->where('sub_menus.status','publish')->where('sub_menus.men_id',$menu->id)->orderBy('order_id','asc')->get();
             @endphp --}}
-               <li ><a class="nav-link {{ Request::is($menu->slug) ? 'active' : '' }} scrollto" href="{{ $menu->slug }}" ><span>{{ $menu->title }}</span> </a>
+               <li ><a class="nav-link {{ URL::current() == route($menu->slug) ? 'active' : '' }} scrollto" href="{{ route($menu->slug)}}" ><span>{{ $menu->title }}</span> </a>
 {{-- class="{{ (count($sub_menu)) ? 'dropdown' : '' }}  }}" --}}
 {{-- {!! count($sub_menu) ? '<i class="bi bi-chevron-down"></i>' : '' !!} --}}
                 {{-- <ul>

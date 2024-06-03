@@ -82,9 +82,6 @@ Route::controller(ServiceCatagoryController::class)->group(function(){
 Route::controller(MenuController::class)->group(function(){
     Route::get('menu','menu')->name('menu.index');
     Route::post('menu/order/change','menu_order')->name('menu.order.change');
-    Route::get('menu/create','menu_create')->name('menu.create');
-    Route::post('menu/store','menu_store')->name('menu.store');
-    Route::get('menu/{id}/delete','menu_delete')->name('menu.delete');
 
 });
 
@@ -103,7 +100,9 @@ Route::controller(NewsController::class)->group(function(){
 
 // ===================================== pages section start =========================================
 Route::controller(PagesController::class)->group(function(){
-    Route::get('pages','index')->name('page.index');
+    Route::get('pages','pageIndex')->name('page.index');
+    Route::get('pages/create','pageCreate')->name('pages.create');
+    Route::post('pages/store','pageStore')->name('pages.store');
 });
 
 // ===================================== pages section end =========================================

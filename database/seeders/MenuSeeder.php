@@ -16,6 +16,7 @@ class MenuSeeder extends Seeder
             'order_id' => 1,
             'title' => 'Home',
             'slug' => '/',
+            'route' =>'',
             'status' => 'publish'
 
         ]);
@@ -24,6 +25,7 @@ class MenuSeeder extends Seeder
             'order_id' => 2,
             'title' => 'About Us',
             'slug' => 'about-us',
+            'route' =>'',
             'status' => 'publish'
         ]);
 
@@ -31,6 +33,7 @@ class MenuSeeder extends Seeder
             'order_id' => 3,
             'title' => 'Service',
             'slug' => 'service',
+            'route' =>'',
             'status' => 'publish'
         ]);
 
@@ -38,6 +41,7 @@ class MenuSeeder extends Seeder
             'order_id' => 4,
             'title' => 'Gallery',
             'slug' => 'gallery',
+            'route' =>'',
             'status' => 'publish'
         ]);
 
@@ -45,6 +49,7 @@ class MenuSeeder extends Seeder
             'order_id' => 5,
             'title' => 'news',
             'slug' => 'news',
+            'route' =>'',
             'status' => 'publish',
         ]);
 
@@ -52,6 +57,7 @@ class MenuSeeder extends Seeder
             'order_id' => 6,
             'title' => 'Contact Us',
             'slug' => 'contact-us',
+            'route' =>'',
             'status' => 'publish',
         ]);
 

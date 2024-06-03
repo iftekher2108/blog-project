@@ -21,7 +21,7 @@
             <h4 class="text-center">Menu information</h4>
             <div class="d-flex justify-content-between my-2">
                 <a href="" class="btn btn-danger">Delete All</a>
-                <a href="{{ route('menu.create') }}" class="btn btn-primary">Create</a>
+                <a href="{{ route('pages.create') }}" class="btn btn-primary">Create</a>
             </div>
             <table class="table datatable table-striped w-100  table-hover">
                 <thead>
@@ -55,7 +55,6 @@
                             <td>
                                 <div class="d-flex justify-content-around">
                                     <a href="" class="btn btn-primary">Edit</a>
-                                    <a href="{{ route('menu.delete', $menu->id) }}" class="btn btn-danger">Delete</a>
                                 </div>
                             </td>
                         </tr>
