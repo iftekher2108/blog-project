@@ -29,9 +29,8 @@
                         <th>Sort-Id</th>
                         <th><input type="checkbox" class="select-all form-check-input border-1 border-white "></th>
                         <th>Id</th>
-                        {{-- <th></th> --}}
+                        <th></th>
                         <th>Name</th>
-                        <th>routes</th>
                         <th>Status</th>
                         <th>Action</th>
 

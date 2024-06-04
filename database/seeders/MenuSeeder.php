@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\pages;
+use App\Models\Menu;
 use Illuminate\Database\Seeder;
 
 class MenuSeeder extends Seeder
@@ -12,52 +12,52 @@ class MenuSeeder extends Seeder
      */
     public function run(): void
     {
-        pages::create([
+        Menu::create([
             'order_id' => 1,
             'title' => 'Home',
             'slug' => '/',
-            'route' =>'',
+            'type' => 'main',
             'status' => 'publish'
 
         ]);
 
-        pages::create([
+        Menu::create([
             'order_id' => 2,
             'title' => 'About Us',
             'slug' => 'about-us',
-            'route' =>'',
+            'type' => 'main',
             'status' => 'publish'
         ]);
 
-        pages::create([
+        Menu::create([
             'order_id' => 3,
-            'title' => 'Service',
-            'slug' => 'service',
-            'route' =>'',
+            'title' => 'Services',
+            'slug' => 'services',
+            'type' => 'main',
             'status' => 'publish'
         ]);
 
-        pages::create([
+        Menu::create([
             'order_id' => 4,
             'title' => 'Gallery',
             'slug' => 'gallery',
-            'route' =>'',
+            'type' => 'main',
             'status' => 'publish'
         ]);
 
-        pages::create([
+        Menu::create([
             'order_id' => 5,
             'title' => 'news',
             'slug' => 'news',
-            'route' =>'',
+            'type' => 'main',
             'status' => 'publish',
         ]);
 
-        pages::create([
+        Menu::create([
             'order_id' => 6,
             'title' => 'Contact Us',
             'slug' => 'contact-us',
-            'route' =>'',
+            'type' => 'main',
             'status' => 'publish',
         ]);
 

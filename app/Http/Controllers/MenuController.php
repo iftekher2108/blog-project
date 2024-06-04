@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
 use App\Models\pages;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ class MenuController extends Controller
 
     public function menu()
     {
-        $menus = pages::orderBy('order_id','asc')->get();
+        $menus = Menu::orderBy('order_id','asc')->get();
         // $sub_menus = DB::table('sub_menus')
         //     ->leftJoin('menus', 'sub_menus.men_id', '=', 'menus.id')
         //     ->select('menus.title as men_title', 'sub_menus.*')->orderBy('order_id','asc')->get();
@@ -29,7 +30,7 @@ class MenuController extends Controller
 
     public function menu_order(Request $request) {
 
-        $menus = pages::all();
+        $menus = Menu::all();
 
         foreach ($menus as $menu) {
             foreach ($request->orders as $order) {
@@ -49,7 +50,9 @@ class MenuController extends Controller
 
        $validator = Validator::make($request->all(),[
             'title' => ['required','unique:menus,slug','string'],
+            'type' =>['required','string'],
             'slug' => ['required'],
+            'parent_id' => ['nullable'],
             'status' => ['required','string'],
         ]);
 
@@ -61,13 +64,13 @@ class MenuController extends Controller
             'status' => $request->status,
         ];
 
-        pages::create($data);
+        Menu::create($data);
         return redirect()->route('menu.index')->with('success', 'Menu Item Created Successfully');
     }
 
     public function menu_delete($id)
     {
-        pages::find($id)->delete();
+        Menu::find($id)->delete();
         return redirect()->route('menu.index')->with('error', 'Menu Item Deleted Successfully');
     }
 

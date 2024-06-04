@@ -7,5 +7,5 @@
 
 
 @section('front-content')
-Service
+Services
 @endsection

@@ -34,6 +34,7 @@ class PagesController extends Controller
             'title' => ['required','string','unique:pages,title'],
             'picture'=>['nullable','mimes:png,jpg','max:10000'],
             'slug' =>['required','string'],
+            'menu_id' => ['required'],
             'sub_title' => ['nullable','string'],
             'description' => ['nullable','string'],
             'content' => ['nullable','string'],
@@ -50,8 +51,8 @@ class PagesController extends Controller
             $data['picture'] = $file_name;
         }
 
-        $data['route'] = 'home.pages.index';
-        
+
+
         $data['slug'] =Str::of($data['title'])->slug();
 
         pages::create($data);

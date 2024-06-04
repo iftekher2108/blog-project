@@ -61,14 +61,14 @@
       <nav id="navbar" class="navbar">
         <ul>
             @php
-                $menus = DB::table('pages')->where('status','publish')->orderBy('order_id','asc')->limit(10)->get();
+                $menus = DB::table('menus')->where('status','publish')->orderBy('order_id','asc')->limit(10)->get();
             @endphp
             @foreach ( $menus as $menu )
 
             {{-- @php
                 $sub_menu = DB::table('sub_menus')->where('sub_menus.status','publish')->where('sub_menus.men_id',$menu->id)->orderBy('order_id','asc')->get();
             @endphp --}}
-               <li ><a class="nav-link {{ URL::current() == route($menu->slug) ? 'active' : '' }} scrollto" href="{{ route($menu->slug)}}" ><span>{{ $menu->title }}</span> </a>
+               <li ><a class="nav-link {{ Request::is($menu->slug)  ? 'active' : '' }} scrollto" href="{{ url($menu->slug) }}" ><span>{{ $menu->title }}</span> </a>
 {{-- class="{{ (count($sub_menu)) ? 'dropdown' : '' }}  }}" --}}
 {{-- {!! count($sub_menu) ? '<i class="bi bi-chevron-down"></i>' : '' !!} --}}
                 {{-- <ul>
@@ -135,7 +135,7 @@
             <h4>Useful Links</h4>
             <ul>
             @foreach ( $menus as $menu )
-                <li><i class="bx bx-chevron-right"></i> <a href="#">{{ $menu->title }}</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="{{ url($menu->slug) }}">{{ $menu->title }}</a></li>
             @endforeach
 
             </ul>

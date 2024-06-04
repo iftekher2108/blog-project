@@ -10,9 +10,8 @@ class pages extends Model
     use HasFactory;
 
     protected $fillable = [
-        'order_id',
         'title',
-        'slug',
+        'menu_id',
         'sub_title',
         'picture',
         'description',
@@ -22,4 +21,10 @@ class pages extends Model
         'status',
 
     ];
+
+
+    public function menus() {
+       return $this->belongsTo(Menu::class,'menu_id');
+    }
+
 }
