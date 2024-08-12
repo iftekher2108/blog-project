@@ -13,7 +13,7 @@
 
         // menu bar toggler
         $('.menu-toggle').click(function () {
-            $(this).siblings('.menu-sub').slideToggle(300)
+            $(this).siblings('.menu-sub').slideToggle(200)
             $(this).children('i.arrow').toggleClass('rotate');
         })
 

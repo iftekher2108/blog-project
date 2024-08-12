@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title> </title>
+  <title>@yield('title')</title>
 
   <meta  name="description" content="@yield('description')">
   <meta  name="keywords" content="@yield('keywords')">
@@ -102,7 +102,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="bg-dark">
 
-    <div class="footer-newsletter">
+    {{-- <div class="footer-newsletter">
       <div class="container-fluid">
         <div class="row justify-content-center">
           <div class="col-lg-6">
@@ -114,7 +114,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 
     <div class="footer-top">
       <div class="container">
@@ -144,7 +144,6 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">News</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">FAQ's</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Private Policy</a></li>
             </ul>

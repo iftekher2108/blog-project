@@ -1,4 +1,4 @@
-<div class="panel-menu h-100">
+<div class="panel-menu">
     <div id="layout-menu" class="layout-menu rounded p-2 w-100 bg-dark">
 
         <div class="app-brand p-3">
@@ -79,6 +79,40 @@
 
                 </ul>
             </li>
+
+            <li class="menu-header text-uppercase">
+                <span class="menu-header-text fw-bold opacity-50">News Settings</span>
+            </li>
+
+            <li class="menu-item">
+                <div class="d-flex gap-2">
+
+                </div>
+                <a href="javascript:void(0);" class="nav-link menu-toggle">
+                    <div class="d-flex align-items-center gap-3">
+                        <i class="fa-solid fa-sliders"></i>
+                        News
+                    </div>
+
+                    <i class="fa-solid arrow fa-caret-right"></i>
+
+                </a>
+                <ul class="menu-sub hide">
+                    <li class="menu-item {{ Request::is('#') ? 'active' : '' }}">
+                        <a href="{{ route('news.index') }}" class="nav-link">
+                            <i class="fa-solid me-2 fa-wrench"></i> News
+                        </a>
+                    </li>
+                    <li class="menu-item {{ Request::is('news/category') ? 'active' : '' }}">
+                        <a href="{{ route('category.index') }}" class="nav-link">
+                            <i class="fa-solid me-2 fa-screwdriver-wrench"></i>
+                            Categories
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
 
             <li class="menu-header text-uppercase">
                 <span class="menu-header-text fw-bold opacity-50">Users Settings</span>

@@ -1,9 +1,12 @@
     @extends('layouts.front')
 
 
+
     @section('description')
+
     @endsection
     @section('keywords')
+
     @endsection
 
 
@@ -25,7 +28,7 @@
                             <h5 class="text-white">We are team of talented designers making websites with Bootstrap</h5>
                             <div class="d-flex">
                                 <a href="#about" class="btn-get-started scrollto">Get Started</a>
-                                <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" target="_blank"
+                                <a href="" target="_blank"
                                     class="btn-watch-video"><i class="bi bi-play-circle"></i><span
                                         class="text-white-50">Watch Video</span></a>
                             </div>
@@ -75,7 +78,7 @@
 
 
 
-{{-- 
+{{--
         @if ()
 
         @endif --}}

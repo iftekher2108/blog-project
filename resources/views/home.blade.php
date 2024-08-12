@@ -2,7 +2,6 @@
 
 @section('content')
     <div>
-        <h4 class="mb-3">Dashboard Information</h4>
         <div class="row g-3">
 
             <div class="col-lg-3">

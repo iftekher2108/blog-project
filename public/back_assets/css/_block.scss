@@ -1,4 +1,4 @@
-// navigation side menu styles
+
 
 #layout-menu {
     min-height: 100vh;
@@ -23,25 +23,26 @@
         }
 
         li {
+            font-family:sans-serif;
             list-style: none;
             margin:0.2rem 0rem;
 
             a {
                 color: white;
                 text-decoration: none;
-                padding: 0.8rem 0.8rem;
+                padding: 0.7rem 0.8rem;
                 border-radius: 10px;
                 -webkit-border-radius: 10px;
                 -moz-border-radius: 10px;
                 -ms-border-radius: 10px;
                 -o-border-radius: 10px;
-                transition: all 0.3s ease-in-out;
-                -webkit-transition: all 0.3s ease-in-out;
-                -moz-transition: all 0.3s ease-in-out;
-                -ms-transition: all 0.3s ease-in-out;
-                -o-transition: all 0.3s ease-in-out;
-
-                &:hover {
+                transition: all 0.2s ease-in-out;
+                -webkit-transition: all 0.2s ease-in-out;
+                -moz-transition: all 0.2s ease-in-out;
+                -ms-transition: all 0.2s ease-in-out;
+                -o-transition: all 0.2s ease-in-out;
+                &:hover
+                {
                     color: white;
                     background: var(--bs-primary);
                 }
@@ -55,40 +56,8 @@
         .menu-header {
             position: relative;
             color: rgb(185, 185, 185);
-            text-align: center;
             margin: 0.3rem;
 
-            &::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                right: 100%;
-                background: var(--bs-primary);
-                height: 3px;
-                width: 100%;
-                transform: translateX(20%);
-                -webkit-transform: translateX(20%);
-                -moz-transform: translateX(20%);
-                -ms-transform: translateX(20%);
-                -o-transform: translateX(20%);
-                opacity: 0.3;
-            }
-
-            &::after {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 100%;
-                background: var(--bs-primary);
-                height: 3px;
-                width: 100%;
-                transform: translateX(-20%);
-                -webkit-transform: translateX(-20%);
-                -moz-transform: translateX(-20%);
-                -ms-transform: translateX(-20%);
-                -o-transform: translateX(-20%);
-                opacity: 0.3;
-            }
         }
 
     }

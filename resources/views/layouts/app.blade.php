@@ -86,7 +86,7 @@
             <div class="container-fluid">
                 <div class="row w-100">
                 @auth
-                    <div class="col-lg-3 col-md-4 col-sm-12 h-100">
+                    <div class="col-lg-3 col-md-4 col-sm-12">
                         <x-admin_panel />
                     </div>
                 @endauth

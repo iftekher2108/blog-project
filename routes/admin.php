@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -88,11 +89,20 @@ Route::controller(MenuController::class)->group(function(){
 // ===================================== menu section end =========================================
 
 
+// ===================================== Categories section start =========================================
+Route::controller(CategoryController::class)->group(function(){
+    Route::get('news/category','index')->name('category.index');
+
+});
+
+// ===================================== Categories section end =========================================
+
 
 // ===================================== news section start =========================================
 
 Route::controller(NewsController::class)->group(function(){
-
+    Route::get('news/list','index')->name('news.index');
+    Route::get('news/create','create')->name('news.create');
 });
 
 // ===================================== news section end =========================================

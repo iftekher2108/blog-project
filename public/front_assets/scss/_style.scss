@@ -6,3 +6,11 @@
         -webkit-line-clamp: $i;
     }
 }
+
+
+input,textarea,select {
+    &:focus {
+        box-shadow:none !important;
+    }
+
+}
