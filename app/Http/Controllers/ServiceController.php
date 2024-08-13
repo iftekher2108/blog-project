@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\service;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
-use App\Models\service\ServiceCatagory;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Drivers\Gd\Driver;
@@ -15,9 +14,8 @@ class ServiceController extends Controller
     // ========================= service list start =========================
     public function service()
     {
-        $services_catagories = ServiceCatagory::all();
         $services = service::all();
-        return view('back-end.service.index', compact('services', 'services_catagories'));
+        return view('back-end.service.index', compact('services'));
     }
     // ========================= service list end =========================
 
@@ -25,8 +23,7 @@ class ServiceController extends Controller
     // =============================== service create start =============================
     public function serviceCreate()
     {
-        $services_catagories = ServiceCatagory::all();
-        return view('back-end.service.create', compact('services_catagories'));
+        return view('back-end.service.create');
     }
     // =============================== service create end =============================
 
@@ -36,9 +33,8 @@ class ServiceController extends Controller
     {
         Validator::make($request->all(), [
             'title' => 'nullable|string',
-            'service_cat_id' => 'required',
             'picture' => 'max:10000|mimes:png,jpg,jpeg|nullable',
-            'short_description' => 'required',
+            'description' => 'required',
             'status' => 'required'
 
         ]);
@@ -62,9 +58,8 @@ class ServiceController extends Controller
             $service->picture = $file_name;
         }
 
-        $service->service_cat_id = $request->service_cat_id;
         $service->title = $request->title;
-        $service->short_description = $request->short_description;
+        $service->description = $request->description;
         $service->status = $request->status;
         $service->save();
         return redirect()->route('service.index')->with('success', 'Service created successfully');
@@ -96,8 +91,7 @@ class ServiceController extends Controller
     public function serviceEdit($id)
     {
         $service = service::find($id);
-        $services_catagories = $service->service_catagory->get();
-        return view('back-end.service.edit',compact('service','services_catagories'));
+        return view('back-end.service.edit',compact('service'));
     }
     // ========================================== service edit end ==========================
 
@@ -113,9 +107,9 @@ class ServiceController extends Controller
 
         Validator::make($request->all(), [
             'title' => 'nullable|string',
-            'service_cat_id' => 'required',
+
             'picture' => 'max:10000|mimes:png,jpg,jpeg|nullable',
-            'short_description' => 'required',
+            'description' => 'required',
             'status' => 'required'
 
         ]);
@@ -140,7 +134,7 @@ class ServiceController extends Controller
 
         $service->service_cat_id = $request->service_cat_id;
         $service->title = $request->title;
-        $service->short_description = $request->short_description;
+        $service->description = $request->description;
         $service->status = $request->status;
         $service->save();
         return redirect()->route('service.index')->with('success', 'Service updated successfully');

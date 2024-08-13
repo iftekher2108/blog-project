@@ -29,7 +29,13 @@ Auth::routes();
 
 // =================================== Auth Admin Middleware start ==================================================
 
-Route::middleware(['auth','admin'])->group(function(){
+// roles:admin
+// super-admin
+// admin
+// editor
+// user
+
+Route::middleware(['auth'])->group(function(){
 
 // ============================= profile  section start ===============================================
 Route::controller(HomeController::class)->group(function(){
@@ -51,7 +57,7 @@ Route::controller(SettingsController::class)->group(function(){
     Route::post('slider/{id}/update','slider_update')->name('slider.update');
     Route::get('slider/{id}/delete','slider_delete')->name('slider.delete');
 
-});
+})->middleware('admin:super-admin');
 // ============================ utilities setting section end ============================
 
 
@@ -64,16 +70,18 @@ Route::controller(ServiceController::class)->group(function(){
     Route::get('service/{id}/edit','serviceEdit')->name('service.edit');
     Route::post('service/{id}/update','serviceUpdate')->name('service.update');
     Route::get('service/{id}/delete','ServiceDelete')->name('service.delete');
-});
+})->middleware('admin:super-admin');
 
-Route::controller(ServiceCatagoryController::class)->group(function(){
-    Route::get('service/category/create','CreateCategory')->name('service.category.create');
-    Route::post('service/category/store','StoreCategory')->name('service.category.store');
-    Route::get('service/category/{id}/edit','serviceCategoryEdit')->name('service.category.edit');
-    Route::post('service/category/{id}/update','serviceCategoryUpdate')->name('service.category.update');
-    Route::get('service/category/{id}/delete','serviceCategoryDelete')->name('service.category.delete');
 
-});
+
+// Route::controller(ServiceCatagoryController::class)->group(function(){
+//     Route::get('service/category/create','CreateCategory')->name('service.category.create');
+//     Route::post('service/category/store','StoreCategory')->name('service.category.store');
+//     Route::get('service/category/{id}/edit','serviceCategoryEdit')->name('service.category.edit');
+//     Route::post('service/category/{id}/update','serviceCategoryUpdate')->name('service.category.update');
+//     Route::get('service/category/{id}/delete','serviceCategoryDelete')->name('service.category.delete');
+
+// })->middleware('admin:super-admin');
 
 // ==================================== service section end ======================================
 
@@ -84,7 +92,7 @@ Route::controller(MenuController::class)->group(function(){
     Route::get('menu','menu')->name('menu.index');
     Route::post('menu/order/change','menu_order')->name('menu.order.change');
 
-});
+})->middleware('admin:super-admin');
 
 // ===================================== menu section end =========================================
 
@@ -93,7 +101,7 @@ Route::controller(MenuController::class)->group(function(){
 Route::controller(CategoryController::class)->group(function(){
     Route::get('news/category','index')->name('category.index');
 
-});
+})->middleware("admin:super-admin");
 
 // ===================================== Categories section end =========================================
 
@@ -103,7 +111,7 @@ Route::controller(CategoryController::class)->group(function(){
 Route::controller(NewsController::class)->group(function(){
     Route::get('news/list','index')->name('news.index');
     Route::get('news/create','create')->name('news.create');
-});
+})->middleware('admin:super-admin');
 
 // ===================================== news section end =========================================
 
@@ -113,7 +121,7 @@ Route::controller(PagesController::class)->group(function(){
     Route::get('pages','pageIndex')->name('page.index');
     Route::get('pages/create','pageCreate')->name('pages.create');
     Route::post('pages/store','pageStore')->name('pages.store');
-});
+})->middleware('admin:super-admin');
 
 // ===================================== pages section end =========================================
 

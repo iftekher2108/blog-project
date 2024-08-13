@@ -32,9 +32,9 @@
                             <div class="app-brand d-flex justify-content-center">
                                 <a href="" class="nav-link d-flex align-items-center flex-column p-1 gap-2">
                                     <span class="app-brand-logo demo">
-                                        <img src="{{ asset( $store->where('data_name','logo')->value('picture') ) }}" class="img-fluid" width="100" alt="">
+                                        <img src="{{ asset( $store->where('data_name','info')->value('picture') ) }}" class="img-fluid" width="100" alt="">
                                     </span>
-                                    <span class="app-brand-text demo text-body fw-bolder">{{ $store->where('data_name','logo')->value('title') }}</span>
+                                    <span class="app-brand-text demo fs-5 text-white-50 text-body fw-bolder">{{ $store->where('data_name','info')->value('title') }}</span>
                                 </a>
                             </div>
                             <!-- /Logo -->

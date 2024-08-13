@@ -14,20 +14,14 @@ class admin
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, $roles): Response
     {
         // admin
-        if(Auth::user()->role == 'admin') {
-           return $next($request);
-        }
-        else if(Auth::user()->role == 'editor'){
+        if (Auth::user()->role == $roles) {
             return $next($request);
-
-        } else if(Auth::user()->role == 'user') {
-            return $next($request);
-        } else {
-          return redirect()->back();
         }
-
+         else {
+            return redirect()->back();
+        }
     }
 }

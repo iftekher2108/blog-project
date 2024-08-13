@@ -3,7 +3,8 @@
 
         <div class="app-brand p-3">
             <a href="{{ url('/') }}" class="d-flex justify-content-center">
-                <img src="{{ asset($store->where('data_name','logo')->value('picture')) }}" class="img-fluid m-auto rounded" width="120" alt="">
+                <img src="{{ asset($store->where('data_name', 'logo')->value('picture')) }}"
+                    class="img-fluid m-auto rounded" width="120" alt="">
             </a>
         </div>
 
@@ -32,7 +33,7 @@
                 <a href="javascript:void(0);" class="nav-link menu-toggle">
                     <div class="d-flex align-items-center gap-3">
                         <i class="fa-solid fa-layer-group"></i>
-                       Home Layouts
+                        Home Layouts
                     </div>
                     <i class="fa-solid arrow fa-caret-right"></i>
                 </a>
@@ -40,7 +41,7 @@
                 <ul class="menu-sub hide">
                     <li class="menu-item {{ Request::is('menu') ? 'active' : '' }}">
                         <a href="{{ route('menu.index') }}" class="nav-link">
-                            <i class="fa-solid me-2 fa-list-ul"></i>  Menu
+                            <i class="fa-solid me-2 fa-list-ul"></i> Menu
                         </a>
                     </li>
                     <li class="menu-item {{ Request::is('slider') ? 'active' : '' }}">
@@ -113,43 +114,43 @@
             </li>
 
 
+            @if (Auth::user()->role == 'super-admin')
+                <li class="menu-header text-uppercase">
+                    <span class="menu-header-text fw-bold opacity-50">Users Settings</span>
+                </li>
+                <li class="menu-item">
+                    <a href="javascript:void(0);" class="nav-link menu-toggle">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-users-gear"></i>
+                            User Settings
+                        </div>
+                        <i class="fa-solid arrow fa-caret-right"></i>
+                    </a>
 
-            <li class="menu-header text-uppercase">
-                <span class="menu-header-text fw-bold opacity-50">Users Settings</span>
-            </li>
-            <li class="menu-item">
-                <a href="javascript:void(0);" class="nav-link menu-toggle">
-                    <div class="d-flex align-items-center gap-3">
-                        <i class="fa-solid fa-users-gear"></i>
-                        User Settings
-                    </div>
-                    <i class="fa-solid arrow fa-caret-right"></i>
-                </a>
+                    <ul class="menu-sub hide">
+                        <li class="menu-item {{ Request::is('#') ? 'active' : '' }}">
+                            <a href="" class="nav-link">
+                                <i class="fa-solid me-2 fa-user-shield"></i> Users
+                            </a>
+                        </li>
 
-                <ul class="menu-sub hide">
-                    <li class="menu-item {{ Request::is('#') ? 'active' : '' }}">
-                        <a href="" class="nav-link">
-                            <i class="fa-solid me-2 fa-user-shield"></i>  Users
-                        </a>
-                    </li>
-
-                    {{-- <li class="menu-item {{ Request::is('home')? 'active': '' }}">
+                        {{-- <li class="menu-item {{ Request::is('home')? 'active': '' }}">
                 <a href="" class="nav-link">
                   Notifications
                 </a>
               </li> --}}
 
-                    {{-- <li class="menu-item {{ Request::is('home')? 'active': '' }}">
+                        {{-- <li class="menu-item {{ Request::is('home')? 'active': '' }}">
                 <a href="pages-account-settings-connections.html" class="nav-link">
                   Connections
                 </a>
               </li> --}}
 
-                </ul>
-            </li>
+                    </ul>
+                </li>
 
 
-            {{-- <li class="menu-item {{ Request::is('home')? 'active': '' }}">
+                {{-- <li class="menu-item {{ Request::is('home')? 'active': '' }}">
             <a href="javascript:void(0);" class="nav-link menu-toggle">
               <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
               Authentications
@@ -175,40 +176,40 @@
             </ul>
           </li> --}}
 
-            <li class="menu-header text-uppercase">
-                <span class="menu-header-text fw-bold opacity-50">settings</span>
-            </li>
 
-            <li class="menu-item">
-                <div class="d-flex gap-2">
+                <li class="menu-header text-uppercase">
+                    <span class="menu-header-text fw-bold opacity-50">settings</span>
+                </li>
 
-                </div>
-                <a href="javascript:void(0);" class="nav-link menu-toggle">
-                    <div class="d-flex align-items-center gap-3">
-                        <i class="fa-solid fa-sliders"></i>
-                        Settings
+                <li class="menu-item">
+                    <div class="d-flex gap-2">
+
                     </div>
+                    <a href="javascript:void(0);" class="nav-link menu-toggle">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fa-solid fa-sliders"></i>
+                            Settings
+                        </div>
 
-                    <i class="fa-solid arrow fa-caret-right"></i>
+                        <i class="fa-solid arrow fa-caret-right"></i>
 
-                </a>
-                <ul class="menu-sub hide">
-                    <li class="menu-item {{ Request::is('#') ? 'active' : '' }}">
-                        <a href="" class="nav-link">
-                            <i class="fa-solid me-2 fa-wrench"></i> theme settings
-                        </a>
-                    </li>
-                    <li class="menu-item {{ Request::is('#') ? 'active' : '' }}">
-                        <a href="" class="nav-link">
-                            <i class="fa-solid me-2 fa-screwdriver-wrench"></i> Under Maintenance
-                        </a>
-                    </li>
-                </ul>
-            </li>
+                    </a>
+                    <ul class="menu-sub hide">
+                        <li class="menu-item {{ Request::is('#') ? 'active' : '' }}">
+                            <a href="" class="nav-link">
+                                <i class="fa-solid me-2 fa-wrench"></i> theme settings
+                            </a>
+                        </li>
+                        <li class="menu-item {{ Request::is('#') ? 'active' : '' }}">
+                            <a href="" class="nav-link">
+                                <i class="fa-solid me-2 fa-screwdriver-wrench"></i> Under Maintenance
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            @endif
 
-
-
-
+            
         </ul>
     </div>
     <!-- / Menu -->

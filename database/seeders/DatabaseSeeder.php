@@ -21,14 +21,14 @@ class DatabaseSeeder extends Seeder
             'name' => 'Iftekher Mahmud',
             'email' => 'iftekhermahmud@gmail.com',
             'password' => Hash::make('21082002'),
-            'role' => 'admin',
+            'role' => 'super-admin',
         ]);
 
         $this->call([
             SettingSeeder::class,
             MenuSeeder::class,
             SliderSeeder::class,
-            serviceCategorySeeder::class,
+            // serviceCategorySeeder::class,
 
         ]);
 

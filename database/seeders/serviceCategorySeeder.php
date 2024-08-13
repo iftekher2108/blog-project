@@ -12,15 +12,15 @@ class serviceCategorySeeder extends Seeder
      */
     public function run(): void
     {
-        ServiceCatagory::create([
-            'title' => 'It Support',
-            'status' => 'publish',
-        ]);
+        // ServiceCatagory::create([
+        //     'title' => 'It Support',
+        //     'status' => 'publish',
+        // ]);
 
-        ServiceCatagory::create([
-            'title' => 'Business Management',
-            'status' => 'publish'
-        ]);
+        // ServiceCatagory::create([
+        //     'title' => 'Business Management',
+        //     'status' => 'publish'
+        // ]);
 
     }
 }

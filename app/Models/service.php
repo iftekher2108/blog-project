@@ -14,15 +14,10 @@ class service extends Model
     protected $fillable =[
         'order_id',
         'title',
-        'service_cat_id',
         'picture',
-        'short_description',
+        'description',
         'content',
         'status',
     ];
-
-    public function service_catagory() {
-        return $this->belongsTo(ServiceCatagory::class,'service_cat_id');
-    }
 
 }

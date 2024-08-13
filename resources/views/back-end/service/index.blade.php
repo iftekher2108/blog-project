@@ -15,7 +15,7 @@
         </div>
     @endif
 
-
+{{--
  <div class="mt-2">
         <h4 class="text-center">Service Catagory information</h4>
         <div class="d-flex justify-content-between my-2">
@@ -58,7 +58,7 @@
             </tbody>
         </table>
 
-    </div>
+    </div> --}}
 
     <div class="menu-table mt-2">
         <h4 class="text-center">Service information</h4>
@@ -74,7 +74,6 @@
                     <th><input type="checkbox" class="select-all form-check-input border-1 border-white "></th>
                     <th>Id</th>
                     <th>Picture</th>
-                    <th>Catagory</th>
                     <th>Title</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -89,7 +88,6 @@
                         <td><input type="checkbox" class="select-item form-check-input"></td>
                         <td>{{ $service->id }}</td>
                         <td><img src="{{ asset('storage/service/'.$service->picture) }}" class="img-thumbnail" width="50" alt=""></td>
-                        <td>{{ $service->service_catagory->title }}</td>
                         <td>{{ $service->title }}</td>
                         <td>
                             <div class="badge {{ $service->status == 'publish' ? 'bg-success' : 'bg-danger' }}">{{ $service->status }}</div>

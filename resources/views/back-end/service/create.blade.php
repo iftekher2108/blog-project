@@ -29,7 +29,7 @@
 
 
 
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input class="form-control @error('title') is-invalid @enderror" id="title" name="title"
@@ -39,7 +39,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="mb-3">
                         <label for="video-link" class="form-label">service Catagory</label>
 
@@ -53,13 +53,13 @@
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="mb-3">
                         <label for="sub-title" class="form-label">Description</label>
-                        <textarea class="form-control @error('short_description') is-invalid @enderror" rows="6" id="sub-title" name="short_description" placeholder="Description"></textarea>
-                        @error('short_description')
+                        <textarea class="form-control @error('description') is-invalid @enderror" rows="6" id="sub-title" name="description" placeholder="Description"></textarea>
+                        @error('description')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>

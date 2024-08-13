@@ -15,9 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('order_id')->default(0);
             $table->string('title');
-            $table->unsignedBigInteger('service_cat_id');
             $table->string('picture')->nullable();
-            $table->string('short_description');
+            $table->string('description');
             $table->longText('content')->nullable();
             $table->enum('status',['publish','unpublish']);
             $table->timestamps();
