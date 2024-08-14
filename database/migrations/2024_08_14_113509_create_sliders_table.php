@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('sliders', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->unique();
+            $table->unsignedBigInteger("order_id")->default(0);
+            $table->string('title')->nullable();
             $table->string('sub_title')->nullable();
+            $table->string('link')->nullable();
             $table->string('picture')->nullable();
-            $table->string('description')->nullable();
-            $table->longText('content')->nullable();
-            // $table->foreign('page_id')->references('id')->on('pages')->onDelete('cascade');
             $table->enum('status',['publish','unpublish']);
             $table->timestamps();
         });
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('sliders');
     }
 };

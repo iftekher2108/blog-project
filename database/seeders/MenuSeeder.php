@@ -16,7 +16,6 @@ class MenuSeeder extends Seeder
             'order_id' => 1,
             'title' => 'Home',
             'slug' => '/',
-            'type' => 'main',
             'status' => 'publish'
 
         ]);
@@ -25,7 +24,6 @@ class MenuSeeder extends Seeder
             'order_id' => 2,
             'title' => 'About Us',
             'slug' => 'about-us',
-            'type' => 'main',
             'status' => 'publish'
         ]);
 
@@ -33,7 +31,6 @@ class MenuSeeder extends Seeder
             'order_id' => 3,
             'title' => 'Services',
             'slug' => 'services',
-            'type' => 'main',
             'status' => 'publish'
         ]);
 
@@ -41,7 +38,6 @@ class MenuSeeder extends Seeder
             'order_id' => 4,
             'title' => 'Gallery',
             'slug' => 'gallery',
-            'type' => 'main',
             'status' => 'publish'
         ]);
 
@@ -49,7 +45,6 @@ class MenuSeeder extends Seeder
             'order_id' => 5,
             'title' => 'news',
             'slug' => 'news',
-            'type' => 'main',
             'status' => 'publish',
         ]);
 
@@ -57,8 +52,35 @@ class MenuSeeder extends Seeder
             'order_id' => 6,
             'title' => 'Contact Us',
             'slug' => 'contact-us',
-            'type' => 'main',
             'status' => 'publish',
+        ]);
+
+        Menu::create([
+            'order_id' => 7,
+            'title' => 'name',
+            'slug' => 'name',
+            'status' => 'unpublish',
+        ]);
+
+        Menu::create([
+            'order_id' => 8,
+            'title' => 'demo',
+            'slug' => 'demo',
+            'status' => 'unpublish',
+        ]);
+
+        Menu::create([
+            'order_id' => 9,
+            'title' => 'sp',
+            'slug' => 'sp',
+            'status' => 'unpublish',
+        ]);
+
+        Menu::create([
+            'order_id' => 10,
+            'title' => 'sn',
+            'slug' => 'sn',
+            'status' => 'unpublish',
         ]);
 
 

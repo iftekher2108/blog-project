@@ -50,12 +50,7 @@
                         </a>
                     </li>
 
-                    <li class="menu-item {{ Request::is('pages') ? 'active' : '' }}">
-                        <a href="{{ route('page.index') }}" class="nav-link">
-                            <i class="fa-solid me-2 fa-images"></i> Pages
-                        </a>
-                    </li>
-
+                    
                     <li class="menu-item {{ Request::is('service') ? 'active' : '' }}">
                         <a href="{{ route('service.index') }}" class="nav-link">
                             <i class="fa-solid me-2 fa-images"></i> Service
@@ -209,7 +204,7 @@
                 </li>
             @endif
 
-            
+
         </ul>
     </div>
     <!-- / Menu -->

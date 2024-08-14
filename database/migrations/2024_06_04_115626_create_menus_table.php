@@ -15,9 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('order_id')->default(0);
             $table->string('title')->unique();
-            $table->string('type');
             $table->string('slug')->unique();
-            $table->integer('parent_id')->default(0);
+            // $table->integer('parent_id')->default(0);
+            $table->integer('view')->default(0);
+            $table->longText('content')->nullable();
+            // $table->unsignedBigInteger('page_id');
+            $table->string('keywords')->nullable();
             $table->enum('status',['publish','unpublish']);
             $table->timestamps();
         });

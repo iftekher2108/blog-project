@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-// use App\Models\menu;
-// use App\Models\subMenu;
-
-use App\Models\pages;
 use App\Models\service;
-use App\Models\Settings;
-use Illuminate\Http\Request;
+use App\Models\slider;
+
 
 class MainController extends Controller
 {
@@ -17,7 +13,7 @@ class MainController extends Controller
      */
     public function index()
     {
-        $sliders = Settings::where('data_name','home_slider')->where('status','publish')->orderBy('order_id','asc')->get();
+        $sliders = slider::where('status','publish')->orderBy('order_id','asc')->get();
         $services = service::where('status','publish')->orderBy('order_id','asc')->take(4)->get();
         return view('front-end.index',compact('sliders','services'));
     }
@@ -43,11 +39,11 @@ class MainController extends Controller
     }
 
 
-    public function pages($slug) {
-        $page = pages::where('slug',$slug)->get();
-        return view('front-end.pages',compact('page'));
-    }
+    // public function pages($slug) {
+    //     $page = pages::where('slug',$slug)->first();
+    //     return view('front-end.pages',compact('page'));
+    // }
 
-    
+
 
 }

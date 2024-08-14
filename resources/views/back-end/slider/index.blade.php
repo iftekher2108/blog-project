@@ -70,43 +70,11 @@
             cursor: 'move',
             opacity: 0.6,
             update: function() {
-                orderUpdate()
+                orderUpdate(`{{ route('slider.order.change') }}`)
             },
         });
 
-        function orderUpdate() {
-            var order = [];
-            $('.sortable tr').each(function(index, element) {
-                order.push({
-                    id: $(this).attr('data-id'),
-                    position: index + 1,
-                })
-            })
-            // console.log(order.id)
+        
 
-            $.ajax({
-                type: "post",
-                url: `{{ route('slider.order.change') }}`,
-                data: {
-                    orders: order
-                },
-                dataType: "json",
-                success: function(res) {
-
-                    $('.menu-table').prepend(
-                        `<div class="alert alert-success alert-dismissible fade show" role="alert">
-                        ${res.success}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>`)
-
-                // console.log(res)
-
-                    setTimeout(function(){
-                        window.location.reload();
-                    }, 1500);
-
-                }
-            });
-        }
     </script>
 @endsection

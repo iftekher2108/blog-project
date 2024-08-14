@@ -11,6 +11,7 @@ use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ServiceCatagoryController;
+use App\Http\Controllers\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,10 @@ use App\Http\Controllers\ServiceCatagoryController;
 */
 
 // ================================= Auth Routes ================================================
-Auth::routes();
+Auth::routes([
+
+]);
+// 'register' => false
 // ================================= Auth Routes ================================================
 
 // =================================== Auth Admin Middleware start ==================================================
@@ -48,6 +52,13 @@ Route::controller(HomeController::class)->group(function(){
 // ============================ utilities setting section start ============================
 Route::controller(SettingsController::class)->group(function(){
 
+})->middleware('admin:super-admin');
+// ============================ utilities setting section end ============================
+
+
+// ============================ slider setting section start ============================
+Route::controller(SliderController::class)->group(function(){
+
     // home slider section
     Route::get('slider','slider')->name('slider.index');
     Route::post('slider/order/change','slider_order')->name('slider.order.change');
@@ -58,7 +69,9 @@ Route::controller(SettingsController::class)->group(function(){
     Route::get('slider/{id}/delete','slider_delete')->name('slider.delete');
 
 })->middleware('admin:super-admin');
-// ============================ utilities setting section end ============================
+
+// =================================== slider setting section ens =================================
+
 
 
 // =================================== service section start =================================
@@ -91,6 +104,8 @@ Route::controller(ServiceController::class)->group(function(){
 Route::controller(MenuController::class)->group(function(){
     Route::get('menu','menu')->name('menu.index');
     Route::post('menu/order/change','menu_order')->name('menu.order.change');
+    Route::get('menu/{id}/edit','menu_edit')->name('menu.edit');
+    Route::post('menu/{id}/update','menu_update')->name('menu.update');
 
 })->middleware('admin:super-admin');
 
@@ -117,11 +132,11 @@ Route::controller(NewsController::class)->group(function(){
 
 
 // ===================================== pages section start =========================================
-Route::controller(PagesController::class)->group(function(){
-    Route::get('pages','pageIndex')->name('page.index');
-    Route::get('pages/create','pageCreate')->name('pages.create');
-    Route::post('pages/store','pageStore')->name('pages.store');
-})->middleware('admin:super-admin');
+// Route::controller(PagesController::class)->group(function(){
+//     Route::get('pages','pageIndex')->name('page.index');
+//     Route::get('pages/create','pageCreate')->name('pages.create');
+//     Route::post('pages/store','pageStore')->name('pages.store');
+// })->middleware('admin:super-admin');
 
 // ===================================== pages section end =========================================
 
