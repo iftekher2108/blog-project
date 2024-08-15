@@ -39,27 +39,12 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="mb-3">
-                        <label for="video-link" class="form-label">service Catagory</label>
-
-                        <select name="service_cat_id" id="" class="form-control wide nice-select @error('service_cat_id') is-invalid @enderror">
-                           @foreach ( $services_catagories as $catagory )
-                                <option value="{{ $catagory->id }}" @selected(old('service_cat_id') == $catagory->id) >{{ $catagory->title }}</option>
-                           @endforeach
-
-                        </select>
-                        @error('service_cat_id')
-                        <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
 
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="mb-3">
                         <label for="sub-title" class="form-label">Description</label>
-                        <textarea class="form-control @error('short_description') is-invalid @enderror" rows="6" id="sub-title" name="short_description" placeholder="Description">{{ old('short_description',$service->short_description) }}</textarea>
-                        @error('short_description')
+                        <textarea class="form-control @error('description') is-invalid @enderror" rows="6" id="sub-title" name="description" placeholder="Description">{{ old('description',$service->description) }}</textarea>
+                        @error('description')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>

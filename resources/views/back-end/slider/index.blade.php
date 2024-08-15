@@ -18,7 +18,8 @@
     <div class="menu-table mt-2">
         <h4 class="text-center">Slider information</h4>
         <div class="d-flex justify-content-between my-2">
-            <a href="" class="btn btn-danger">Delete All</a> <a href="{{ route('slider.create') }}"
+            <a href="" class="btn delete-all btn-danger">Delete All</a>
+             <a href="{{ route('slider.create') }}"
                 class="btn btn-primary">Create</a>
         </div>
 
@@ -40,7 +41,7 @@
                 @foreach ($sliders as $key => $slider)
                     <tr data-id={{ $slider->id }}>
                         <td> <i class="fa-solid mx-2 fa-sort"></i>{{ $slider->order_id }}</td>
-                        <td><input type="checkbox" class="select-item form-check-input"></td>
+                        <td><input type="checkbox" value="{{ $slider->id }}" class="select-item form-check-input"></td>
                         <td>{{ $slider->id }}</td>
                         <td><img src="{{ asset('storage/slider/'.$slider->picture) }}" class="img-thumbnail" width="50" alt=""></td>
                         <td>{{ $slider->title }}</td>
@@ -74,7 +75,13 @@
             },
         });
 
-        
+
+        $('.delete-all').click(function(e){
+            e.preventDefault();
+          requestAll(`{{ route('slider.delete_all') }}`, 'error', 'danger');
+        })
+
+
 
     </script>
 @endsection

@@ -34,7 +34,7 @@ class ServiceController extends Controller
         Validator::make($request->all(), [
             'title' => 'nullable|string',
             'picture' => 'max:10000|mimes:png,jpg,jpeg|nullable',
-            'description' => 'required',
+            'description' => 'nullable|string',
             'status' => 'required'
 
         ]);
@@ -62,7 +62,7 @@ class ServiceController extends Controller
         $service->description = $request->description;
         $service->status = $request->status;
         $service->save();
-        return redirect()->route('service.index')->with('success', 'Service created successfully');
+        return redirect()->route('service.index')->with('success', 'Items has been created');
     }
     // =============================== service store end =============================
 
@@ -81,7 +81,7 @@ class ServiceController extends Controller
             }
         }
 
-        return response()->json(['success' => 'Service order changed successfully']);
+        return response()->json(['success' => 'items sort changed']);
 
     }
     // ========================================== service order end==================================
@@ -101,15 +101,10 @@ class ServiceController extends Controller
     {
         $service = service::find($id);
 
-        if(Storage::exists('public/service'.$service->picture)) {
-            storage::delete('public/service'.$service->picture);
-        }
-
         Validator::make($request->all(), [
             'title' => 'nullable|string',
-
             'picture' => 'max:10000|mimes:png,jpg,jpeg|nullable',
-            'description' => 'required',
+            'description' => 'nullable|string',
             'status' => 'required'
 
         ]);
@@ -117,6 +112,10 @@ class ServiceController extends Controller
         $driver = new ImageManager(new Driver());
 
         if (isset($request->picture)) {
+
+           if(Storage::exists('public/service'.$service->picture)) {
+            storage::delete('public/service'.$service->picture);
+            }
 
             $dir_path = 'service/';
             $file_name = 'service' . time() . '.' . $request->picture->extension();
@@ -131,13 +130,11 @@ class ServiceController extends Controller
 
             $service->picture = $file_name;
         }
-
-        $service->service_cat_id = $request->service_cat_id;
         $service->title = $request->title;
         $service->description = $request->description;
         $service->status = $request->status;
         $service->save();
-        return redirect()->route('service.index')->with('success', 'Service updated successfully');
+        return redirect()->route('service.index')->with('success', 'Item has been updated');
 
     }
     // ======================================= service update end ====================================
@@ -151,8 +148,23 @@ class ServiceController extends Controller
           Storage::delete('public/service/' . $service->picture);
         }
         $service->delete();
-        return redirect()->route('service.index')->with('error', 'Service Deleted Successfully');
+        return redirect()->route('service.index')->with('error', 'Item has been Deleted');
     }
     // ====================================== service delete end =================================
+
+
+        //    =========================================== service delete all end ===================================
+        public function service_delete_all(Request $request) {
+            $services = service::whereIn('id', $request->id);
+            foreach ($services->get() as  $service) {
+                if (Storage::exists('public/service/' . $service->picture)) {
+                    Storage::delete('public/service/' . $service->picture);
+                }
+            }
+            $services->delete();
+            return response()->json(['error' => 'Items has been deleted']);
+        }
+        //    =========================================== service delete all end ===================================
+
 
 }

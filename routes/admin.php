@@ -67,6 +67,7 @@ Route::controller(SliderController::class)->group(function(){
     Route::get('slider/{id}/edit','slider_edit')->name('slider.edit');
     Route::post('slider/{id}/update','slider_update')->name('slider.update');
     Route::get('slider/{id}/delete','slider_delete')->name('slider.delete');
+    Route::post('slider/delete-all','slider_delete_all')->name('slider.delete_all');
 
 })->middleware('admin:super-admin');
 
@@ -83,18 +84,9 @@ Route::controller(ServiceController::class)->group(function(){
     Route::get('service/{id}/edit','serviceEdit')->name('service.edit');
     Route::post('service/{id}/update','serviceUpdate')->name('service.update');
     Route::get('service/{id}/delete','ServiceDelete')->name('service.delete');
+    Route::post('service/delete-all','service_delete_all')->name('service.delete_all');
 })->middleware('admin:super-admin');
 
-
-
-// Route::controller(ServiceCatagoryController::class)->group(function(){
-//     Route::get('service/category/create','CreateCategory')->name('service.category.create');
-//     Route::post('service/category/store','StoreCategory')->name('service.category.store');
-//     Route::get('service/category/{id}/edit','serviceCategoryEdit')->name('service.category.edit');
-//     Route::post('service/category/{id}/update','serviceCategoryUpdate')->name('service.category.update');
-//     Route::get('service/category/{id}/delete','serviceCategoryDelete')->name('service.category.delete');
-
-// })->middleware('admin:super-admin');
 
 // ==================================== service section end ======================================
 
@@ -115,6 +107,7 @@ Route::controller(MenuController::class)->group(function(){
 // ===================================== Categories section start =========================================
 Route::controller(CategoryController::class)->group(function(){
     Route::get('news/category','index')->name('category.index');
+    Route::get('news/category/create','create')->name('category.create');
 
 })->middleware("admin:super-admin");
 

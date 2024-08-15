@@ -44,7 +44,10 @@
 
         // profile update
         $(".btn").click(function () {
-            $(this).prepend('<i class="fa-solid fa-spinner me-2 fa-spin"></i>')
+            $(this).prepend('<i class="fa-solid fa-spinner me-2 fa-spin"></i>');
+            setTimeout(function() {
+                $(this).remove('<i class="fa-solid fa-spinner me-2 fa-spin"></i>');
+            },1500)
         })
 
         // tiny mce plugins initialization
@@ -109,21 +112,23 @@
                 input.setAttribute('type', 'file');
                 input.setAttribute('accept', 'image/*');
 
-                input.onchange = function() {
-                  var file = this.files[0];
-                  var reader = new FileReader();
+                input.onchange = function () {
+                    var file = this.files[0];
+                    var reader = new FileReader();
 
-                  reader.onload = function () {
-                    var id = 'blobid' + (new Date()).getTime();
-                    var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
-                    var base64 = reader.result.split(',')[1];
-                    var blobInfo = blobCache.create(id, file, base64);
-                    blobCache.add(blobInfo);
+                    reader.onload = function () {
+                        var id = 'blobid' + (new Date()).getTime();
+                        var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                        var base64 = reader.result.split(',')[1];
+                        var blobInfo = blobCache.create(id, file, base64);
+                        blobCache.add(blobInfo);
 
-                    // call the callback and populate the Title field with the file name
-                    cb(blobInfo.blobUri(), { title: file.name });
-                  };
-                  reader.readAsDataURL(file);
+                        // call the callback and populate the Title field with the file name
+                        cb(blobInfo.blobUri(), {
+                            title: file.name
+                        });
+                    };
+                    reader.readAsDataURL(file);
                 };
 
                 input.click();
@@ -163,20 +168,78 @@
         // tiny mce text editor
 
 
+        // table data select all function
 
+        $('.select-all').click(function () {
+            $(this).parents('table').find('.select-item').prop('checked', $(this).prop('checked'))
+        })
+
+        $(".select-item").click(function () {
+            var allChecked = true;
+
+            $(".select-item").each(function () {
+                if (!$(this).prop('checked')) {
+                    allChecked = false;
+                    return false; // exit the loop early if any checkbox is not checked
+                }
+            });
+
+            $(this).parents('table').find('.select-all').prop("checked", allChecked);
+        });
+
+        // table data select all function
 
 
     })
 
 
+    // =================== select all ajax function ===============================
+
+    function requestAll(url, notify, color) {
+
+        var ids = [];
+
+        $('.select-item:checked').each(function () {
+            ids.push($(this).val());
+        });
+
+        // console.log(ids);
+
+        $.ajax({
+            type: "post",
+            url: url,
+            data: {
+                id: ids,
+            },
+            success: function (res) {
+                var html = `<div class="alert bg-` + color + ` text-white shadow-none fw-bold alert-dismissible fade show" role="alert">
+                 ` + res[notify] + `
+                <button type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>`;
+
+                $('.dash-content .card .card-body:eq(0)').prepend(html);
+
+                $('.select-item:checked').each(function () {
+                    $(this).parent().parent('tr').hide(300);
+                })
+                setTimeout(function () {
+                    window.location.reload();
+                }, 1500)
+            }
+        });
+    }
 
 
+    // =================== select all ajax function ===============================
+
+
+    // Sort function
     function orderUpdate(route) {
         var order = [];
-        $('.sortable tr').each(function(index, element) {
+        $('.sortable tr').each(function (index, element) {
             order.push({
                 id: $(this).attr('data-id'),
-                position: index+1,
+                position: index + 1,
             })
         })
         // console.log(order.id)
@@ -185,19 +248,19 @@
             type: "post",
             url: route,
             data: {
-              orders:order
+                orders: order
             },
             dataType: "json",
             success: function (res) {
 
                 $('.menu-table').prepend(
-                        `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                    `<div class="alert alert-success alert-dismissible fade show" role="alert">
                             ${res.success}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>`
-                    )
-                    // console.log(res)
-                setTimeout(function(){
+                )
+                // console.log(res)
+                setTimeout(function () {
                     window.location.reload();
                 }, 1500);
 
@@ -205,4 +268,4 @@
         });
     }
 
-    // sort system
+    // Sort function

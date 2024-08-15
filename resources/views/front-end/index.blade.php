@@ -60,7 +60,7 @@
                                     <div class="icon-box">
                                         <h3 class="title my-1"><a href="">{{ $service->title }}</a></h3>
                                         <p class="description line-clamp-5">
-                                            {{ $service->short_description }}
+                                            {{ $service->description }}
                                         </p>
                                     </div>
                                 </div>

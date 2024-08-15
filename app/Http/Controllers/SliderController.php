@@ -99,9 +99,9 @@ class SliderController extends Controller
         $slider = slider::find($id);
         $driver = new ImageManager(new Driver());
         if (isset($request->picture)) {
-        if (Storage::exists('public/slider/' . $slider->picture)) {
-            Storage::delete('public/slider/' . $slider->picture);
-        }
+            if (Storage::exists('public/slider/' . $slider->picture)) {
+                Storage::delete('public/slider/' . $slider->picture);
+            }
             $dir_path = 'slider/';
             $file_name = 'slider' . time() . '.' . $request->picture->extension();
             $store = $request->picture->storeAs($dir_path, $file_name, 'public');
@@ -117,7 +117,7 @@ class SliderController extends Controller
         $slider->link = $request->link;
         $slider->status = $request->status;
         $slider->save();
-        return redirect()->route('slider.index')->with('success', 'Slider updated successfully');
+        return redirect()->route('slider.index')->with('success', 'Item has been updated');
     }
     //    =========================================== slider update end ===================================
 
@@ -130,10 +130,24 @@ class SliderController extends Controller
             Storage::delete('public/slider/' . $slider->picture);
         }
         $slider->delete();
-        return redirect()->route('slider.index')->with('error', 'Slider deleted successfully');
+        return redirect()->route('slider.index')->with('error', 'Item has been deleted');
     }
     //    =========================================== slider delete end ===================================
 
+
+
+    //    =========================================== slider delete all end ===================================
+    public function slider_delete_all(Request $request) {
+        $sliders = slider::whereIn('id', $request->id);
+        foreach ($sliders->get() as  $slider) {
+            if (Storage::exists('public/slider/' . $slider->picture)) {
+                Storage::delete('public/slider/' . $slider->picture);
+            }
+        }
+        $sliders->delete();
+        return response()->json(['error' => 'Items has been deleted']);
+    }
+    //    =========================================== slider delete all end ===================================
 
 
 }

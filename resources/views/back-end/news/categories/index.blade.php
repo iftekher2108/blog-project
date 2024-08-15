@@ -20,7 +20,7 @@
 <h4 class="text-center">News Category information</h4>
 <div class="d-flex justify-content-between my-2">
     <a href="" class="btn btn-danger">Delete All</a>
-    <a href="" class="btn btn-primary">Create</a>
+    <a href="{{ route('category.create') }}" class="btn btn-primary">Create</a>
 </div>
 <table class="table datatable table-striped w-100  table-hover">
     <thead>
