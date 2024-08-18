@@ -45,7 +45,7 @@
                                     class="badge {{ $menu->status == 'publish' ? 'bg-success' : 'bg-danger' }}">{{ $menu->status }}</span>
                             </td>
                             <td>
-                                <div class="d-flex justify-content-around">
+                                <div class="d-flex gap-3">
                                     <a href="{{ route('menu.edit',$menu->id) }}" class="btn btn-primary">Edit</a>
                                 </div>
                             </td>

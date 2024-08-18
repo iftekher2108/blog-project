@@ -49,7 +49,7 @@
                             <div class="badge {{ $slider->status == 'publish' ? 'bg-success' : 'bg-danger' }}">publish</div>
                         </td>
                         <td>
-                            <div class="d-flex justify-content-around">
+                            <div class="d-flex gap-3">
                                 <a href="{{ route('slider.edit',$slider->id) }}" class="btn btn-primary">Edit</a>
                                 <a href="{{ route('slider.delete',$slider->id) }}" class="btn btn-danger">Delete</a>
                             </div>

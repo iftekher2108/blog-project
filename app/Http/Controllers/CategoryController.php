@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManager;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class CategoryController extends Controller
 {
@@ -12,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('back-end.news.categories.index');
+        $categories = category::all();
+        return view('back-end.news.categories.index',compact('categories'));
     }
 
     /**
@@ -28,7 +33,38 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new category;
+
+        $request->validate([
+            'picture' => 'nullable|image|mimes:png,jpg|max:10000',
+            'title' => 'required|string',
+            'status' => 'required'
+        ]);
+
+        $driver = new ImageManager(new Driver());
+
+        if (isset($request->picture)) {
+
+             $dir_path = 'category/';
+             $file_name = 'category' . time() . '.' . $request->picture->extension();
+
+             $store = $request->picture->storeAs($dir_path, $file_name, 'public');
+
+             if ($store) {
+                 $image = $driver->read('storage/category/' . $file_name);
+                 $image->resize(400, 300);
+                 $image->save('storage/' . $dir_path . $file_name);
+             }
+
+             $category->cat_picture = $file_name;
+             $category->cat_title = $request->title;
+             $category->cat_slug = Str::of($request->title)->slug('-');
+             $category->status = $request->status;
+             $category->save();
+             return redirect()->route('category.index')->with('category', 'Item has been created');
+
+         }
+
     }
 
     /**

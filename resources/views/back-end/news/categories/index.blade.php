@@ -27,7 +27,7 @@
         <tr class="bg-primary text-white">
             <th><input type="checkbox" class="select-all form-check-input border-1 border-white "></th>
             <th>Id</th>
-            <th></th>
+            <th>Picture</th>
             <th>Name</th>
             <th>Status</th>
             <th>Action</th>
@@ -36,25 +36,25 @@
     </thead>
     <tbody>
 
-        {{-- @foreach ($menus as $menu)
+        @foreach ($categories as $category)
             <tr>
-                <td><input type="checkbox" class="select-item form-check-input" id="{{ $menu->id }}" value='{{ $menu->id }}'>
+                <td><input type="checkbox" class="select-item form-check-input" id="{{ $category->id }}" value='{{ $category->id }}'>
                 </td>
-                <td>{{ $menu->id }}</td>
-
-                <td>{{ $menu->title }}</td>
-                <td>{{ $menu->slug }}</td>
+                <td>{{ $category->id }}</td>
+                <td><img src="{{ asset('storage/category/'.$category->cat_picture) }}" class="img-thumbnail" width="50"  alt=""></td>
+                <td>{{ $category->cat_title }}</td>
                 <td>
                     <span
-                        class="badge {{ $menu->status == 'publish' ? 'bg-success' : 'bg-danger' }}">{{ $menu->status }}</span>
+                        class="badge {{ $category->status == 'publish' ? 'bg-success' : 'bg-danger' }}">{{ $category->status }}</span>
                 </td>
                 <td>
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flex gap-3">
                         <a href="" class="btn btn-primary">Edit</a>
+                        <a href="" class="btn btn-danger">delete</a>
                     </div>
                 </td>
             </tr>
-        @endforeach --}}
+        @endforeach
 
     </tbody>
 </table>

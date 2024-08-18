@@ -34,7 +34,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="mb-3">
                         <label for="keywords" class="form-label">Keywords</label>
                         <input class="form-control @error('keywords') is-invalid @enderror" value="{{ old('keywords',$menu->keywords) }}" id="keywords" name="keywords">
@@ -57,7 +57,9 @@
 
             </div>
 
-            <input type="submit" class="btn btn-primary mt-3" value="Create">
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-primary py-2 px-4 mt-3">Update</button>
+            </div>
 
         </form>
 

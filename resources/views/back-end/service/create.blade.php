@@ -80,7 +80,9 @@
 
             </div>
 
-            <button class="btn btn-primary mt-3">Create</button>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-primary py-2 px-4 mt-3">Create</button>
+            </div>
 
         </form>
 
@@ -94,5 +96,11 @@
             $('.preview-img img').attr('src', URL.createObjectURL(e.target.files[0]))
         })
         // image preview for check
+
+        $(".preview-img").click(function(){
+            $('#input-img').click();
+        })
+
+
     </script>
 @endsection

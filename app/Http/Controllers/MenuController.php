@@ -32,7 +32,7 @@ class MenuController extends Controller
             }
         }
 
-        return response()->json(['success' => 'Menu order changed successfully']);
+        return response()->json(['success' => 'Items sort changed']);
     }
 
 
@@ -60,7 +60,7 @@ class MenuController extends Controller
         $menu->status = $request->status;
         $menu->save();
 
-        return redirect()->route('menu.index')->with('success',$menu->title.' Items updated successfully');
+        return redirect()->route('menu.index')->with('success',$menu->title.' Items has been updated');
 
     }
 
@@ -87,7 +87,7 @@ class MenuController extends Controller
     //     ];
 
     //     Menu::create($data);
-    //     return redirect()->route('menu.index')->with('success', 'Menu Item Created Successfully');
+    //     return redirect()->route('menu.index')->with('success', 'Item has been Created');
     // }
 
 
@@ -95,7 +95,7 @@ class MenuController extends Controller
     // public function menu_delete($id)
     // {
     //     Menu::find($id)->delete();
-    //     return redirect()->route('menu.index')->with('error', 'Menu Item Deleted Successfully');
+    //     return redirect()->route('menu.index')->with('error', 'Item has been Deleted ');
     // }
 
 

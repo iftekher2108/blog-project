@@ -16,10 +16,20 @@
             -o-border-radius: 10px;
         }
 
+        .menu-header-text {
+            font-size: 12px;
+        }
+
         .menu-toggle {
             display:flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .menu-item {
+            a {
+                font-size:15px;
+            }
         }
 
         li {

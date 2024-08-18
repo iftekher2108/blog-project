@@ -71,7 +71,9 @@
 
             </div>
 
-            <button class="btn btn-primary mt-3">Create</button>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-primary py-2 px-4 mt-3">Create</button>
+            </div>
 
         </form>
 

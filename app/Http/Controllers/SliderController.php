@@ -33,7 +33,7 @@ class SliderController extends Controller
                 }
             }
         }
-        return response()->json(['success' => 'Slider order changed successfully']);
+        return response()->json(['success' => 'Items sort changed']);
     }
     //    =========================================== slider order end ===================================
 
@@ -72,7 +72,7 @@ class SliderController extends Controller
         $slider->link = $request->link;
         $slider->status = $request->status;
         $slider->save();
-        return redirect()->route('slider.index')->with('success', 'Slider created successfully');
+        return redirect()->route('slider.index')->with('success', 'Slider has been created');
     }
     //    =========================================== slider store end ===================================
 

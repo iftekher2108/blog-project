@@ -9,6 +9,7 @@ class category extends Model
 {
     use HasFactory;
 
+    
 
     // public function sub_category() {
     //     return $this->belongsToMany('categories','sub_categories');

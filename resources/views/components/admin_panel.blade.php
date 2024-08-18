@@ -11,7 +11,7 @@
         <ul class="py-1">
 
             <li class="menu-header  text-uppercase">
-                <span class="menu-header-text fw-bold opacity-50">Dashboard</span>
+                <span class="menu-header-text opacity-50">Dashboard</span>
             </li>
 
             <!-- Dashboard -->
@@ -25,7 +25,7 @@
 
 
             <li class="menu-header text-uppercase">
-                <span class="menu-header-text fw-bold opacity-50">Pages</span>
+                <span class="menu-header-text opacity-50">Pages</span>
             </li>
 
             <!-- Layouts -->
@@ -77,7 +77,7 @@
             </li>
 
             <li class="menu-header text-uppercase">
-                <span class="menu-header-text fw-bold opacity-50">News Settings</span>
+                <span class="menu-header-text opacity-50">News Settings</span>
             </li>
 
             <li class="menu-item">
@@ -116,7 +116,7 @@
 
             @if (Auth::user()->role == 'super-admin')
                 <li class="menu-header text-uppercase">
-                    <span class="menu-header-text fw-bold opacity-50">Users Settings</span>
+                    <span class="menu-header-text opacity-50">Users Settings</span>
                 </li>
                 <li class="menu-item">
                     <a href="javascript:void(0);" class="nav-link menu-toggle">
@@ -178,7 +178,7 @@
 
 
                 <li class="menu-header text-uppercase">
-                    <span class="menu-header-text fw-bold opacity-50">settings</span>
+                    <span class="menu-header-text opacity-50">settings</span>
                 </li>
 
                 <li class="menu-item">

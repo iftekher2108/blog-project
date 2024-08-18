@@ -50,7 +50,7 @@
                             <div class="badge {{ $service->status == 'publish' ? 'bg-success' : 'bg-danger' }}">{{ $service->status }}</div>
                         </td>
                         <td>
-                            <div class="d-flex justify-content-around">
+                            <div class="d-flex gap-3">
                                 <a href="{{ route('service.edit',$service->id) }}" class="btn btn-primary">Edit</a>
                                 <a href="{{ route('service.delete',$service->id) }}" class="btn btn-danger">Delete</a>
                             </div>

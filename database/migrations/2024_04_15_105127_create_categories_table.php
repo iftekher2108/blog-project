@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('order_id')->default(0);
-            $table->string('cat_title')->unique();
-            $table->string('cat_slug')->unique();
+            $table->string('cat_title',60)->unique();
+            $table->string('cat_slug',70)->unique();
             $table->string('cat_picture')->nullable();
-            $table->longText('cat_content')->nullable();
             $table->enum('status',['publish','unpublish']);
             $table->timestamps();
         });

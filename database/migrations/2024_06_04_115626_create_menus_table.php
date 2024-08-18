@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('order_id')->default(0);
             $table->string('title')->unique();
             $table->string('slug')->unique();
+            $table->string('picture')->nullable();
             // $table->integer('parent_id')->default(0);
             $table->integer('view')->default(0);
             $table->longText('content')->nullable();

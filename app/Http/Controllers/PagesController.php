@@ -21,7 +21,7 @@ class PagesController extends Controller
         return view('back-end.page.create');
     }
 
-    
+
     /**
      * Store a newly created resource in storage.
      */
@@ -54,7 +54,7 @@ class PagesController extends Controller
 
         pages::create($data);
 
-        return redirect()->route('page.index')->with('success','Page create successfully');
+        return redirect()->route('page.index')->with('success','Page has been created');
 
     }
 
