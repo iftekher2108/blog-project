@@ -109,6 +109,10 @@ Route::controller(CategoryController::class)->group(function(){
     Route::get('news/category','index')->name('category.index');
     Route::get('news/category/create','create')->name('category.create');
     Route::post('news/category/store','store')->name('category.store');
+    Route::get('news/category/{id}/edit','edit')->name('category.edit');
+    Route::post('news/category/{id}/update','update')->name('category.update');
+    Route::get('news/category/{id}/delete','delete')->name('category.delete');
+    Route::post('category/delete-all','category_delete_all')->name('category.delete_all');
 
 })->middleware("admin:super-admin");
 
