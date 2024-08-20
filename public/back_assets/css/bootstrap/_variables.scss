@@ -306,6 +306,9 @@ $warning:       $yellow !default;
 $danger:        $red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-900 !default;
+$accent:        $pink-400 !default;
+$base-100:      $gray-700 !default;
+$neutral:       $cyan-300 !default;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
@@ -317,7 +320,11 @@ $theme-colors: (
   "warning":    $warning,
   "danger":     $danger,
   "light":      $light,
-  "dark":       $dark
+  "dark":       $dark,
+  "accent":     $accent,
+  "base-100":   $base-100,
+  "neutral":    $neutral
+
 ) !default;
 // scss-docs-end theme-colors-map
 
@@ -369,7 +376,7 @@ $escaped-characters: (
 
 $enable-caret:                true !default;
 $enable-rounded:              true !default;
-$enable-shadows:              false !default;
+$enable-shadows:              true !default;
 $enable-gradients:            false !default;
 $enable-transitions:          true !default;
 $enable-reduced-motion:       true !default;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('back-end.news.create');
+        $categories = category::where('status','publish')->select('id','cat_title')->get();
+        return view('back-end.news.create',compact('categories'));
     }
 
     /**

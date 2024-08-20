@@ -20,6 +20,14 @@
     -o-transition: all 0.3s ease-in-out;
 }
 
+h1,h2,h3,h4,h5,h6 {
+    margin: 0px !important;
+    @extend .poppins-semibold;
+}
+
+span,p,a,button {
+    @extend .nunito-sans;
+}
 
 /*--------------------------------------------------------------
 # Preloader

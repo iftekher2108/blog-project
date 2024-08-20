@@ -31,7 +31,7 @@
     <div id="preloader"></div>
 
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-sm">
+        <nav class="navbar navbar-expand-md p-0 bg-primary shadow-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ $store->where('data_name','logo')->value('picture') }}" class="img-fluid" width="80" alt="">
@@ -55,18 +55,18 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown border-none">
                                 <a id="navbarDropdown" class="nav-link text-white dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                   <img src="" class="img-fluid" height="50" width="50" alt=""> {{ Auth::user()->name }}
+                                   <img src="" class="img-fluid rounded-circle border me-1" height="40" width="40" alt=""> {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a href="{{ url('profile') }}" class="dropdown-item">Profile Settings</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                <div class="dropdown-menu p-3 shadow-lg  dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a href="{{ url('profile') }}" class="dropdown-item py-2 p-1"><i class="fa-solid me-1 fa-user-pen"></i> Profile Settings</a>
+                                    <a class="dropdown-item py-2 p-1" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                       <i class="fa-solid me-2 fa-arrow-right-from-bracket"></i> Logout
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
