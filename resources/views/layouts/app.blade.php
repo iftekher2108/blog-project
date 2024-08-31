@@ -31,7 +31,7 @@
     <div id="preloader"></div>
 
     <div id="app">
-        <nav class="navbar navbar-expand-md p-0 bg-primary shadow-sm">
+        <nav class="navbar navbar-expand-md sticky-top p-0 bg-primary shadow-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ $store->where('data_name','logo')->value('picture') }}" class="img-fluid" width="80" alt="">

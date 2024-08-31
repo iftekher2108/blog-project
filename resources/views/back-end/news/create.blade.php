@@ -5,7 +5,7 @@
 
         <h1 class="text-center text-primary fw-bold">News information</h1>
 
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('news.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row g-2 ">
 
@@ -28,7 +28,7 @@
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                            placeholder="title">
+                            placeholder="Title">
                         @error('title')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -39,9 +39,9 @@
                     <div class="mb-3">
                         <label for="category" class="form-label">Category</label>
                         <select class="form-control  nice-select wide @error('category') is-invalid @enderror"
-                            id="category" name="category">
+                            id="category" name="cat_id">
                             @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">--- {{ $category->cat_title }} ---</option>
+                                <option value="{{ $category->id }}">{{ $category->cat_title }} ---</option>
                             @endforeach
 
 
@@ -54,9 +54,9 @@
 
                 <div class="col-md-12">
                     <div class="mb-3">
-                        <label for="description" class="form-label">description</label>
+                        <label for="description" class="form-label">Description</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" id="description" rows="5"
-                            name="description" placeholder="Sub-title"></textarea>
+                            name="description" placeholder="Description"></textarea>
                         @error('description')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -66,7 +66,7 @@
                 <div class="col-md-12">
                     <div class="mb-3">
                         <label for="content" class="form-label">Content</label>
-                        <textarea class="form-control tinymce @error('content') is-invalid @enderror" id="content" rows="5"
+                        <textarea class="form-control tinymce @error('content') is-invalid @enderror" placeholder="Write content.........." id="content" rows="5"
                             name="content"></textarea>
                         @error('content')
                             <span class="text-danger">{{ $message }}</span>
@@ -77,7 +77,7 @@
                 <div class="col-md-12">
                     <div class="mb-3">
                         <label for="keywords" class="form-label">Keywords</label>
-                        <input class="form-control @error('keywords') is-invalid @enderror" id="keywords" name="keywords">
+                        <input class="form-control @error('keywords') is-invalid @enderror" id="keywords" placeholder="Example, Example, Example" name="keywords">
                         @error('keywords')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

@@ -1,5 +1,5 @@
-<div class="panel-menu">
-    <div id="layout-menu" class="layout-menu rounded p-2 w-100 bg-dark">
+<div class="panel-menu h-100">
+    <div id="layout-menu" class="layout-menu rounded p-2 h-100 w-100 bg-dark">
 
         <div class="app-brand p-3">
             <a href="{{ url('/') }}" class="d-flex justify-content-center">

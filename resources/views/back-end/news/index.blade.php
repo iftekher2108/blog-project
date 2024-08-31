@@ -19,7 +19,7 @@
 <div class="menu-table my-2">
 <h4 class="text-center">News information</h4>
 <div class="d-flex justify-content-between my-2">
-    <a href="" class="btn btn-danger">Delete All</a>
+    <a href="" class="btn delete-all btn-danger disabled">Delete All</a>
     <a href="{{ route('news.create') }}" class="btn btn-primary">Create</a>
 </div>
 <table class="table datatable table-striped w-100  table-hover">

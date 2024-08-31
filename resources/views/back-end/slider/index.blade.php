@@ -18,7 +18,7 @@
     <div class="menu-table mt-2">
         <h4 class="text-center">Slider information</h4>
         <div class="d-flex justify-content-between my-2">
-            <a href="" class="btn delete-all btn-danger">Delete All</a>
+            <a href="" class="btn delete-all btn-danger disabled">Delete All</a>
              <a href="{{ route('slider.create') }}"
                 class="btn btn-primary">Create</a>
         </div>

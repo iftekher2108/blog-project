@@ -54,7 +54,7 @@ class PagesController extends Controller
 
         pages::create($data);
 
-        return redirect()->route('page.index')->with('success','Page has been created');
+        return redirect()->route('page.index')->with('success','item has been created');
 
     }
 

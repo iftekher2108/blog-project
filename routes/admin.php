@@ -124,6 +124,7 @@ Route::controller(CategoryController::class)->group(function(){
 Route::controller(NewsController::class)->group(function(){
     Route::get('news/list','index')->name('news.index');
     Route::get('news/create','create')->name('news.create');
+    Route::post('news/store','news_store')->name('news.store');
 })->middleware('admin:super-admin');
 
 // ===================================== news section end =========================================

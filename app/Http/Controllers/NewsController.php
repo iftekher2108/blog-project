@@ -13,7 +13,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-       return view('back-end.news.index');
+        return view('back-end.news.index');
     }
 
     /**
@@ -21,16 +21,40 @@ class NewsController extends Controller
      */
     public function create()
     {
-        $categories = category::where('status','publish')->select('id','cat_title')->get();
-        return view('back-end.news.create',compact('categories'));
+        $categories = category::where('status', 'publish')->select('id', 'cat_title')->get();
+        return view('back-end.news.create', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function news_store(Request $request)
     {
+        $news = new News;
 
+        $request->validate([
+            'picture' => 'nullable|image|mimes:png,jpg|max:10000',
+            'title' => 'string|required',
+            'cat_id' => 'integer|required',
+            'description' => 'nullable',
+            'content' => 'required',
+            'status' => 'required'
+        ]);
+
+        if (isset($request->picture)) {
+            $file_name = 'news' . date('d-M-Y') . time() . "." . $request->picture->extension();
+            $file_path = 'news';
+            $request->picture->storeAs($file_path, $file_name, 'public');
+            $news->picture = $file_name;
+        }
+        $news->title = $request->title;
+        $news->cat_id = $request->cat_id;
+        $news->description = $request->description;
+        $news->content = $request->content;
+        $news->status = $request->status;
+        $news->save();
+
+        return redirect()->route('news.index')->with('success', 'Item has been Created');
     }
 
     /**

@@ -45,9 +45,9 @@
         // profile update
         $(".btn").click(function () {
             $(this).prepend('<i class="fa-solid fa-spinner me-2 fa-spin"></i>');
-            setTimeout(function() {
+            setTimeout(function () {
                 $(this).remove('<i class="fa-solid fa-spinner me-2 fa-spin"></i>');
-            },1500)
+            }, 1500)
         })
 
         // tiny mce plugins initialization
@@ -170,12 +170,23 @@
 
         // table data select all function
 
+
         $('.select-all').click(function () {
+            if ($(this).prop('checked')) {
+                $('.delete-all').removeClass('disabled');
+            } else {
+                $('.delete-all').addClass('disabled');
+            }
             $(this).parents('table').find('.select-item').prop('checked', $(this).prop('checked'))
         })
 
         $(".select-item").click(function () {
             var allChecked = true;
+            if ($(".select-item").prop('checked')) {
+                $('.delete-all').removeClass('disabled');
+            } else {
+                $('.delete-all').addClass('disabled');
+            }
 
             $(".select-item").each(function () {
                 if (!$(this).prop('checked')) {
