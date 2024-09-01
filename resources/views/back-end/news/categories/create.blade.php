@@ -4,25 +4,26 @@
     <div>
 
         <h1 class="text-center text-primary fw-bold">News Category information</h1>
-
+ <br>
         <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
+        <div class="row g-2 mt-2">
 
+            <div class="col-md-12 mb-2">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <label for="input-img" class="form-label">Picture</label>
-                    <div class="preview-img border rounded border-1">
-                        <img src="{{ asset('back_assets/image/dummy.jpg') }}" width="450" class="img-fluid rounded">
+                    <div class="preview-img overflow-hidden card">
+                        <img src="{{ asset('back_assets/image/dummy.jpg') }}" class="img-fluid">
                     </div>
+                    <input type="file" hidden class="form-control @error('picture') is-invalid @enderror"
+                        id="input-img" name="picture" accept="image/png, image/gif, image/jpeg">
                     @error('picture')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                        <input type="file" class="form-control @error('picture') is-invalid @enderror" id="input-img"
-                            name="picture" hidden accept="image/png, image/gif, image/jpeg">
+            </div>
 
-
-            <div class="row g-2 mt-2">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
@@ -58,18 +59,3 @@
     </div>
 @endsection
 
-@section('script')
-    <script>
-        // image preview for check
-        $('#input-img').on('input', function(e) {
-            $('.preview-img img').attr('src', URL.createObjectURL(e.target.files[0]))
-        })
-        // image preview for check
-
-        $(".preview-img").click(function(){
-            $('#input-img').click();
-        })
-
-
-    </script>
-@endsection

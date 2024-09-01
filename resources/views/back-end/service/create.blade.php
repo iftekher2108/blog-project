@@ -3,31 +3,25 @@
 @section('content')
     <div>
 
-        <h1 class="text-center text-primary fw-bold">Service information</h1>
+        <h3 class="text-center">Service Information</h3>
 
         <form action="{{ route('service.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row g-2 ">
 
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="preview-img border rounded border-1">
-                        <img src="" class="img-fluid rounded">
-                    </div>
-                </div>
-
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="mb-3">
+                <div class="col-md-12 mb-2">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
                         <label for="input-img" class="form-label">Picture</label>
-                        <input type="file" class="form-control @error('picture') is-invalid @enderror" id="input-img" name="picture"
-                            accept="image/png, image/gif, image/jpeg">
+                        <div class="preview-img overflow-hidden card">
+                            <img src="{{ asset('back_assets/image/dummy.jpg') }}" class="img-fluid">
+                        </div>
+                        <input type="file" hidden class="form-control @error('picture') is-invalid @enderror"
+                            id="input-img" name="picture" accept="image/png, image/gif, image/jpeg">
                         @error('picture')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-
                 </div>
-
-
 
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="mb-3">
@@ -89,18 +83,3 @@
     </div>
 @endsection
 
-@section('script')
-    <script>
-        // image preview for check
-        $('#input-img').on('input', function(e) {
-            $('.preview-img img').attr('src', URL.createObjectURL(e.target.files[0]))
-        })
-        // image preview for check
-
-        $(".preview-img").click(function(){
-            $('#input-img').click();
-        })
-
-
-    </script>
-@endsection

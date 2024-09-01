@@ -91,7 +91,7 @@
                     </div>
                 @endauth
                     <div class="col-lg-9 col-md-8 mx-auto col-sm-12">
-                        <div class="card">
+                        <div class="card bg-">
                             <div class="card-body">
                                 @if (Session::get('status'))
                                     <div class="alert alert-success" role="alert">

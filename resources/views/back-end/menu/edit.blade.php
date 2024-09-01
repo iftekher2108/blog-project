@@ -3,14 +3,14 @@
 @section('content')
     <div>
 
-        <h1 class="text-center text-primary fw-bold">Menu information</h1>
+        <h3 class="text-center">Menu information</h3>
 
         <form action="{{ route('menu.update',$menu->id) }}" method="POST"
             enctype="multipart/form-data">
             @csrf
             <div class="row g-2 ">
 
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input class="form-control @error('title') is-invalid @enderror" value="{{ old('title',$menu->title) }}" id="title" name="title"

@@ -9,12 +9,12 @@
         .active {
             background: var(--bs-primary);
             color: white;
-            border-radius: 10px;
-            -webkit-border-radius: 10px;
-            -moz-border-radius: 10px;
-            -ms-border-radius: 10px;
-            -o-border-radius: 10px;
-        }
+            border-radius: $border_radius;
+            -webkit-border-radius: $border_radius;
+            -moz-border-radius: $border_radius;
+            -ms-border-radius: $border_radius;
+            -o-border-radius: $border_radius;
+}
 
         .menu-header-text {
             font-size: 12px;
@@ -41,18 +41,17 @@
                 color: white;
                 text-decoration: none;
                 padding: 0.7rem 0.8rem;
-                border-radius: 10px;
-                -webkit-border-radius: 10px;
-                -moz-border-radius: 10px;
-                -ms-border-radius: 10px;
-                -o-border-radius: 10px;
+                border-radius: $border_radius;
+                -webkit-border-radius: $border_radius;
+                -moz-border-radius: $border_radius;
+                -ms-border-radius: $border_radius;
+                -o-border-radius: $border_radius;
                 transition: all 0.2s ease-in-out;
                 -webkit-transition: all 0.2s ease-in-out;
                 -moz-transition: all 0.2s ease-in-out;
                 -ms-transition: all 0.2s ease-in-out;
                 -o-transition: all 0.2s ease-in-out;
-                &:hover
-                {
+                &:hover{
                     color: white;
                     background: var(--bs-primary);
                 }

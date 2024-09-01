@@ -180,6 +180,19 @@
             $(this).parents('table').find('.select-item').prop('checked', $(this).prop('checked'))
         })
 
+
+        // image preview for check
+        $('#input-img').on('input', function (e) {
+            $('.preview-img img').attr('src', URL.createObjectURL(e.target.files[0]))
+        })
+        // image preview for check
+
+        $(".preview-img").click(function () {
+            $('#input-img').click();
+        })
+
+
+
         $(".select-item").click(function () {
             var allChecked = true;
             if ($(".select-item").prop('checked')) {
