@@ -6,11 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\PagesController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingsController;
-use App\Http\Controllers\ServiceCatagoryController;
 use App\Http\Controllers\SliderController;
 
 /*
@@ -45,6 +43,7 @@ Route::middleware(['auth'])->group(function(){
 Route::controller(HomeController::class)->group(function(){
     Route::get('profile','profileSetting');
     Route::get('home','index')->name('home');
+    Route::post('/tiny-mce-upload','tiny_mce_upload');
 });
 // ============================= profile section end ==============================================
 

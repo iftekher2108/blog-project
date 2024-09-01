@@ -31,12 +31,11 @@ class ServiceController extends Controller
 
     public function serviceStore(Request $request)
     {
-        Validator::make($request->all(), [
-            'title' => 'nullable|string',
+        $request->validate([
+            'title' => 'required|string',
             'picture' => 'max:10000|mimes:png,jpg,jpeg|nullable',
             'description' => 'nullable|string',
             'status' => 'required'
-
         ]);
 
         $service = new service;
@@ -101,8 +100,8 @@ class ServiceController extends Controller
     {
         $service = service::find($id);
 
-        Validator::make($request->all(), [
-            'title' => 'nullable|string',
+       $request->validate([
+            'title' => 'required|string',
             'picture' => 'max:10000|mimes:png,jpg,jpeg|nullable',
             'description' => 'nullable|string',
             'status' => 'required'

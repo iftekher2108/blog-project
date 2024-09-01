@@ -1,20 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-@if ($mas = Session::get('success'))
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{ $mas }}
-    <button type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-@endif
-
-@if ($mas = Session::get('error'))
-<div class="alert alert-danger alert-dismissible" role="alert">
-    {{ $mas }}
-    <button type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-@endif
-
 
 <div class="menu-table my-2">
 <h4 class="text-center">News information</h4>
@@ -36,17 +22,17 @@
     </thead>
     <tbody class="sortable">
 
-        {{-- @foreach ($menus as $menu)
+        @foreach ($news as $new)
             <tr>
-                <td><input type="checkbox" class="select-item form-check-input" id="{{ $menu->id }}" value='{{ $menu->id }}'>
+                <td><input type="checkbox" class="select-item form-check-input" id="{{ $new->id }}" value='{{ $new->id }}'>
                 </td>
-                <td>{{ $menu->id }}</td>
+                <td>{{ $new->id }}</td>
 
-                <td>{{ $menu->title }}</td>
-                <td>{{ $menu->slug }}</td>
+                <td>{{ $new->title }}</td>
+                <td>{{ $new->slug }}</td>
                 <td>
                     <span
-                        class="badge {{ $menu->status == 'publish' ? 'bg-success' : 'bg-danger' }}">{{ $menu->status }}</span>
+                        class="badge {{ $new->status == 'publish' ? 'bg-success' : 'bg-danger' }}">{{ $new->status }}</span>
                 </td>
                 <td>
                     <div class="d-flex gap-3">
@@ -54,7 +40,7 @@
                     </div>
                 </td>
             </tr>
-        @endforeach --}}
+        @endforeach
 
     </tbody>
 </table>

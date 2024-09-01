@@ -24,7 +24,7 @@
                 </div>
 
 
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-md-12">
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input class="form-control @error('title') is-invalid @enderror" id="title" value="{{ old('title',$service->title) }}" name="title"
@@ -37,8 +37,8 @@
 
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="mb-3">
-                        <label for="sub-title" class="form-label">Description</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" rows="6" id="sub-title" name="description" placeholder="Description">{{ old('description',$service->description) }}</textarea>
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control @error('description') is-invalid @enderror" rows="6" id="description" name="description" placeholder="Description">{{ old('description',$service->description) }}</textarea>
                         @error('description')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror

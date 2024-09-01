@@ -33,4 +33,20 @@ class HomeController extends Controller
     }
 
 
+
+
+
+    // tiny mce file image upload manager
+    public function tiny_mce_upload(Request $request) {
+        $fileName=$request->file('file')->getClientOriginalName();
+        $path=$request->file('file')->storeAs('editor_uploads', $fileName, 'public');
+        return response()->json(['location'=>"/storage/$path"]); 
+        
+        /*$imgpath = request()->file('file')->store('uploads', 'public'); 
+        return response()->json(['location' => "/storage/$imgpath"]);*/
+    }
+    // tiny mce file image upload manager
+
+
+
 }

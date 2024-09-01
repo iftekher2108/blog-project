@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\category;
 use App\Models\News;
+use App\Models\category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
 {
-    /**
+    /** 
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('back-end.news.index');
+        $news = News::with('category')->get();
+        return view('back-end.news.index',compact('news'));
     }
 
     /**
@@ -38,7 +41,7 @@ class NewsController extends Controller
             'cat_id' => 'integer|required',
             'description' => 'nullable',
             'content' => 'required',
-            'status' => 'required'
+            // 'status' => 'required'
         ]);
 
         if (isset($request->picture)) {
@@ -47,7 +50,9 @@ class NewsController extends Controller
             $request->picture->storeAs($file_path, $file_name, 'public');
             $news->picture = $file_name;
         }
+        $news->user_id = Auth::user()->id;
         $news->title = $request->title;
+        $news->slug = Str::of($request->title)->slug('-');
         $news->cat_id = $request->cat_id;
         $news->description = $request->description;
         $news->content = $request->content;

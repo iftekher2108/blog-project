@@ -47,13 +47,14 @@ class SliderController extends Controller
     //    =========================================== slider store start ===================================
     public function slider_store(Request $request)
     {
-        Validator::make($request->all(), [
+        $request->validate([
             'title' => 'nullable|string',
             'sub_title' => 'nullable|string',
             'link' => 'nullable|string',
-            'picture' => 'max:10000|mimes:png,jpg,jpeg',
+            'picture' => 'required|max:10000|mimes:png,jpg,jpeg',
             'status' => 'required'
         ]);
+
         $slider = new slider;
         $driver = new ImageManager(new Driver());
         if (isset($request->picture)) {
@@ -89,13 +90,14 @@ class SliderController extends Controller
     //    =========================================== slider update start ===================================
     public function slider_update(Request $request, $id)
     {
-        Validator::make($request->all(), [
+       $request->validate([
             'title' => 'nullable|string',
             'sub_title' => 'nullable|string',
             'link' => 'nullable|string',
             'picture' => 'max:10000|mimes:png,jpg,jpeg|nullable',
             'status' => 'required'
         ]);
+
         $slider = slider::find($id);
         $driver = new ImageManager(new Driver());
         if (isset($request->picture)) {

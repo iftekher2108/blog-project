@@ -91,7 +91,7 @@
                     </div>
                 @endauth
                     <div class="col-lg-9 col-md-8 mx-auto col-sm-12">
-                        <div class="card bg-">
+                        <div class="card bg-accent">
                             <div class="card-body">
                                 @if (Session::get('status'))
                                     <div class="alert alert-success" role="alert">
@@ -100,7 +100,23 @@
                                 @endif
 
                                 <div class="content-body">
+
+                                @if ($mas = Session::get('success'))
+                                    <div class="alert alert-success rounded-1 alert-dismissible fade show" role="alert">
+                                        {{ $mas }}
+                                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                @endif
+                            
+                                @if ($mas = Session::get('error'))
+                                    <div class="alert alert-danger rounded-1 alert-dismissible fade show" role="alert">
+                                        {{ $mas }}
+                                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                @endif
+
                                     @yield('content')
+                                    
                                 </div>
 
                             </div>

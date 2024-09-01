@@ -1,19 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    @if ($mas = Session::get('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ $mas }}
-            <button type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
-
-    @if ($mas = Session::get('error'))
-        <div class="alert alert-danger alert-dismissible" role="alert">
-            {{ $mas }}
-            <button type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
 
     <div class="menu-table mt-2">
         <h4 class="text-center">Slider information</h4>

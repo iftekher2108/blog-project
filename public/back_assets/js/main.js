@@ -53,14 +53,14 @@
         // tiny mce plugins initialization
 
         // const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
+    //     const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
 
         tinymce.init({
             selector: 'textarea.tinymce',
             plugins: 'preview importcss searchreplace autolink autosave directionality code visualblocks visualchars fullscreen image link media codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount charmap quickbars emoticons accordion',
             editimage_cors_hosts: ['picsum.photos'],
-            menubar: 'file edit view insert format tools table',
-            toolbar: "undo redo | bold italic underline strikethrough blocks fontsizeinput fontfamily  | align numlist bullist | link image | forecolor backcolor removeformat | table media | lineheight outdent indent| charmap emoticons | print |code fullscreen preview |  pagebreak anchor codesample | accordion accordionremove | ltr rtl",
+            menubar: 'file edit view insert format tools table ',
+            toolbar: "undo redo | bold italic superscript subscript underline strikethrough blocks fontsizeinput fontfamily align numlist bullist | link image | forecolor backcolor removeformat | table media | lineheight outdent indent| charmap emoticons | print |code fullscreen preview |  pagebreak anchor codesample | accordion accordionremove | ltr rtl",
             autosave_ask_before_unload: true,
             autosave_interval: '10s',
             autosave_prefix: '{path}{query}-{id}-',
@@ -96,14 +96,18 @@
                 },
                 {
                     title: 'Peralax Style',
-                    value: 'paralax-img'
+                    value: 'peralax-img'
                 },
                 {
                     title: 'Sun Flower Style',
                     value: 'sun-flower-img'
                 }
             ],
+
             importcss_append: true,
+            image_title: true,
+            automatic_uploads: true,
+            images_upload_url: '/tiny-mce-upload',
             file_picker_types: 'image',
             file_picker_callback: (cb, value, meta) => {
                 /* Provide file and text for the link dialog */
@@ -156,10 +160,11 @@
                 // }
             },
             height: 600,
+            highlight_on_focus: false,
             image_caption: true,
-            quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+            quickbars_selection_toolbar: 'bold italic | fontsizeinput | forecolor backcolor quicklink charmap emoticons h2 h3 quickimage quicktable',
             noneditable_class: 'mceNonEditable',
-            toolbar_mode: 'sliding',
+            toolbar_mode: 'wrap',
             contextmenu: 'link image table',
             // skin: useDarkMode ? 'oxide-dark' : 'oxide',
             // content_css: useDarkMode ? 'dark' : 'default',

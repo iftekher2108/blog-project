@@ -3,7 +3,7 @@
 @section('content')
     <div>
 
-        <h1 class="text-center text-primary fw-bold">News Category information</h1>
+        <h3 class="text-center">News Category information</h3>
  <br>
         <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
             @csrf

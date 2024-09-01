@@ -23,6 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('comment_id')->nullable();
             $table->integer('react_id')->nullable()->default(0);
             $table->integer('views')->default(0);
+            $table->enum('status',['publish','unpublish']);
             $table->timestamps();
 
         });
