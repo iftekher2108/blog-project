@@ -51,7 +51,7 @@
 // order_id('.order_id','.menu-table',`{{ route('menu.order.change') }}`);
 
 
-$('.sortable').sortable({
+ $('.sortable').sortable({
     delay:150,
     items:'tr',
     cursor:'move',
@@ -60,6 +60,8 @@ $('.sortable').sortable({
         orderUpdate(`{{ route('menu.order.change') }}`)
     },
 });
+
+
 
 </script>
 @endsection

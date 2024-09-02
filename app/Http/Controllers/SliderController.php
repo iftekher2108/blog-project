@@ -6,7 +6,6 @@ use App\Models\slider;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Drivers\Gd\Driver;
 
 class SliderController extends Controller

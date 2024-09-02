@@ -29,16 +29,8 @@ $(window).on('load',function() {
    */
 
 
-  /**
-   * Animation on scroll
-   */
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      offset: 0,
-      once: true,
-      mirror: false
-    })
+
+})
 
 
   $('.hero-slider').slick({
@@ -49,10 +41,16 @@ $(window).on('load',function() {
     autoplaySpeed: 2000,
   })
 
-
-
-})
-
+ /**
+   * Animation on scroll
+   */
+ AOS.init({
+    duration: 1000,
+    easing: 'ease-in-out',
+    offset: 0,
+    once: true,
+    mirror: false
+  })
 
 
 

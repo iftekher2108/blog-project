@@ -93,9 +93,12 @@
   </header><!-- End Header -->
 
 
+
   <main id="main">
 
-        @yield('front-content')
+    <div class="container">
+            @yield('front-content')
+    </div>
 
   </main><!-- End #main -->
 

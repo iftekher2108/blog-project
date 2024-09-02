@@ -17,7 +17,7 @@
     {{-- stylesheet --}}
     <link rel="stylesheet" href="{{ asset('back_assets/css/custom-boot.min.css') }}">
     <link rel="stylesheet" href="{{ asset('back_assets/css/jquery-ui.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('back_assets/css/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('back_assets/plugins/DataTable/datatables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('back_assets/css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('back_assets/css/main.min.css') }}">
 
@@ -107,7 +107,7 @@
                                         <button type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close"></button>
                                     </div>
                                 @endif
-                            
+
                                 @if ($mas = Session::get('error'))
                                     <div class="alert alert-danger rounded-1 alert-dismissible fade show" role="alert">
                                         {{ $mas }}
@@ -116,7 +116,7 @@
                                 @endif
 
                                     @yield('content')
-                                    
+
                                 </div>
 
                             </div>
@@ -130,9 +130,9 @@
     {{-- js liberies --}}
     <script src="{{ asset('back_assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('back_assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('back_assets/plugins/DataTable/datatables.min.js') }}"></script>
     <script src="{{ asset('back_assets/js/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('back_assets/plugins/tinymce/tinymce.min.js') }}"></script>
-    <script src="{{ asset('back_assets/js/datatables.min.js') }}"></script>
     <script src="{{ asset('back_assets/js/nice-select.min.js') }}"></script>
     <script src="{{ asset('back_assets/js/main.js') }}"></script>
 

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('picture')->nullable();
             $table->string('title');
             $table->string('slug');
-            $table->string('description');
+            $table->text('description');
             $table->longText('content');
             $table->unsignedBigInteger('cat_id');
             $table->unsignedBigInteger('comment_id')->nullable();

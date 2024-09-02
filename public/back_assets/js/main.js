@@ -1,3 +1,4 @@
+
     // Global ajax setup
     $.ajaxSetup({
         headers: {
@@ -19,23 +20,68 @@
 
         // data table init
         $('.datatable').DataTable({
-            "responsive": true,
-            "autoWidth": false,
+            responsive: true,
+            autoWidth: true,
+            buttons: [
+                    'colvis','excelHtml5','pdfHtml5',
+                {
+                    text: 'Json',
+                    action: function (e, dt, button, config) {
+                        var data = dt.buttons.exportData();
+
+                        DataTable.fileSave(new Blob([JSON.stringify(data)]), 'Export.json');
+                    }
+                },
+                {
+                    extend:'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    // customize: function (win) {
+                    //     $(win.document.body)
+                    //         .css('font-size', '10pt')
+                    //         .prepend(
+                    //             // '<img src="http://datatables.net/media/images/logo-fade.png" style="position:absolute; top:0; left:0;" />'
+                    //             `<h1 style="position:absolute; top:25%; left:25%;" >iftekher mahmud pervez</h1>`
+                    //         );
+
+                    //     $(win.document.body)
+                    //         .find('table')
+                    //         .addClass('compact')
+                    //         .css('font-size', 'inherit');
+                    // }
+
+                },
+
+            ],
+            layout: {
+                top1End: 'buttons',
+            },
+            // columnDefs: [
+            //     {
+            //         targets: -1,
+            //         visible: false
+            //     }
+            // ],
+
             lengthMenu: [
                 [10, 15, 25, 50, 100, 150, 200, -1],
                 [10, 15, 25, 50, 100, 150, 200, 'All']
             ],
-            "pageLength": 10,
+            pageLength: 10,
             stateSave: true,
+            select:true,
+
             // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         });
 
-        $('.dt-layout-row .dt-layout-cell .dt-length select').each(function () {
-            $(this).addClass('nice-select wide');
-        });
-        $('.dt-layout-row .dt-layout-cell .dt-length label').css({
-            'display': 'none'
-        });
+        $('.dt-button').addClass('btn btn-primary');
+        // $('.dt-layout-row .dt-layout-cell .dt-length select').each(function () {
+        //     $(this).addClass('nice-select wide');
+        // });
+        // $('.dt-layout-row .dt-layout-cell .dt-length label').css({
+        //     'display': 'none'
+        // });
 
 
         // nice select init
@@ -46,8 +92,8 @@
         $(".btn").click(function () {
             $(this).prepend('<i class="fa-solid fa-spinner me-2 fa-spin"></i>');
             setTimeout(function () {
-                $(this).remove('<i class="fa-solid fa-spinner me-2 fa-spin"></i>');
-            }, 1500)
+                $('i.fa-solid.fa-spinner.me-2.fa-spin').remove();
+            },1500)
         })
 
         // tiny mce plugins initialization
@@ -162,7 +208,7 @@
             height: 600,
             highlight_on_focus: false,
             image_caption: true,
-            quickbars_selection_toolbar: 'bold italic | fontsizeinput | forecolor backcolor quicklink charmap emoticons h2 h3 quickimage quicktable',
+            quickbars_selection_toolbar: 'bold italic | fontsizeinput | forecolor backcolor quicklink charmap emoticons h2 h3 align quickimage quicktable',
             noneditable_class: 'mceNonEditable',
             toolbar_mode: 'wrap',
             contextmenu: 'link image table',
