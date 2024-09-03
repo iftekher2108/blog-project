@@ -425,7 +425,7 @@ h6 {
     font-size: 48px;
     font-weight: 700;
     line-height: 40px;
-    color: #f0f0f0;
+    color: #ffffff;
     font-family: "Poppins", sans-serif;
 }
 
@@ -1510,7 +1510,7 @@ section {
 }
 
 #footer {
-    background:  var(--bs-dark);
+    background: var(--bs-dark);
     padding: 0 0 30px 0;
     color: #dbdbdb;
     font-size: 14px;
@@ -1675,7 +1675,7 @@ section {
     text-align: center;
     font-size: 13px;
     color: #e6e6e6;
-    font-weight:600
+    font-weight: 600
 }
 
 @media (max-width:768px) {

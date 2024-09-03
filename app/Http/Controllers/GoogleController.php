@@ -6,6 +6,7 @@ use Exception;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Artisan;
 use Laravel\Socialite\Facades\Socialite;
 
 class GoogleController extends Controller
@@ -44,5 +45,29 @@ class GoogleController extends Controller
             dd($e->getMessage());
         }
     }
+
+
+
+    public function clear() {
+        Artisan::call('optimize:clear');
+        return redirect()->back();
+    }
+
+    public function migrate(){
+        Artisan::call('migrate');
+        return redirect()->back();
+    }
+
+    public function db_seed() {
+        Artisan::call('db:seed');
+        return redirect()->back();
+    }
+
+    public function optimize() {
+        Artisan::call('optimize');
+        return redirect()->back();
+    }
+
+
 
 }

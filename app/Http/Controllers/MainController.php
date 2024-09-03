@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
 use App\Models\service;
 use App\Models\slider;
 
@@ -31,7 +32,8 @@ class MainController extends Controller
     }
 
     public function news() {
-        return view('front-end.news.news');
+        $categories= category::with('news')->get();
+        return view('front-end.news.news',compact('categories'));
     }
 
     public function contact() {

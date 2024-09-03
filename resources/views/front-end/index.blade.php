@@ -3,10 +3,8 @@
 
 
     @section('description')
-
     @endsection
     @section('keywords')
-
     @endsection
 
 
@@ -23,24 +21,33 @@
                                 alt="slide-1">
                         </div>
 
-                        <div class="col-md-6 position-absolute top-50 start-50 translate-middle">
-                            <h1 class="mb-3">{{ $slider->title }}</h1>
-                            <p class="text-white fs-6 mb-3">We are team of talented designers making websites with Bootstrap</p>
-                            <div class="d-flex">
-                                {{-- @if (!$slider->button)
+                        
+                        <div class="position-absolute top-0 h-100 w-100 start-0"
+                            style="background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2))">
+                            <div class="d-flex h-100 flex-column align-items-center justify-content-center">
+                                <div class="col-md-8">
+                                    <h1 class="mb-3">{{ $slider->title }}</h1>
+                                    <p class="text-white fs-6 mb-3">We are team of talented designers making websites with
+                                        Bootstrap</p>
+                                    <div class="d-flex">
+                                        {{-- @if (!$slider->button)
 
                                 @endif
                                 <a href="#about" class="btn-get-started scrollto">Get Started</a> --}}
 
-                                @if (!$slider->link == '')
-                                    <a href="{{ $slider->link }}" target="_blank"
-                                        class="btn-watch-video">
-                                        <i class="bi bi-play-circle"></i>
-                                        <span class="text-white-50">Watch Video</span>
-                                    </a>
-                                @endif
+                                        @if (!$slider->link == '')
+                                            <a href="{{ $slider->link }}" target="_blank" class="btn-watch-video">
+                                                <i class="bi bi-play-circle"></i>
+                                                <span class="text-white-50">Watch Video</span>
+                                            </a>
+                                        @endif
+
+                                    </div>
+                                </div>
 
                             </div>
+
+
                         </div>
 
                     </div>
@@ -52,7 +59,7 @@
 
         @if ($services->isNotEmpty())
             <!-- ======= Featured Services Section ======= -->
-            <section id="featured-services" class="featured-services" >
+            <section id="featured-services" class="featured-services">
 
 
                 <h1 class="text-center fw-bold text-uppercase text-primary mb-4">Our Service</h1>

@@ -97,6 +97,7 @@ class CategoryController extends Controller
         }
 
         $category->cat_title = $request->title;
+        $category->cat_slug = Str::of($request->title)->slug('-');
         $category->status = $request->status;
         $category->save();
         return redirect()->route('category.index')->with('success', 'Item has been updated');

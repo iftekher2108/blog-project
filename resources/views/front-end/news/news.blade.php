@@ -28,18 +28,39 @@
         <div class="col-md-8">
             <div class="p-2">
                 <div class="card border-0">
-                    <div class="card-header fw-semibold fs-5 bg-primary text-white-50">
+                    <div class="card-header fw-semibold mb-3 fs-4 bg-primary text-white-50">
                         Latest News
                     </div>
-                    <div class="card-body">
 
-                        <div class="card">
-                            <div class="card-body">
-                                name
-                            </div>
-                        </div>
+                        @foreach ($categories as $category)
+                            @foreach ($category->news as $new)
+                            <a href="" class="mb-3">
+                              <div class="card overflow-hidden">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="{{ asset('storage/news/'.$new->picture) }}" class="img-fluid h-100" alt="">
+                                        </div>
+                                        <div class="col-md-8
+                                        ">
+                                            <div class="bg-primary p-lg-3 p-md-2 p-sm-1 fs-6 text-white-50">
+                                                {{ $new->title }}
+                                            </div>
+                                            <div class="card-body ">
+                                                <p class="line-clamp-3 text-dark">
+                                                    {{ $new->description }}
+                                                </p>
 
-                    </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </a>
+
+                            @endforeach
+                        @endforeach
+
                 </div>
             </div>
         </div>
@@ -47,11 +68,16 @@
         <div class="col-md-4">
             <div class="p-2">
                 <div class="card">
-                    <div class="card-header fs-5 fw-semibold text-center bg-primary text-white-50">
+                    <div class="card-header fs-6 fw-semibold text-center bg-primary text-white-50">
                         Catagories
                     </div>
                     <div class="card-body">
+                        <ul>
+                            @foreach ($categories as $category)
+                                <li><a href="">{{ $category->cat_title }}</a></li>
+                            @endforeach
 
+                        </ul>
                     </div>
                 </div>
             </div>
