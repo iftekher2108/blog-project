@@ -6,6 +6,6 @@
 @section('keywords')  @endsection
 
 
-@section('front-content')
+@section('content')
 Services
 @endsection

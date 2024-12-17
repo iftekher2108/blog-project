@@ -13,7 +13,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <label for="input-img" class="form-label">Picture</label>
                         <div class="preview-img overflow-hidden card">
-                            <img src="{{ asset('storage/slider/'.$slider->picture) }}" class="img-fluid">
+                            <img src="{{ asset('storage/'.$slider->picture) }}" class="img-fluid">
                         </div>
                         <input type="file" hidden class="form-control @error('picture') is-invalid @enderror"
                             id="input-img" name="picture" accept="image/png, image/gif, image/jpeg">

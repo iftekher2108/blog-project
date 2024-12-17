@@ -1,0 +1,16 @@
+@media(max-width: 990px) {
+    #navbar {
+        position: relative;
+
+        ul {
+            position: absolute;
+            top: 110%;
+            right: 0%;
+            background: #e2e2e2;
+            li {
+                margin:0.5rem;
+                padding:0.8rem;
+            }
+        }
+    }
+}

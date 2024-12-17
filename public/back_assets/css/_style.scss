@@ -41,6 +41,11 @@ span,p,a,button {
     @extend .card;
 }
 
+.form-control:read-only {
+    background: #e9e7e7;
+    opacity:0.8;
+}
+
 
 .form-control,textarea,.btn{
     @extend .card;

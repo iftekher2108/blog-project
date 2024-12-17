@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\home;
+use App\Http\Controllers\Controller;
 use App\Models\category;
 use App\Models\service;
 use App\Models\slider;
@@ -38,6 +38,15 @@ class MainController extends Controller
 
     public function contact() {
         return view('front-end.contact');
+    }
+
+    public function careers() {
+        return view('front-end.privacy-policy');
+    }
+
+
+    public function privacy_policy() {
+        return view('front-end.privacy-policy');
     }
 
 

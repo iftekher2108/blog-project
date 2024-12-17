@@ -6,7 +6,7 @@
 @section('keywords')  @endsection
 
 
-@section('front-content')
+@section('content')
 gallery
 @endsection
 

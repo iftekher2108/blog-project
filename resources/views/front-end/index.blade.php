@@ -1,27 +1,25 @@
     @extends('layouts.front')
 
-
-
-    @section('description')
+    @section('title','')
+    @section('heading')
+    <meta  name="description" content="">
+    <meta  name="keywords" content="">
     @endsection
-    @section('keywords')
-    @endsection
 
-
-    @section('front-content')
+    @section('content')
         <!-- ======= Hero Section ======= -->
 
-        <div id="hero" class="p-1">
+        <div id="hero">
             <div class="hero-slider overflow-hidden">
 
                 @foreach ($sliders as $slider)
                     <div class="slide-item position-relative text-white">
                         <div>
-                            <img src="{{ asset('storage/slider/' . $slider->picture) }}" class="img-fluid" style="height:65vh;"
+                            <img src="{{ asset('storage/' . $slider->picture) }}" class="img-fluid"
                                 alt="slide-1">
                         </div>
 
-                        
+
                         <div class="position-absolute top-0 h-100 w-100 start-0"
                             style="background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2))">
                             <div class="d-flex h-100 flex-column align-items-center justify-content-center">
@@ -35,7 +33,7 @@
                                 @endif
                                 <a href="#about" class="btn-get-started scrollto">Get Started</a> --}}
 
-                                        @if (!$slider->link == '')
+                                        @if (!empty($slider->link))
                                             <a href="{{ $slider->link }}" target="_blank" class="btn-watch-video">
                                                 <i class="bi bi-play-circle"></i>
                                                 <span class="text-white-50">Watch Video</span>
@@ -59,7 +57,7 @@
 
         @if ($services->isNotEmpty())
             <!-- ======= Featured Services Section ======= -->
-            <section id="featured-services" class="featured-services">
+            <section id="featured-services" class="featured-services" style="background: #F8FAFC !important;">
 
 
                 <h1 class="text-center fw-bold text-uppercase text-primary mb-4">Our Service</h1>
@@ -70,12 +68,12 @@
 
                         @foreach ($services as $service)
                             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                                <div class="rounded" data-aos="fade-up" data-aos-delay="100">
-                                    <img src="{{ asset('storage/service/' . $service->picture) }}"
+                                <div class="card shadow rounded" data-aos="fade-up" data-aos-delay="100">
+                                    <img src="{{ asset('storage/' . $service->picture) }}"
                                         class="img-fluid rounded-top">
                                     <div class="icon-box">
-                                        <h3 class="title my-1"><a href="">{{ $service->title }}</a></h3>
-                                        <p class="description line-clamp-5">
+                                        <h3 class="title text-center my-1"><a href="#">{{ $service->title }}</a></h3>
+                                        <p class="description small text-center line-clamp-4">
                                             {{ $service->description }}
                                         </p>
                                     </div>

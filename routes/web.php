@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\socialLogin\GoogleController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MainController;
+use App\Http\Controllers\home\MainController;
 
 Route::controller(MainController::class)->group(function(){
 
@@ -12,7 +12,9 @@ Route::controller(MainController::class)->group(function(){
     Route::get('about-us','about')->name('home.about.index');
     Route::get('news','news')->name('home.news.index');
     Route::get('contact-us','contact')->name('home.contact.index');
-    // Route::get('/{slug}','pages')->name('home.pages.index');
+    Route::get('careers','careers')->name('home.careers.index');
+    Route::get('privacy-policy','privacy_policy')->name('home.privacy.index');
+
 
 });
 

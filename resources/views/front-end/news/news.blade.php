@@ -13,7 +13,7 @@
 @endsection
 
 
-@section('front-content')
+@section('content')
     <div class="position-relative">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPh3bY8WieFS-lF8PyxffepwCBL0pAnY5RfQ&s" class=" w-100"
             style="height: 70vh;" alt="">

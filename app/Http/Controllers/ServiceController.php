@@ -54,7 +54,7 @@ class ServiceController extends Controller
                 $image->save('storage/' . $dir_path . $file_name);
             }
 
-            $service->picture = $file_name;
+            $service->picture = $dir_path . $file_name;
         }
 
         $service->title = $request->title;
@@ -127,7 +127,7 @@ class ServiceController extends Controller
                 $image->save('storage/' . $dir_path . $file_name);
             }
 
-            $service->picture = $file_name;
+            $service->picture = $dir_path . $file_name;
         }
         $service->title = $request->title;
         $service->description = $request->description;

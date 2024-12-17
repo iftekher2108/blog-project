@@ -7,8 +7,7 @@
 
   <title>@yield('title')</title>
 
-  <meta  name="description" content="@yield('description')">
-  <meta  name="keywords" content="@yield('keywords')">
+    @yield('heading')
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -60,15 +59,9 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-            @php
-                $menus = DB::table('menus')->where('status','publish')->orderBy('order_id','asc')->limit(10)->get();
-            @endphp
             @foreach ( $menus as $menu )
 
-            {{-- @php
-                $sub_menu = DB::table('sub_menus')->where('sub_menus.status','publish')->where('sub_menus.men_id',$menu->id)->orderBy('order_id','asc')->get();
-            @endphp --}}
-               <li ><a class="nav-link {{ Request::is($menu->slug)  ? 'active' : '' }} scrollto" href="{{ url($menu->slug) }}" ><span>{{ $menu->title }}</span> </a>
+               <li ><a class="nav-link {{ Request::routeIs($menu->slug)  ? 'active' : '' }}" href="{{ route($menu->slug) }}" ><span>{{ $menu->title }}</span> </a>
 {{-- class="{{ (count($sub_menu)) ? 'dropdown' : '' }}  }}" --}}
 {{-- {!! count($sub_menu) ? '<i class="bi bi-chevron-down"></i>' : '' !!} --}}
                 {{-- <ul>
@@ -96,8 +89,8 @@
 
   <main id="main">
 
-    <div class="container">
-            @yield('front-content')
+    <div class="container-fluid">
+            @yield('content')
     </div>
 
   </main><!-- End #main -->
@@ -138,7 +131,7 @@
             <h4>Useful Links</h4>
             <ul>
             @foreach ( $menus as $menu )
-                <li><i class="bx bx-chevron-right"></i> <a href="{{ url($menu->slug) }}">{{ $menu->title }}</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="{{ route($menu->slug) }}">{{ $menu->title }}</a></li>
             @endforeach
 
             </ul>

@@ -65,7 +65,7 @@ class SliderController extends Controller
                 $image->resize(1920, 1080);
                 $image->save('storage/' . $dir_path . $file_name);
             }
-            $slider->picture = $file_name;
+            $slider->picture = $dir_path . $file_name;
         }
         $slider->title = $request->title;
         $slider->sub_title = $request->sub_title;
@@ -111,7 +111,7 @@ class SliderController extends Controller
                 $image->resize(1920, 1080);
                 $image->save('storage/' . $dir_path . $file_name);
             }
-            $slider->picture = $file_name;
+            $slider->picture = $dir_path . $file_name;
         }
         $slider->title = $request->title;
         $slider->sub_title = $request->sub_title;

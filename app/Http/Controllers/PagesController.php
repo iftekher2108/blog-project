@@ -45,10 +45,8 @@ class PagesController extends Controller
             $dir_path = 'pages/future/';
             $file_name = 'feature'.time().'.'.$data['picture']->extension();
             $data['picture']->storeAs($dir_path,$file_name,'public');
-            $data['picture'] = $file_name;
+            $data['picture'] = $dir_path . $file_name;
         }
-
-
 
         $data['slug'] =Str::of($data['title'])->slug();
 

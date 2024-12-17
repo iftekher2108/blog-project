@@ -7,7 +7,7 @@
 @section('keywords')  @endsection
 
 
-@section('front-content')
+@section('content')
 
 contact
 

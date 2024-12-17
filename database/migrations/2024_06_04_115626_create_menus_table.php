@@ -21,7 +21,8 @@ return new class extends Migration
             $table->integer('view')->default(0);
             $table->longText('content')->nullable();
             // $table->unsignedBigInteger('page_id');
-            $table->string('keywords')->nullable();
+            $table->string('keyword')->nullable();
+            $table->string('description')->nullable();
             $table->enum('status',['publish','unpublish']);
             $table->timestamps();
         });

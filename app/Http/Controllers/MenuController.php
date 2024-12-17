@@ -6,6 +6,8 @@ use App\Models\Menu;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 
 class MenuController extends Controller
 {
@@ -53,10 +55,23 @@ class MenuController extends Controller
             'title' => 'required|string',
         ]);
 
+        $driver = new ImageManager(new Driver());
+        if(isset($request->picture)) {
+            $dir_path = 'menu/';
+            $file_name = 'menu-'.time().'.'.$request->picture->extension();
+            $store = $request->picture->storeAs($dir_path,$file_name,'public');
+            if ($store) {
+                $image = $driver->read('storage/menu/' . $file_name);
+                $image->resize(1920, 1080);
+                $image->save('storage/' . $dir_path . $file_name);
+            }
+            $menu->picture = $dir_path . $file_name;
+        }
+
         $menu->title = $request->title;
-        $menu->slug = Str::of($request->title)->slug('-');
+        $menu->slug = $request->slug;
         $menu->content = $request->content;
-        $menu->keywords = $request->keywords;
+        $menu->keyword = $request->keyword;
         $menu->status = $request->status;
         $menu->save();
 

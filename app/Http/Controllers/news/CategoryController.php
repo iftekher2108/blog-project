@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\news;
+use App\Http\Controllers\Controller;
 use App\Models\category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;

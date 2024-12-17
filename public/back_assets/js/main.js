@@ -55,7 +55,7 @@
 
             ],
             layout: {
-                top1End: 'buttons',
+                top1: 'buttons',
             },
             // columnDefs: [
             //     {

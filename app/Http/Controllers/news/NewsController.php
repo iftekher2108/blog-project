@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\news;
+use App\Http\Controllers\Controller;
 use App\Models\News;
 use App\Models\category;
 use Illuminate\Support\Str;
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
 {
-    /** 
+    /**
      * Display a listing of the resource.
      */
     public function index()

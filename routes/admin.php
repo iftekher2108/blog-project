@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\news\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
-use App\Http\Controllers\NewsController;
-use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\news\NewsController;
+use App\Http\Controllers\socialLogin\GoogleController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SliderController;
@@ -24,9 +24,9 @@ use App\Http\Controllers\SliderController;
 
 // ================================= Auth Routes ================================================
 Auth::routes([
-
+    'register' => false
 ]);
-// 'register' => false
+//
 // ================================= Auth Routes ================================================
 
 // =================================== Auth Admin Middleware start ==================================================
