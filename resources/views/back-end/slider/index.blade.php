@@ -30,7 +30,7 @@
                         <td> <i class="fa-solid mx-2 fa-sort"></i>{{ $slider->order_id }}</td>
                         <td><input type="checkbox" value="{{ $slider->id }}" class="select-item form-check-input"></td>
                         <td>{{ $slider->id }}</td>
-                        <td><img src="{{ asset('storage/slider/'.$slider->picture) }}" class="img-thumbnail" width="50" alt=""></td>
+                        <td><img src="{{ asset('storage/'.$slider->picture) }}" class="img-thumbnail" width="50" alt=""></td>
                         <td>{{ $slider->title }}</td>
                         <td>
                             <div class="badge {{ $slider->status == 'publish' ? 'bg-success' : 'bg-danger' }}">publish</div>

@@ -77,7 +77,7 @@
             </li>
 
             <li class="menu-header text-uppercase">
-                <span class="menu-header-text opacity-50">News Settings</span>
+                <span class="menu-header-text opacity-50">News</span>
             </li>
 
             <li class="menu-item">
@@ -88,7 +88,7 @@
                 <a href="javascript:void(0);" class="nav-link menu-toggle">
                     <div class="d-flex align-items-center gap-3">
                         <i class="fa-solid fa-sliders"></i>
-                        News settings
+                        News
                     </div>
 
                     <i class="fa-solid arrow fa-caret-right"></i>

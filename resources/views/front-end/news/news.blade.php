@@ -28,7 +28,7 @@
         <div class="col-md-8">
             <div class="p-2">
                 <div class="card border-0">
-                    <div class="card-header fw-semibold mb-3 fs-4 bg-primary text-white-50">
+                    <div class="card-header fw-semibold mb-3 fs-4 bg-primary text-white">
                         Latest News
                     </div>
 
@@ -42,7 +42,7 @@
                                         </div>
                                         <div class="col-md-8
                                         ">
-                                            <div class="bg-primary p-lg-3 p-md-2 p-sm-1 fs-6 text-white-50">
+                                            <div class="bg-primary p-lg-3 p-md-2 p-sm-1 fs-6 text-white">
                                                 {{ $new->title }}
                                             </div>
                                             <div class="card-body ">

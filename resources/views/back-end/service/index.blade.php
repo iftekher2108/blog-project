@@ -29,7 +29,7 @@
                         <td> <i class="fa-solid mx-2 fa-sort"></i>{{ $service->order_id }}</td>
                         <td><input type="checkbox" value="{{ $service->id }}" class="select-item form-check-input"></td>
                         <td>{{ $service->id }}</td>
-                        <td><img src="{{ asset('storage/service/'.$service->picture) }}" class="img-thumbnail" width="50" alt=""></td>
+                        <td><img src="{{ asset('storage/'.$service->picture) }}" class="img-thumbnail" width="50" alt=""></td>
                         <td>{{ $service->title }}</td>
                         <td>
                             <div class="badge {{ $service->status == 'publish' ? 'bg-success' : 'bg-danger' }}">{{ $service->status }}</div>

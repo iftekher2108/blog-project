@@ -72,14 +72,14 @@ class MenuSeeder extends Seeder
 
         Menu::create([
             'order_id' => 9,
-            'title' => 'Come soons',
+            'title' => 'Testimonials',
             'slug' => '#',
             'status' => 'unpublish',
         ]);
 
         Menu::create([
             'order_id' => 10,
-            'title' => 'come soona',
+            'title' => 'Our Team',
             'slug' => '#',
             'status' => 'unpublish',
         ]);

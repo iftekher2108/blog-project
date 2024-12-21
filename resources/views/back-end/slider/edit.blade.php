@@ -5,7 +5,7 @@
 
         <h3 class="text-center">Slide information</h3>
 
-        <form action="{{ route('slider.update',$slider->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('slider.update', $slider->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row g-2">
 
@@ -13,7 +13,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <label for="input-img" class="form-label">Picture</label>
                         <div class="preview-img overflow-hidden card">
-                            <img src="{{ asset('storage/'.$slider->picture) }}" class="img-fluid">
+                            <img src="{{ asset('storage/' . $slider->picture) }}" class="img-fluid">
                         </div>
                         <input type="file" hidden class="form-control @error('picture') is-invalid @enderror"
                             id="input-img" name="picture" accept="image/png, image/gif, image/jpeg">
