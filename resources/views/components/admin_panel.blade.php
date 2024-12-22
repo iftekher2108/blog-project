@@ -15,8 +15,8 @@
             </li>
 
             <!-- Dashboard -->
-            <li class="menu-item {{ Request::is('home') ? 'active' : '' }}">
-                <a href="{{ url('home') }}" class="nav-link">
+            <li class="menu-item {{ Request::routeIs('dashboard') ? 'active' : '' }}">
+                <a href="{{ route('dashboard') }}" class="nav-link">
                     <i class="menu-icon tf-icons bx bx-home-circle"></i>
                     Dashboard
                 </a>
@@ -44,6 +44,12 @@
                             <i class="fa-solid me-2 fa-list-ul"></i> Menu
                         </a>
                     </li>
+
+                    <li class="menu-item {{ Request::is('content') ? 'active' : '' }}">
+                        <a href="{{ route('content.index') }}" class="nav-link">
+                            <i class="fa-solid me-2 fa-images"></i> Content
+                        </a>
+
                     <li class="menu-item {{ Request::is('slider') ? 'active' : '' }}">
                         <a href="{{ route('slider.index') }}" class="nav-link">
                             <i class="fa-solid me-2 fa-images"></i>Sliders

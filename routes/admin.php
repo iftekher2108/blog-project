@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\news\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -42,7 +43,7 @@ Route::middleware(['auth'])->group(function(){
 // ============================= profile  section start ===============================================
 Route::controller(HomeController::class)->group(function(){
     Route::get('profile','profileSetting');
-    Route::get('home','index')->name('home');
+    Route::get('dashboard','index')->name('dashboard');
     Route::post('/tiny-mce-upload','tiny_mce_upload');
 });
 // ============================= profile section end ==============================================
@@ -101,6 +102,21 @@ Route::controller(MenuController::class)->group(function(){
 })->middleware('admin:super-admin');
 
 // ===================================== menu section end =========================================
+
+
+
+// ===================================== content section start =========================================
+
+Route::controller(ContentController::class)->group(function(){
+    Route::get('content','content')->name('content.index');
+    Route::get('content/{id}/edit','content_edit')->name('content.edit');
+    // Route::post('menu/order/change','menu_order')->name('menu.order.change');
+    // Route::post('menu/{id}/update','menu_update')->name('menu.update');
+
+})->middleware('admin:super-admin');
+// ===================================== content section end =========================================
+
+
 
 
 // ===================================== Categories section start =========================================

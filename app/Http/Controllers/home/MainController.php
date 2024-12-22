@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\category;
 use App\Models\service;
 use App\Models\slider;
-
+use App\Models\content;
 
 class MainController extends Controller
 {
@@ -14,9 +14,10 @@ class MainController extends Controller
      */
     public function index()
     {
+        $about = content::query()->where('status', 'publish')->where('content_title', 'about')->first();
         $sliders = slider::where('status','publish')->orderBy('order_id','asc')->get();
         $services = service::where('status','publish')->orderBy('order_id','asc')->take(4)->get();
-        return view('front-end.index',compact('sliders','services'));
+        return view('front-end.index',compact('sliders','services','about'));
     }
 
     public function gallery() {
