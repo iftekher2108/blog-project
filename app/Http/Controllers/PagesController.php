@@ -16,44 +16,51 @@ class PagesController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function pageCreate()
-    {
-        return view('back-end.page.create');
-    }
+    // public function create()
+    // {
+
+    //     return view('back-end.content.edit');
+    // }
+
+
+
+
+
+
 
 
     /**
      * Store a newly created resource in storage.
      */
-    public function pageStore(Request $request)
-    {
-        $validator = Validator::make($request->all(),[
-            'title' => ['required','string','unique:pages,title'],
-            'picture'=>['nullable','mimes:png,jpg','max:10000'],
-            'slug' =>['required','string'],
-            'menu_id' => ['required'],
-            'sub_title' => ['nullable','string'],
-            'description' => ['nullable','string'],
-            'content' => ['nullable','string'],
-            'keywords' => ['nullable','string'],
-            'status' =>['required'],
-        ]);
+    // public function pageStore(Request $request)
+    // {
+    //     $validator = Validator::make($request->all(),[
+    //         'title' => ['required','string','unique:pages,title'],
+    //         'picture'=>['nullable','mimes:png,jpg','max:10000'],
+    //         'slug' =>['required','string'],
+    //         'menu_id' => ['required'],
+    //         'sub_title' => ['nullable','string'],
+    //         'description' => ['nullable','string'],
+    //         'content' => ['nullable','string'],
+    //         'keywords' => ['nullable','string'],
+    //         'status' =>['required'],
+    //     ]);
 
-        $data = $validator->validated();
+    //     $data = $validator->validated();
 
-        if(isset($data['picture'])) {
-            $dir_path = 'pages/future/';
-            $file_name = 'feature'.time().'.'.$data['picture']->extension();
-            $data['picture']->storeAs($dir_path,$file_name,'public');
-            $data['picture'] = $dir_path . $file_name;
-        }
+    //     if(isset($data['picture'])) {
+    //         $dir_path = 'pages/future/';
+    //         $file_name = 'feature'.time().'.'.$data['picture']->extension();
+    //         $data['picture']->storeAs($dir_path,$file_name,'public');
+    //         $data['picture'] = $dir_path . $file_name;
+    //     }
 
-        $data['slug'] =Str::of($data['title'])->slug();
+    //     $data['slug'] =Str::of($data['title'])->slug();
 
-        pages::create($data);
+    //     pages::create($data);
 
-        return redirect()->route('page.index')->with('success','item has been created');
+    //     return redirect()->route('page.index')->with('success','item has been created');
 
-    }
+    // }
 
 }

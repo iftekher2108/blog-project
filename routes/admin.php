@@ -110,6 +110,7 @@ Route::controller(MenuController::class)->group(function(){
 Route::controller(ContentController::class)->group(function(){
     Route::get('content','content')->name('content.index');
     Route::get('content/{id}/edit','content_edit')->name('content.edit');
+    Route::post('content/{id}/update','content_update')->name('content.update');
     // Route::post('menu/order/change','menu_order')->name('menu.order.change');
     // Route::post('menu/{id}/update','menu_update')->name('menu.update');
 

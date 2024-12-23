@@ -25,6 +25,7 @@ class content extends Model
         'content_1',
         'link',
         'link_1',
+        'is_homepage',
         'status',
     ];
 
