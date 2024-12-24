@@ -8,6 +8,7 @@
         <form action="{{ route('menu.update',$menu->id) }}" method="POST"
             enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="row g-2 ">
 
                 <div class="col-md-6">

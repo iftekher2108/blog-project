@@ -23,7 +23,7 @@
                     </td>
                     <td>{{ $content->content_title}}</td>
 
-                    <td><img src="{{ $content->picture }}" class="img-fluid" height="40" width="40" alt="{{ $content->content_title }}"></td>
+                    <td><img src="{{ 'storage/'. $content->picture }}" class="img-fluid" height="40" width="40" alt="{{ $content->content_title }}"></td>
                     <td>
                         <span
                             class="badge {{ $content->status == 'publish' ? 'bg-success' : 'bg-danger' }}">{{ $content->status }}</span>

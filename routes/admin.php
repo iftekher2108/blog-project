@@ -82,7 +82,7 @@ Route::controller(ServiceController::class)->group(function(){
     Route::get('service/create','serviceCreate')->name('service.create');
     Route::post('service/store','serviceStore')->name('service.store');
     Route::get('service/{id}/edit','serviceEdit')->name('service.edit');
-    Route::post('service/{id}/update','serviceUpdate')->name('service.update');
+    Route::put('service/{id}/update','serviceUpdate')->name('service.update');
     Route::get('service/{id}/delete','ServiceDelete')->name('service.delete');
     Route::post('service/delete-all','service_delete_all')->name('service.delete_all');
 })->middleware('admin:super-admin');
@@ -97,7 +97,7 @@ Route::controller(MenuController::class)->group(function(){
     Route::get('menu','menu')->name('menu.index');
     Route::post('menu/order/change','menu_order')->name('menu.order.change');
     Route::get('menu/{id}/edit','menu_edit')->name('menu.edit');
-    Route::post('menu/{id}/update','menu_update')->name('menu.update');
+    Route::put('menu/{id}/update','menu_update')->name('menu.update');
 
 })->middleware('admin:super-admin');
 
@@ -110,7 +110,7 @@ Route::controller(MenuController::class)->group(function(){
 Route::controller(ContentController::class)->group(function(){
     Route::get('content','content')->name('content.index');
     Route::get('content/{id}/edit','content_edit')->name('content.edit');
-    Route::post('content/{id}/update','content_update')->name('content.update');
+    Route::put('content/{id}/update','content_update')->name('content.update');
     // Route::post('menu/order/change','menu_order')->name('menu.order.change');
     // Route::post('menu/{id}/update','menu_update')->name('menu.update');
 
@@ -127,7 +127,7 @@ Route::controller(CategoryController::class)->group(function(){
     Route::post('news/category/store','store')->name('category.store');
     Route::get('news/category/{id}/edit','edit')->name('category.edit');
     Route::post('news/category/{id}/update','update')->name('category.update');
-    Route::get('news/category/{id}/delete','delete')->name('category.delete');
+    Route::put('news/category/{id}/delete','delete')->name('category.delete');
     Route::post('category/delete-all','category_delete_all')->name('category.delete_all');
 
 })->middleware("admin:super-admin");

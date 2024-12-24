@@ -7,6 +7,7 @@
 
         <form action="{{ route('category.update',$category->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
 
         <div class="row g-2 mt-2">
             <div class="col-md-12 mb-2">
